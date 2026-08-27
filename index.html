@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Logo  -->
+    <link rel="icon" type="image/png" href="logo/logoLearn.png">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"rel="stylesheet"integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <title>LearnHub - Educational Center</title>
+</head>
+
+<body>
+
+    <!-- ==============================
+         Navbar
+    =============================== -->
+
+    <nav class="navbar navbar-expand-lg custom-navbar fixed-top" id="mainNavbar">
+        <div class="container">
+
+            <!-- Logo & Brand -->
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+
+                <img src="logo/logoLearn.png" alt="" srcset="">
+
+                <span class="brand-text">
+                    LearnHub<span class="text-fuchsia"> Academy</span>
+                </span>
+
+            </a>
+
+
+            <!-- Mobile Menu Button -->
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <i class="bi bi-list purple-hamburger-icon"></i>
+            </button>
+
+
+            <!-- Navbar Content -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <!-- Navigation Links -->
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-3">
+
+                    <li class="nav-item">
+                        <a
+                            class="nav-link active d-flex align-items-center gap-2"
+                            href="#home"
+                        >
+                            <i class="bi bi-house-door-fill nav-icon"></i>
+                            Home
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a
+                            class="nav-link d-flex align-items-center gap-2"
+                            href="#courses"
+                        >
+                            <i class="bi bi-book-half nav-icon"></i>
+                            Courses
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a
+                            class="nav-link d-flex align-items-center gap-2"
+                            href="#about"
+                        >
+                            <i class="bi bi-people-fill nav-icon"></i>
+                            About 
+                        </a>
+                    </li>
+
+                </ul>
+
+
+                <!-- Right Actions -->
+                <div class="d-flex align-items-center gap-3 mt-3 mt-lg-0 action-zone">
+
+                    <!-- Theme Button -->
+                    <button
+                        id="themeToggler"
+                        class="btn-theme-switch"
+                        type="button"
+                        title="Toggle Theme"
+                        aria-label="Toggle dark and light mode"
+                    >
+                        <i
+                            id="themeIcon"
+                            class="bi bi-moon-fill fs-5"
+                        ></i>
+                    </button>
+
+
+                    <!-- Start Now Button -->
+                    <a
+                        href="#courses"
+                        class="btn-start-now"
+                    >
+                        <span>Start Now</span>
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                            viewBox="0 0 16 16"
+                        >
+                            <path
+                                fill-rule="evenodd"
+                                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"
+                            />
+                        </svg>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+    </nav>
+    
+
+<!-- ==========================================
+     START  FOOTER 
+     ========================================== -->
+<footer class="custom-footer mt-5">
+    <div class="container">
+        
+        <!-- Top Section: Core Columns (Optimized Grid) -->
+        <div class="row gy-5">
+            
+            
+            <div class="col-12 col-md-6 col-lg-3 footer-main-col">
+                <div class="d-flex align-items-center gap-2 mb-3">
+                    <div class="logo-icon-main"></div>
+                    <span class="brand-text-main">LearnHub<span class="text-fuchsia"> Academy</span></span>
+                </div>
+                <p class="brand-desc text-muted mb-4">Empowering the next generation of global developers and software engineers by delivering premium, industry-grade, project-oriented courses. Through cutting-edge interactive tools, real-world sandboxes, and modern mentorship, we bridge the gap between learning and building the future of technology.</p>
+
+                <div class="footer-socials d-flex gap-3">
+                    <a href="#" title="X (Twitter)"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#" title="Facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="#" title="Instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="#" title="YouTube"><i class="bi bi-youtube"></i></a>
+                    <a href="#" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                </div>
+            </div>
+
+            <!-- Column 2: Ecosystem Links -->
+            <div class="col-6 col-md-6 col-lg-3">
+                <h5 class="footer-title">Ecosystem</h5>
+                <ul class="footer-links">
+                    <li><a href="#">AI Builder Hub</a></li>
+                    <li><a href="#">Technical Articles</a></li>
+                    <li><a href="#">Engineering Blog</a></li>
+                    <li><a href="#">Syntax Cheatsheets</a></li>
+                    <li><a href="#">Code Challenges</a></li>
+                    <li><a href="#">System Docs</a></li>
+                    <li><a href="#">Interactive Projects</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Roadmap Links -->
+            <div class="col-6 col-md-6 col-lg-3">
+                <h5 class="footer-title">Languages & Paths</h5>
+                <ul class="footer-links">
+                    <li><a href="#">HTML & CSS Studio</a></li>
+                    <li><a href="#">JavaScript Mastery</a></li>
+                    <li><a href="#">Python Data Science</a></li>
+                    <li><a href="#">Cloud Computing</a></li>
+                    <li><a href="#">Cybersecurity Path</a></li>
+                    <li><a href="#">Full Catalog Overview</a></li>
+                    <li><a href="#">Career Centers</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Newsletter & Mobile Experience -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <h5 class="footer-title">Stay Updated</h5>
+                <p class="newsletter-desc text-muted mb-3">Subscribe to get coding tips and path updates.</p>
+                <div class="footer-newsletter mb-4">
+            <div class="input-group">
+                <input type="email" id="newsletterEmail" class="form-control custom-input" placeholder="Your email address" aria-label="Your email">
+                <button class="btn btn-newsletter" id="newsletterBtn" type="button" disabled>Join</button>
+            </div>
+            <div id="newsletterError" class="text-danger small mt-2" style="display: none; color: #ef4444; font-size: 0.8rem; text-align: left;">Please enter a valid email address.</div>
+            </div>
+
+                <h5 class="footer-title small-title mb-3">Get Mobile Experience</h5>
+                <div class="footer-apps d-flex flex-wrap gap-2">
+                    <a href="#" class="btn-app-store">
+                        <i class="bi bi-apple"></i>
+                        <div class="app-text">
+                            <span>Download on</span>
+                            <strong>App Store</strong>
+                        </div>
+                    </a>
+                    <a href="#" class="btn-app-store">
+                        <i class="bi bi-google-play"></i>
+                        <div class="app-text">
+                            <span>Get it on</span>
+                            <strong>Google Play</strong>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer Bottomline: Integrated AI Bot & Balanced Layout Links -->
+        <div class="footer-bottom mt-5 pt-4 row align-items-center gy-3 text-center text-sm-start">
+            
+            <!-- Bottom Left: Copyright -->
+            <div class="col-12 col-md-4 order-3 order-md-1">
+                <p class="copyright-text mb-0">&copy; 2026 LearnHub Academy. All global rights reserved.</p>
+            </div>
+
+            <!-- Bottom Center: Corporate Policy Links -->
+            <div class="col-12 col-md-4 order-2 order-md-2 d-flex justify-content-center gap-4">
+                <a href="#" class="meta-link">Privacy Policy</a>
+                <a href="#" class="meta-link">Terms of Service</a>
+                <a href="#" class="meta-link">Help Center</a>
+            </div>
+
+            <!-- Bottom Right: Integrated AI Bot Assistant (Perfect Space Filler) -->
+            <div class="col-12 col-md-4 order-1 order-md-3 d-flex justify-content-center justify-content-md-end position-relative">
+                <div class="ai-footer-container">
+                    <!-- Integrated Speech Bubble Message -->
+                    <div class="ai-bubble" id="aiBubble" style="display: none;">
+                        <div class="d-flex justify-content-between align-items-start gap-2">
+                            <p class="mb-0 ai-text">Hi! 👋 I'm Xpert, an AI assistant to help you find things.</p>
+                            <button class="btn-close-bubble" id="closeBubbleBtn" title="Dismiss Message">
+                                <i class="bi bi-x-lg"></i>
+                            </button>
+                        </div>
+                        <div class="ai-bubble-arrow"></div>
+                    </div>
+
+                    <!-- Refined AI Button Component -->
+                    <button class="ai-bot-trigger" id="aiTrigger" title="Chat with Xpert Assistant">
+                        <div class="bot-icon-wrapper">
+                            <i class="bi bi-mortarboard-fill cap-icon"></i>
+                            <i class="bi bi-robot bot-face"></i>
+                            <span class="pulse-dot"></span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</footer>
+
+
+    <!-- Bootstrap 5 JavaScript -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"
+    ></script>
+
+    <!-- Custom JavaScript -->
+    <script src="js/app.js"></script>
+
+</body>
+</html>
