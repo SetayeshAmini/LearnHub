@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Logo  -->
     <link rel="icon" type="image/png" href="logo/logoLearn.png">
+    <!-- IOS link -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"rel="stylesheet"integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"crossorigin="anonymous">
     <!-- Bootstrap Icons -->
@@ -139,136 +141,419 @@
 <!-- ==========================================
      START OF CONTACT US MODULE SECTION
      ========================================== -->
-<section class="contact-section py-5" id="contact">
+<section class="contact-section pt-5 pb-5" id="contact">
     <div class="container py-4">
-        
-        <!-- Header Headings Area -->
-        <div class="text-center mb-5 section-header">
-            <span class="text-uppercase badge-get-in-touch">— Get In Touch</span>
-            <h2 class="display-5 fw-bold text-main mt-2">Let's Talk About Your Goals.</h2>
-            <p class="text-muted mx-auto header-lead">Whether it's a course question , send a message and we'll reply within 24 hours.</p>
+
+        <!-- Header -->
+        <div 
+            class="text-center mb-5 section-header"
+            data-aos="fade-down"
+            data-aos-duration="1000">
+
+            <span class="text-uppercase badge-get-in-touch">
+                — Get In Touch
+            </span>
+
+            <h2 
+                class="display-5 fw-bold text-main mt-2"
+                data-aos="fade-up"
+                data-aos-delay="150"
+                data-aos-duration="1000">
+                Let's Talk About Your Goals.
+            </h2>
+
+            <p 
+                class="text-muted mx-auto header-lead"
+                data-aos="fade-up"
+                data-aos-delay="300"
+                data-aos-duration="1000">
+                Whether it's a course question, send a message and we'll reply within 24 hours.
+            </p>
+
         </div>
 
+
         <div class="row g-4 align-items-stretch">
-            
-            <!-- Left Side: Interactive Validation Form Container -->
+
+            <!-- LEFT: FORM -->
             <div class="col-12 col-lg-7">
-                <div class="contact-card-form h-100 p-4 p-md-5">
-                    <h3 class="card-inner-title mb-4">Send a Message</h3>
-                    
+
+                <div 
+                    class="contact-card-form h-100 p-4 p-md-5"
+                    data-aos="fade-right"
+                    data-aos-duration="1000">
+
+                    <h3 class="card-inner-title mb-4">
+                        Enroll Now
+                    </h3>
+
                     <form id="academyContactForm" novalidate>
-                        
-                        <!-- Full Name Input Group -->
+
+                        <!-- Full Name -->
                         <div class="mb-3 input-wrapper">
-                            <label for="fullName" class="form-label custom-label">Full Name</label>
-                            <input type="text" class="form-control custom-field" id="fullName" placeholder="e.g. Name and Last Name">
-                            <div class="error-feedback" id="nameError">Full name must be at least 3 characters long.</div>
+
+                            <label 
+                                for="fullName" 
+                                class="form-label custom-label">
+                                Full Name
+                            </label>
+
+                            <input 
+                                type="text"
+                                class="form-control custom-field"
+                                id="fullName"
+                                placeholder="e.g. Name and Last Name">
+
+                            <div 
+                                class="error-feedback" 
+                                id="nameError">
+                                Full name must be at least 3 characters long.
+                            </div>
+
                         </div>
 
-                        <!-- Email Address Input Group -->
+
+                        <!-- Email -->
                         <div class="mb-3 input-wrapper">
-                            <label for="contactEmail" class="form-label custom-label">Email</label>
-                            <input type="email" class="form-control custom-field" id="contactEmail" placeholder="example@gmail.com">
-                            <div class="error-feedback" id="emailError">Please enter a valid academic email address.</div>
+
+                            <label 
+                                for="contactEmail" 
+                                class="form-label custom-label">
+                                Email
+                            </label>
+
+                            <input 
+                                type="email"
+                                class="form-control custom-field"
+                                id="contactEmail"
+                                placeholder="example@gmail.com">
+
+                            <div 
+                                class="error-feedback" 
+                                id="emailError">
+                                Please enter a valid academic email address.
+                            </div>
+
                         </div>
 
-                        <!-- Phone / WhatsApp Input Group -->
+
+                        <!-- Phone -->
                         <div class="mb-3 input-wrapper">
-                            <label for="contactPhone" class="form-label custom-label">Phone / WhatsApp</label>
-                            <input type="tel" class="form-control custom-field" id="contactPhone" placeholder="e.g. +93 790 857 597">
-                            <div class="error-feedback" id="phoneError">Please enter a valid phone number (digits and spaces only).</div>
+
+                            <label 
+                                for="contactPhone" 
+                                class="form-label custom-label">
+                                Phone / WhatsApp
+                            </label>
+
+                            <input 
+                                type="tel"
+                                class="form-control custom-field"
+                                id="contactPhone"
+                                placeholder="e.g. +93 790 857 597">
+
+                            <div 
+                                class="error-feedback" 
+                                id="phoneError">
+                                Please enter a valid phone number (digits and spaces only).
+                            </div>
+
                         </div>
 
-                        <!-- Dynamic Courses Dropdown Selection Grid (Updated per request) -->
+
+                        <!-- Course -->
                         <div class="mb-3 input-wrapper">
-                            <label for="courseSelect" class="form-label custom-label">Choose Your Course</label>
-                            <select class="form-select custom-field" id="courseSelect">
-                                <option value="" selected disabled>Select a course path...</option>
-                                <option value="html">HTML & CSS Studio</option>
-                                <option value="css">Advanced CSS & Layouts</option>
-                                <option value="js">JavaScript Mastery</option>
-                                <option value="python">Python Data Science</option>
-                                <option value="flutter">Flutter Mobile Dev</option>
-                                <option value="git">Git & GitHub Foundations</option>
-                                <option value="data-science">Data Science Ecosystem</option>
-                                <option value="full-stack">Full-Stack Engineering</option>
-                                <option value="react">React JS Framework</option>
+
+                            <label 
+                                for="courseSelect" 
+                                class="form-label custom-label">
+                                Choose Your Course
+                            </label>
+
+                            <select 
+                                class="form-select custom-field"
+                                id="courseSelect">
+
+                                <option value="" selected disabled>
+                                    Select a course path...
+                                </option>
+
+                                <option value="html">
+                                    HTML & CSS Studio
+                                </option>
+
+                                <option value="css">
+                                    Advanced CSS & Layouts
+                                </option>
+
+                                <option value="js">
+                                    JavaScript Mastery
+                                </option>
+
+                                <option value="python">
+                                    Python Data Science
+                                </option>
+
+                                <option value="flutter">
+                                    Flutter Mobile Dev
+                                </option>
+
+                                <option value="git">
+                                    Git & GitHub Foundations
+                                </option>
+
+                                <option value="data-science">
+                                    Data Science Ecosystem
+                                </option>
+
+                                <option value="full-stack">
+                                    Full-Stack Engineering
+                                </option>
+
+                                <option value="react">
+                                    React JS Framework
+                                </option>
+
                             </select>
-                            <div class="error-feedback" id="courseError">Please select a course track from the list.</div>
+
+                            <div 
+                                class="error-feedback" 
+                                id="courseError">
+                                Please select a course track from the list.
+                            </div>
+
                         </div>
 
-                        <!-- Text Area Message Content Input Group -->
+
+                        <!-- Message -->
                         <div class="mb-4 input-wrapper">
-                            <label for="contactMessage" class="form-label custom-label">Message</label>
-                            <textarea class="form-control custom-field" id="contactMessage" rows="5" placeholder="Tell us what you're looking for..."></textarea>
-                            <div class="error-feedback" id="messageError">Message context must be at least 15 characters long.</div>
+
+                            <label 
+                                for="contactMessage" 
+                                class="form-label custom-label">
+                                Message
+                            </label>
+
+                            <textarea 
+                                class="form-control custom-field"
+                                id="contactMessage"
+                                rows="5"
+                                placeholder="Tell us what you're looking for..."></textarea>
+
+                            <div 
+                                class="error-feedback" 
+                                id="messageError">
+                                Message context must be at least 15 characters long.
+                            </div>
+
                         </div>
 
-                        <!-- Dynamic Submit Button Interface Trigger -->
-                        <button type="submit" class="btn btn-contact-submit w-100 py-3" id="formSubmitBtn">
+
+                        <!-- Submit -->
+                        <button 
+                            type="submit"
+                            class="btn btn-contact-submit w-100 py-3"
+                            id="formSubmitBtn">
+
                             <span>Send Message</span>
+
                             <i class="bi bi-send-fill submit-icon ms-2"></i>
+
                         </button>
-                        
+
                     </form>
+
                 </div>
+
             </div>
 
-            <!-- Right Side: Contact Cards -->
+
+            <!-- RIGHT -->
             <div class="col-12 col-lg-5">
+
                 <div class="d-flex flex-column h-100 gap-4">
-                    
-                    <div class="contact-card-info p-4 p-md-5">
-                        <h3 class="card-inner-title text-white mb-4">Contact <span>Information</span></h3>
-                        <p class="text-white-50 small mb-4">Reach the academy directly through any of the channels below.</p>
-                        
-                        <!-- Contact  -->
+
+
+                    <!-- Contact Information -->
+                    <div 
+                        class="contact-card-info p-4 p-md-5"
+                        data-aos="fade-left"
+                        data-aos-duration="1000"
+                        data-aos-delay="200"
+                        data-tilt
+                        data-tilt-max="4"
+                        data-tilt-speed="500"
+                        data-tilt-glare="true"
+                        data-tilt-max-glare="0.12">
+
+                        <h3 class="card-inner-title text-white mb-4">
+                            Contact <span>Information</span>
+                        </h3>
+
+                        <p class="text-white-50 small mb-4">
+                            Reach the academy directly through any of the channels below.
+                        </p>
+
+
+                        <!-- Contact Rows -->
                         <div class="info-rows-container d-flex flex-column gap-3 mb-4">
+
+
                             <!-- Phone -->
-                            <div class="info-row d-flex align-items-center gap-3">
-                                <div class="info-circle"><i class="bi bi-telephone-fill"></i></div>
-                                <div>
-                                    <span class="info-label d-block">Phone</span>
-                                    <a href="tel:+93790857597" class="info-value">+93 790 857 597</a>
+                            <div 
+                                class="info-row d-flex align-items-center gap-3"
+                                data-aos="fade-left"
+                                data-aos-delay="300">
+
+                                <div class="info-circle">
+                                    <i class="bi bi-telephone-fill"></i>
                                 </div>
+
+                                <div>
+                                    <span class="info-label d-block">
+                                        Phone
+                                    </span>
+
+                                    <a 
+                                        href="tel:+93790857597"
+                                        class="info-value">
+                                        +93 790 857 597
+                                    </a>
+                                </div>
+
                             </div>
-                            
+
+
                             <!-- Email -->
-                            <div class="info-row d-flex align-items-center gap-3">
-                                <div class="info-circle"><i class="bi bi-envelope-fill"></i></div>
-                                <div>
-                                    <span class="info-label d-block">Email</span>
-                                    <a href="mailto:ziaullahafi726@gmail.com" class="info-value">LearnHub@gmail.com</a>
+                            <div 
+                                class="info-row d-flex align-items-center gap-3"
+                                data-aos="fade-left"
+                                data-aos-delay="400">
+
+                                <div class="info-circle">
+                                    <i class="bi bi-envelope-fill"></i>
                                 </div>
+
+                                <div>
+                                    <span class="info-label d-block">
+                                        Email
+                                    </span>
+
+                                    <a 
+                                        href="mailto:ziaullahafi726@gmail.com"
+                                        class="info-value">
+                                        LearnHub@gmail.com
+                                    </a>
+                                </div>
+
                             </div>
 
-                            <!-- Location Node Row -->
-                            <div class="info-row d-flex align-items-center gap-3">
-                                <div class="info-circle"><i class="bi bi-geo-alt-fill"></i></div>
-                                <div>
-                                    <span class="info-label d-block">Location</span>
-                                    <span class="info-value text-white">Herat , Afghanistan</span>
+
+                            <!-- Location -->
+                            <div 
+                                class="info-row d-flex align-items-center gap-3"
+                                data-aos="fade-left"
+                                data-aos-delay="500">
+
+                                <div class="info-circle">
+                                    <i class="bi bi-geo-alt-fill"></i>
                                 </div>
+
+                                <div>
+                                    <span class="info-label d-block">
+                                        Location
+                                    </span>
+
+                                    <span class="info-value text-white">
+                                        Herat, Afghanistan
+                                    </span>
+                                </div>
+
                             </div>
 
-                            <!-- WhatsApp Channel Row Link -->
-                            <div class="info-row d-flex align-items-center gap-3">
-                                <div class="info-circle"><i class="bi bi-whatsapp"></i></div>
-                                <div>
-                                    <span class="info-label d-block">WhatsApp</span>
-                                    <a href="#" class="info-value">Chat with us</a>
+
+                            <!-- WhatsApp -->
+                            <div 
+                                class="info-row d-flex align-items-center gap-3"
+                                data-aos="fade-left"
+                                data-aos-delay="600">
+
+                                <div class="info-circle">
+                                    <i class="bi bi-whatsapp"></i>
                                 </div>
+
+                                <div>
+                                    <span class="info-label d-block">
+                                        WhatsApp
+                                    </span>
+
+                                    <a 
+                                        href="#"
+                                        class="info-value">
+                                        Chat with us
+                                    </a>
+                                </div>
+
                             </div>
+
                         </div>
 
-                        <!-- Brand Social Media Anchors Link Row -->
-                        <div class="info-socials d-flex gap-3 pt-3 border-top border-white-10">
-                            <a href="#" title="X"><i class="bi bi-twitter-x"></i></a>
-                            <a href="#" title="Facebook"><i class="bi bi-facebook"></i></a>
-                            <a href="#" title="Instagram"><i class="bi bi-instagram"></i></a>
-                            <a href="#" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+
+                        <!-- Social Icons -->
+                        <div 
+                            class="info-socials d-flex gap-3 pt-3 border-top border-white-10"
+                            data-aos="fade-up"
+                            data-aos-delay="700">
+
+                            <a href="#" title="X">
+                                <i class="bi bi-twitter-x"></i>
+                            </a>
+
+                            <a href="#" title="Facebook">
+                                <i class="bi bi-facebook"></i>
+                            </a>
+
+                            <a href="#" title="Instagram">
+                                <i class="bi bi-instagram"></i>
+                            </a>
+
+                            <a href="#" title="LinkedIn">
+                                <i class="bi bi-linkedin"></i>
+                            </a>
+
                         </div>
+
                     </div>
+
+
+                    <!-- Map -->
+                    <div 
+                        class="contact-card-map flex-grow-1 p-2"
+                        data-aos="fade-up"
+                        data-aos-delay="400"
+                        data-aos-duration="1000">
+
+                        <iframe 
+                            src="https://www.google.com/maps?q=Herat,Afghanistan&output=embed"
+                            class="w-100 h-100 rounded-3 border-0 map-iframe"
+                            allowfullscreen
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<!-- ==========================================
+     END OF CONTACT Us SECTION
+     ========================================== -->
 
                   
             
@@ -405,7 +690,15 @@
     </div>
 </footer>
 
+    <!-- IOS  -->
+     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
+     <script>
+         AOS.init({
+            duration: 1000,
+             once: true
+         });
+     </script>
     <!-- Bootstrap 5 JavaScript -->
     <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
