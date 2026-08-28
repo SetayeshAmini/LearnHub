@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const htmlElement =
         document.documentElement;
 
+        
 
     /* ==========================================
        NAVBAR SCROLL EFFECT
