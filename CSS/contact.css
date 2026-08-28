@@ -731,4 +731,128 @@ select.custom-field option {
 .btn-contact-submit:hover .submit-icon {
     transform: translateX(4px) scale(1.1); 
 }
+/* ==========================================================================
+              contact information card 
+   ========================================================================== */
+.contact-card-info {
+    /* Deep dark  background  */
+    background: linear-gradient(135deg, #130b1e 0%, #0a0512 100%) !important;
+    border: 1px solid rgba(217, 70, 239, 0.12) !important;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden; 
+    z-index: 1;
+}
+
+.contact-card-info::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -50px;
+    transform: translateY(-50%);
+    width: 280px;
+    height: 280px;
+    border: 1px solid rgba(217, 70, 239, 0.04);
+    border-radius: 50%;
+    box-shadow: 0 0 0 40px rgba(217, 70, 239, 0.02), 0 0 0 80px rgba(217, 70, 239, 0.01);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.contact-card-info .card-inner-title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    line-height: 1.3;
+    background: linear-gradient(to right, #ffffff, #f43f5e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.contact-card-info .card-inner-title span {
+    color: var(--primary-color) !important;
+    -webkit-text-fill-color: initial !important; 
+    text-shadow: 0 0 15px rgba(217, 70, 239, 0.4);
+}
+
+.contact-card-info .info-row {
+    background-color: rgba(255, 255, 255, 0.02) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    padding: 0.85rem 1.4rem !important;
+    border-radius: 50px !important; 
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+/* Hover Effect for rows */
+.contact-card-info .info-row:hover {
+    transform: translateY(-2px) translateX(4px) !important;
+    background-color: rgba(217, 70, 239, 0.05) !important;
+    border-color: rgba(217, 70, 239, 0.4) !important;
+    box-shadow: 0 5px 15px rgba(217, 70, 239, 0.15);
+}
+
+/* Floating Icon Circles inside the rows */
+.contact-card-info .info-circle {
+    width: 36px;
+    height: 36px;
+    background: rgba(217, 70, 239, 0.1) !important;
+    border: 1px solid rgba(217, 70, 239, 0.2) !important;
+    color: var(--primary-color) !important;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    box-shadow: 0 0 10px rgba(217, 70, 239, 0.1);
+}
+
+.contact-card-info .info-label {
+    font-size: 0.7rem !important;
+    color: rgba(255, 255, 255, 0.4) !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.contact-card-info .info-value {
+    font-size: 0.92rem !important;
+    font-weight: 600 !important;
+    color: #ffffff !important;
+    transition: color 0.2s ease;
+}
+
+.contact-card-info a.info-value:hover {
+    color: var(--primary-hover) !important;
+}
+
+.contact-card-info .info-socials {
+    border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+.contact-card-info .info-socials a {
+    color: rgba(255, 255, 255, 0.5) !important;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.02) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-smooth) !important;
+}
+
+.contact-card-info .info-socials a:hover {
+    color: #ffffff !important;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)) !important;
+    border-color: var(--primary-color) !important;
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 5px 15px var(--primary-glow);
+}
+.contact-card-info .info-value,
+.contact-card-info .info-socials a {
+    text-decoration: none !important;
+}
+
 
