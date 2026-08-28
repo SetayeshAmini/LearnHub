@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 // ==========================================================================
-// INDEPENDENT NEWSLETTER EMAIL VALIDATION CONTROLLER
+//  EMAIL VALIDATION 
 // ==========================================================================
 document.addEventListener('DOMContentLoaded', () => {
     const emailInput = document.getElementById('newsletterEmail');
@@ -208,7 +208,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         joinBtn.addEventListener('click', () => {
-            alert(`🎉 Success! ${emailInput.value} has been subscribed to LearnHub Academy.`);
             emailInput.value = "";
             emailInput.style.borderColor = "var(--border-color)";
             emailInput.style.boxShadow = "none";
@@ -216,6 +215,82 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// ==========================================================================
+//  CONTACT FORM
+// ==========================================================================
+document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('academyContactForm');
+    
+    const nameInput = document.getElementById('fullName');
+    const emailInput = document.getElementById('contactEmail');
+    const phoneInput = document.getElementById('contactPhone');
+    const courseSelect = document.getElementById('courseSelect');
+    const messageInput = document.getElementById('contactMessage');
+
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const phonePattern = /^[0-9\s+\-()]{7,20}$/; 
+
+    const validateField = (inputElement, errorElement, condition) => {
+        if (condition) {
+            inputElement.style.borderColor = "var(--border-color)";
+            errorElement.style.display = "none";
+            return true;
+        } else {
+            inputElement.style.borderColor = "#f43f5e"; 
+            errorElement.style.display = "block";
+            return false;
+        }
+    };
+
+    if (nameInput) nameInput.addEventListener('input', () => {
+        validateField(nameInput, document.getElementById('nameError'), nameInput.value.trim().length >= 3);
+    });
+
+    if (emailInput) emailInput.addEventListener('input', () => {
+        validateField(emailInput, document.getElementById('emailError'), emailPattern.test(emailInput.value.trim()));
+    });
+
+    if (phoneInput) phoneInput.addEventListener('input', () => {
+        validateField(phoneInput, document.getElementById('phoneError'), phonePattern.test(phoneInput.value.trim()));
+    });
+
+    if (courseSelect) courseSelect.addEventListener('change', () => {
+        validateField(courseSelect, document.getElementById('courseError'), courseSelect.value !== "");
+    });
+
+    if (messageInput) messageInput.addEventListener('input', () => {
+        validateField(messageInput, document.getElementById('messageError'), messageInput.value.trim().length >= 15);
+    });
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const isNameValid = validateField(nameInput, document.getElementById('nameError'), nameInput.value.trim().length >= 3);
+            const isEmailValid = validateField(emailInput, document.getElementById('emailError'), emailPattern.test(emailInput.value.trim()));
+            const isPhoneValid = validateField(phoneInput, document.getElementById('phoneError'), phonePattern.test(phoneInput.value.trim()));
+            const isCourseValid = validateField(courseSelect, document.getElementById('courseError'), courseSelect.value !== "");
+            const isMessageValid = validateField(messageInput, document.getElementById('messageError'), messageInput.value.trim().length >= 15);
+
+            if (isNameValid && isEmailValid && isPhoneValid && isCourseValid && isMessageValid) {
+                const submitBtn = document.getElementById('formSubmitBtn');
+                submitBtn.innerHTML = '<span>Sending Message...</span> <div class="spinner-border spinner-border-sm text-light ms-2" role="status"></div>';
+                submitBtn.disabled = true;
+
+                setTimeout(() => {                    
+                    contactForm.reset();
+                    submitBtn.innerHTML = '<span>Send Message</span> <i class="bi bi-send-fill submit-icon ms-2"></i>';
+                    submitBtn.disabled = false;
+                }, 1500);
+
+            } else {
+                console.log("Form submission blocked. Critical validation errors pending correction.");
+            }
+        });
+    }
+});
+
 
 // robat section
 document.addEventListener('DOMContentLoaded', () => {
