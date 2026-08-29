@@ -1,0 +1,874 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #d946ef;
+    --primary-hover: #c084fc;
+    --primary-dark: #a855f7;
+    --primary-glow: rgba(217, 70, 239, 0.2);
+
+    --radius-sm: 0.375rem;
+    --radius-md: 0.75rem;
+    --radius-lg: 1.25rem;
+
+    --transition-fast: all 0.2s ease;
+    --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+
+/* ==========================================
+   2. LIGHT THEME
+========================================== */
+
+[data-bs-theme="light"] {
+    --bg-main: #f8fafc;
+    --bg-surface: #ffffff;
+
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+
+    --border-color: #e2e8f0;
+
+    --navbar-blur-bg: rgba(255, 255, 255, 0.85);
+}
+
+
+/* ==========================================
+   3. DARK THEME
+========================================== */
+
+[data-bs-theme="dark"] {
+    --bg-main: #09090b;
+    --bg-surface: #18181b;
+
+    --text-main: #f8fafc;
+    --text-muted: #a1a1aa;
+
+    --border-color: #27272a;
+
+    --navbar-blur-bg: rgba(24, 24, 27, 0.85);
+}
+
+
+/* ==========================================
+   4. GLOBAL STYLES
+========================================== */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI";
+            font-family: 'Oxanium', sans-serif;
+
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* ==========================================
+   5. NAVBAR
+========================================== */
+
+.custom-navbar {
+    background-color: var(--navbar-blur-bg) !important;
+
+    border-bottom: 1px solid var(--border-color);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    padding: 1.3rem 0;
+
+    transition:
+        padding 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+        background-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* ==========================================================================
+   FORCE NAVBAR BRAND LOGO RESIZING (100% FIXED)
+   ========================================================================== */
+
+.custom-navbar .navbar-brand img,
+.custom-navbar .logo-img {
+    width: auto !important;
+    height: 50px !important;    
+    max-height: 50px !important;
+    display: inline-block !important;
+    object-fit: contain !important;
+    vertical-align: middle !important;
+    transition: height 0.3s ease, transform 0.3s ease !important;
+}
+
+.custom-navbar.navbar-shrink .navbar-brand img,
+.custom-navbar.navbar-shrink .logo-img {
+    height: 38px !important;    
+    max-height: 38px !important;
+}
+
+.custom-navbar .navbar-brand:hover img {
+    transform: scale(1.05);
+}
+
+
+/* Navbar after scrolling */
+
+.custom-navbar.navbar-shrink {
+    padding: 0.65rem 0;
+
+    background-color: var(--bg-surface) !important;
+
+    box-shadow:
+        0 10px 30px -10px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ==========================================
+   6. LOGO
+========================================== */
+
+.logo-icon {
+    width: 38px;
+    height: 38px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary-color),
+            #f43f5e
+        );
+
+    border-radius: var(--radius-md);
+
+    box-shadow:
+        0 0 15px var(--primary-glow);
+}
+
+
+.brand-text {
+    color: var(--text-main);
+
+    font-size: 1.35rem;
+    font-weight: 800;
+
+    letter-spacing: -0.5px;
+}
+
+
+.text-fuchsia {
+    color: var(--primary-color);
+}
+
+
+/* ==========================================
+   7. NAVIGATION LINKS
+========================================== */
+
+.custom-navbar .nav-link {
+    position: relative;
+
+    padding: 0.5rem 0.25rem !important;
+
+    color: var(--text-muted) !important;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    transition:
+        color 0.3s ease;
+}
+
+
+/* Underline */
+
+.custom-navbar .nav-link::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -2px;
+
+    width: 0;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--primary-color),
+            var(--primary-hover)
+        );
+
+    border-radius: 2px;
+
+    transition:
+        width 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+
+/* Hover */
+
+.custom-navbar .nav-link:hover {
+    color: var(--text-main) !important;
+}
+
+.custom-navbar .nav-link:hover::after {
+    width: 100%;
+}
+
+
+/* Active */
+
+.custom-navbar .nav-link.active {
+    color: var(--primary-color) !important;
+}
+
+.custom-navbar .nav-link.active::after {
+    width: 100%;
+}
+
+
+/* ==========================================
+   8. THEME BUTTON
+========================================== */
+
+.btn-theme-switch {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background-color:
+        rgba(128, 128, 128, 0.08);
+
+    border: 1px solid var(--border-color);
+
+    color: var(--text-main);
+
+    cursor: pointer;
+
+    transition: var(--transition-smooth);
+}
+
+
+.btn-theme-switch:hover {
+    border-color: var(--primary-color);
+
+    box-shadow:
+        0 0 12px var(--primary-glow);
+
+    transform: scale(1.05);
+}
+
+
+/* ==========================================
+   9. START NOW BUTTON
+========================================== */
+
+.btn-start-now {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 0.65rem 1.4rem;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary-color),
+            var(--primary-dark)
+        );
+
+    color: #ffffff !important;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    border-radius: 50px;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 4px 15px var(--primary-glow);
+
+    transition:
+        transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.3s ease;
+}
+
+
+.btn-start-now svg {
+    transition:
+        transform 0.3s ease;
+}
+
+
+.btn-start-now:hover {
+    color: #ffffff !important;
+
+    transform:
+        translateY(-3px) scale(1.02);
+
+    box-shadow:
+        0 8px 25px rgba(217, 70, 239, 0.4);
+}
+
+
+.btn-start-now:hover svg {
+    transform:
+        translateX(4px);
+}
+
+
+/* ==========================================
+   10. MOBILE NAVBAR BUTTON
+========================================== */
+
+.navbar-toggler {
+    padding: 0.4rem 0.65rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color:
+        rgba(217, 70, 239, 0.15) !important;
+
+    border: 1px solid
+        rgba(217, 70, 239, 0.3) !important;
+
+    border-radius: var(--radius-sm);
+
+    transition:
+        var(--transition-fast);
+}
+
+
+.purple-hamburger-icon {
+    color: var(--primary-color);
+
+    font-size: 1.6rem;
+
+    transition:
+        var(--transition-fast);
+}
+
+
+.navbar-toggler:hover {
+    background-color:
+        rgba(217, 70, 239, 0.25) !important;
+
+    border-color:
+        var(--primary-color) !important;
+}
+
+
+.navbar-toggler:focus {
+    box-shadow:
+        0 0 0 0.25rem
+        rgba(217, 70, 239, 0.4) !important;
+
+    border-color:
+        var(--primary-color) !important;
+}
+
+
+
+
+
+/* ==========================================
+   13. RESPONSIVE
+========================================== */
+
+@media (max-width: 991.98px) {
+
+    .custom-navbar {
+        padding: 1rem 0;
+    }
+
+    .navbar-nav {
+        padding-top: 1rem;
+    }
+
+    .action-zone {
+        padding-bottom: 1rem;
+    }
+
+}
+
+
+@media (max-width: 575.98px) {
+
+    .brand-text {
+        font-size: 1.1rem;
+    }
+
+    .logo-icon {
+        width: 34px;
+        height: 34px;
+    }
+
+    .btn-start-now {
+        padding: 0.55rem 1rem;
+    }
+
+}
+
+
+/* ==========================================================================
+    CONTACT 
+   ========================================================================== */
+.contact-section {
+    background-color: var(--bg-main);
+    transition: background-color 0.3s ease;
+    padding-top: 120px !important;
+
+}
+
+/* Header Text */
+.badge-get-in-touch {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+}
+.header-lead { max-width: 580px; font-size: 0.95rem; }
+
+/* Left Card Form */
+.contact-card-form {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: border-color 0.3s ease;
+}
+.card-inner-title {
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--text-main);
+}
+
+.custom-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 0.4rem;
+}
+.custom-field {
+    background-color: var(--bg-main) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-main) !important;
+    padding: 0.75rem 1.1rem;
+    font-size: 0.92rem;
+    border-radius: var(--radius-md) !important;
+    transition: var(--transition-fast);
+}
+.custom-field:focus {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 3px var(--primary-glow) !important;
+}
+.custom-field::placeholder { color: rgba(128, 128, 128, 0.6); }
+
+select.custom-field option {
+    background-color: var(--bg-surface);
+    color: var(--text-main);
+}
+
+.error-feedback {
+    color: #f43f5e; 
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-top: 0.35rem;
+    display: none;
+    text-align: left;
+    animation: fadeInSlideUp 0.3s ease both;
+}
+
+.btn-contact-submit {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: #ffffff !important;
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    box-shadow: 0 4px 15px var(--primary-glow);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+.btn-contact-submit:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 8px 25px rgba(217, 70, 239, 0.4);
+}
+.btn-contact-submit .submit-icon { transition: transform 0.3s ease; }
+.btn-contact-submit:hover .submit-icon {
+    transform: translateX(4px) scale(1.1); 
+}
+/* ==========================================================================
+              contact information card 
+   ========================================================================== */
+.contact-card-info {
+    /* Deep dark  background  */
+    background: linear-gradient(135deg, #130b1e 0%, #0a0512 100%) !important;
+    border: 1px solid rgba(217, 70, 239, 0.12) !important;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden; 
+    z-index: 1;
+}
+
+.contact-card-info::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -50px;
+    transform: translateY(-50%);
+    width: 280px;
+    height: 280px;
+    border: 1px solid rgba(217, 70, 239, 0.04);
+    border-radius: 50%;
+    box-shadow: 0 0 0 40px rgba(217, 70, 239, 0.02), 0 0 0 80px rgba(217, 70, 239, 0.01);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.contact-card-info .card-inner-title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    line-height: 1.3;
+    background: linear-gradient(to right, #ffffff, #f43f5e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.contact-card-info .card-inner-title span {
+    color: var(--primary-color) !important;
+    -webkit-text-fill-color: initial !important; 
+    text-shadow: 0 0 15px rgba(217, 70, 239, 0.4);
+}
+
+.contact-card-info .info-row {
+    background-color: rgba(255, 255, 255, 0.02) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    padding: 0.85rem 1.4rem !important;
+    border-radius: 50px !important; 
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+/* Hover Effect for rows */
+.contact-card-info .info-row:hover {
+    transform: translateY(-2px) translateX(4px) !important;
+    background-color: rgba(217, 70, 239, 0.05) !important;
+    border-color: rgba(217, 70, 239, 0.4) !important;
+    box-shadow: 0 5px 15px rgba(217, 70, 239, 0.15);
+}
+
+/* Floating Icon Circles inside the rows */
+.contact-card-info .info-circle {
+    width: 36px;
+    height: 36px;
+    background: rgba(217, 70, 239, 0.1) !important;
+    border: 1px solid rgba(217, 70, 239, 0.2) !important;
+    color: var(--primary-color) !important;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    box-shadow: 0 0 10px rgba(217, 70, 239, 0.1);
+}
+
+.contact-card-info .info-label {
+    font-size: 0.7rem !important;
+    color: rgba(255, 255, 255, 0.4) !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.contact-card-info .info-value {
+    font-size: 0.92rem !important;
+    font-weight: 600 !important;
+    color: #ffffff !important;
+    transition: color 0.2s ease;
+}
+
+.contact-card-info a.info-value:hover {
+    color: var(--primary-hover) !important;
+}
+
+.contact-card-info .info-socials {
+    border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+.contact-card-info .info-socials a {
+    color: rgba(255, 255, 255, 0.5) !important;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.02) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-smooth) !important;
+}
+
+.contact-card-info .info-socials a:hover {
+    color: #ffffff !important;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)) !important;
+    border-color: var(--primary-color) !important;
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 5px 15px var(--primary-glow);
+}
+.contact-card-info .info-value,
+.contact-card-info .info-socials a {
+    text-decoration: none !important;
+};
+/* Map frame  */
+.contact-card-map {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    min-height: 230px;
+    box-shadow: var(--shadow-sm);
+}
+
+.map-iframe {
+    filter: none;
+}
+
+[data-bs-theme="light"] .map-iframe {
+    filter: none;
+} 
+
+/* Main layout wrapper for the footer */
+.custom-footer {
+    background-color: var(--bg-surface);
+    border-top: 1px solid var(--border-color);
+    padding: 5rem 0 2rem 0;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Brand logo and identity in footer context */
+.custom-footer .logo-icon-sm { 
+    width: 32px; 
+    height: 32px; 
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); 
+    border-radius: var(--radius-md); 
+}
+.custom-footer .brand-text-sm { 
+    font-weight: 800; 
+    font-size: 1.4rem; 
+    color: var(--text-main); 
+    letter-spacing: -0.5px; 
+}
+.custom-footer .brand-desc { 
+    font-size: 0.88rem; 
+    line-height: 1.6; 
+}
+
+/* Category header structural titles */
+.custom-footer .footer-title { 
+    font-size: 0.95rem; 
+    font-weight: 700; 
+    color: var(--text-main); 
+    margin-bottom: 1.5rem; 
+    letter-spacing: 0.8px; 
+    text-transform: uppercase; 
+    position: relative; 
+}
+.custom-footer .footer-title::after { 
+    content: ''; 
+    position: absolute; 
+    bottom: -6px; 
+    left: 0; 
+    width: 25px; 
+    height: 2px; 
+    background-color: var(--primary-color); 
+    border-radius: 2px; 
+}
+.custom-footer .footer-title.small-title { font-size: 0.85rem; margin-bottom: 1rem; }
+.custom-footer .footer-title.small-title::after { display: none; }
+
+/* Forces bullet dots and unwanted styling to disappear completely */
+.custom-footer .footer-links {
+    list-style-type: none !important;
+    list-style: none !important;
+    padding-left: 0 !important;
+    margin-bottom: 0 !important;
+}
+.custom-footer .footer-links li { 
+    margin-bottom: 0.75rem !important; 
+    list-style: none !important;
+    list-style-type: none !important;
+}
+
+/* Custom color normalization and slide animation on hover links */
+.custom-footer .footer-links li a {
+    color: var(--text-muted) !important; 
+    text-decoration: none !important;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), color 0.25s ease;
+}
+.custom-footer .footer-links li a:hover { 
+    color: var(--primary-color) !important; 
+    transform: translateX(6px); 
+}
+
+/* Social media profiles branding tags */
+.custom-footer .footer-socials a {
+    color: var(--text-muted); 
+    font-size: 1.2rem; 
+    width: 38px; 
+    height: 38px; 
+    border-radius: 50%;
+    background-color: rgba(128, 128, 128, 0.05); 
+    border: 1px solid var(--border-color); 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    transition: var(--transition-smooth);
+}
+.custom-footer .footer-socials a:hover { 
+    color: #ffffff; 
+    background-color: var(--primary-color); 
+    border-color: var(--primary-color); 
+    transform: translateY(-4px); 
+    box-shadow: 0 5px 15px var(--primary-glow); 
+}
+
+/* Newsletter subscription interfaces */
+.custom-footer .custom-input  { 
+    background-color: var(--bg-main) !important; 
+    border: 1px solid var(--border-color) !important; 
+    color: var(--text-main) !important; 
+    font-size: 0.88rem; 
+    padding: 0.6rem 1.2rem; 
+    border-radius: 50px 0 0 50px !important;
+}
+
+.custom-footer .custom-input:focus { 
+    box-shadow: 0 0 0 3px var(--primary-glow) !important; 
+    border-color: var(--primary-color) !important; 
+}
+.custom-footer .btn-newsletter { 
+    background-color: var(--primary-color); 
+    color: #ffffff; 
+    font-weight: 600; 
+    font-size: 0.88rem; 
+    padding: 0 1.2rem; 
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0 !important; 
+    transition: var(--transition-fast); 
+}
+.custom-footer .btn-newsletter:hover { 
+    background-color: var(--primary-hover); 
+    color: #ffffff; 
+    box-shadow: 0 0 12px var(--primary-glow); 
+}
+.custom-footer .newsletter-desc { font-size: 0.85rem; }
+
+/* Store badges download interfaces */
+.custom-footer .btn-app-store {
+    background-color: rgba(128, 128, 128, 0.03); 
+    border: 1px solid var(--border-color); 
+    color: var(--text-main) !important; 
+    padding: 0.5rem 0.8rem; 
+    border-radius: var(--radius-md); 
+    text-decoration: none; 
+    display: flex; 
+    align-items: center; 
+    gap: 8px; 
+    flex: 1 1 calc(50% - 4px); 
+    min-width: 125px; 
+    transition: var(--transition-smooth);
+}
+.custom-footer .btn-app-store .app-text { display: flex; flex-direction: column; line-height: 1.1; text-align: left; }
+.custom-footer .btn-app-store .app-text span { font-size: 0.6rem; color: var(--text-muted); }
+.custom-footer .btn-app-store .app-text strong { font-size: 0.78rem; font-weight: 700; }
+.custom-footer .btn-app-store:hover { 
+    border-color: var(--primary-color); 
+    background-color: rgba(217, 70, 239, 0.05); 
+    transform: translateY(-3px); 
+    box-shadow: 0 4px 12px var(--primary-glow); 
+}
+
+/* Symmetric copyright bottomline row */
+.custom-footer .footer-bottom { border-top: 1px solid var(--border-color); }
+.custom-footer .meta-link { color: var(--text-muted); text-decoration: none; font-size: 0.8rem; transition: color 0.2s ease; }
+.custom-footer .meta-link:hover { color: var(--primary-color); }
+.custom-footer .copyright-text { font-size: 0.85rem; color: var(--text-muted); }
+
+
+.custom-footer .ai-footer-container { position: relative; display: inline-block; }
+
+/* Speech chat alert overlay bubble */
+.custom-footer .ai-bubble {
+    background-color: #ffffff; color: #0f172a; padding: 1rem 1.25rem; border-radius: var(--radius-md);
+    box-shadow: 0 -10px 25px -5px rgba(0, 0, 0, 0.2), 0 8px 10px -6px rgba(0, 0, 0, 0.15); width: 250px;
+    position: absolute; bottom: 75px; right: 0; z-index: 100; animation: fadeInSlideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) both; border: 1px solid rgba(0, 0, 0, 0.05);
+}
+.custom-footer .ai-text { font-size: 0.88rem; font-weight: 500; line-height: 1.4; text-align: left; }
+.custom-footer .btn-close-bubble { background: transparent; border: none; color: #64748b; font-size: 0.75rem; cursor: pointer; }
+.custom-footer .btn-close-bubble:hover { color: #ef4444; }
+.custom-footer .ai-bubble-arrow { position: absolute; bottom: -8px; right: 22px; width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; border-top: 8px solid #ffffff; }
+.custom-footer .ai-bot-trigger {
+    width: 54px; height: 54px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)) !important;
+    border: none; color: #ffffff !important; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 15px var(--primary-glow); position: relative; transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease; animation: floatAnimation 3.5s ease-in-out infinite;
+}
+.custom-footer .ai-bot-trigger:hover { transform: scale(1.08) translateY(-3px); box-shadow: 0 6px 20px rgba(217, 70, 239, 0.6) !important; }
+.custom-footer .bot-icon-wrapper { position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+.custom-footer .bot-face { font-size: 1.6rem; color: #ffffff !important; }
+.custom-footer .cap-icon { position: absolute; top: 4px; font-size: 1rem; color: #000000 !important; transform: rotate(-10deg); z-index: 2; }
+.custom-footer .pulse-dot { position: absolute; top: 10px; right: 10px; width: 9px; height: 9px; background-color: #22c55e; border-radius: 50%; border: 2px solid var(--primary-color); }
+.custom-footer .pulse-dot::after { content: ''; position: absolute; top: -2px; left: -2px; width: 9px; height: 9px; background-color: #22c55e; border-radius: 50%; animation: pulseAnimation 1.5s infinite ease-in-out; }
+
+/* ==========================================================================
+    MOVE AI BUBBLE TO THE RIGHT OF THE BOT ON MOBILE SCREENS
+   ========================================================================== */
+@media (max-width: 767.98px) {
+    
+    .custom-footer .ai-bubble {
+        right: auto !important;
+        left: 50% !important; 
+        transform: translate(50px, -45px) !important; 
+        bottom: auto !important; 
+        width: 200px !important; 
+    }
+
+    .custom-footer .ai-bubble-arrow {
+        right: auto !important;
+        bottom: auto !important;
+        left: -8px !important; 
+        top: 22px !important;  
+        width: 0 !important;
+        height: 0 !important;
+        border-top: 8px solid transparent !important;
+        border-bottom: 8px solid transparent !important;
+        border-right: 8px solid #ffffff !important; 
+        border-left: none !important;
+    }
+}
