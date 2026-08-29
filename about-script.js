@@ -5,9 +5,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // ==========================================
     // 1. SCROLL REVEAL ANIMATIONS
-    // ==========================================
 
     const revealElements = document.querySelectorAll(
         '.mission-card, .process-card, .timeline-item, .cta-wrapper'
@@ -119,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const skillTags = document.querySelectorAll('.skill-tag');
 
     skillTags.forEach(tag => {
-        tag.addEventListener('click', function() {
+        tag.addEventListener('click', function () {
             this.classList.toggle('active');
 
             if (this.classList.contains('active')) {
@@ -142,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const timelineItems = document.querySelectorAll('.timeline-item');
 
     timelineItems.forEach((item, index) => {
-        item.addEventListener('mouseenter', function() {
+        item.addEventListener('mouseenter', function () {
             timelineItems.forEach(other => {
                 other.style.opacity = '0.5';
                 other.style.transform = 'scale(0.98)';
@@ -151,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
             this.style.transform = 'scale(1.02)';
         });
 
-        item.addEventListener('mouseleave', function() {
+        item.addEventListener('mouseleave', function () {
             timelineItems.forEach(other => {
                 other.style.opacity = '1';
                 other.style.transform = 'scale(1)';
@@ -167,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const internalLinks = document.querySelectorAll('a[href^="#"]');
 
     internalLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
 
             if (targetId !== '#') {
@@ -216,7 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
             name: 'Sarah Johnson',
             role: 'Lead Instructor — Curriculum Design',
             description: 'With over 10 years of teaching experience, Sarah designs all learning paths at LearnHub. She ensures every course is practical, project-based, and aligned with industry needs.',
-            image: 'https://images.unsplash.com/photo-1494790108375-be9c2f6d8b5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+            image: 'image/word7.jpg',
             skills: ['Curriculum Design', 'JavaScript', 'Python', 'Teaching', 'Mentorship']
         },
         {
@@ -240,7 +238,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let slideWidth = 0;
     let gapWidth = 30;
     let totalWidth = 0;
-    let speed = 0.3; // Slow, continuous movement
+
+    // CHANGED: Increased speed from 0.5 to 0.8 for noticeably faster rotation
+    let speed = 0.8; // Smooth, continuous movement (pixels per frame at 60fps)
 
     // Track active card state
     let activeIndex = 0; // Start with card 0 active
@@ -304,7 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Re-apply skill tag click handlers
         document.querySelectorAll('.team-carousel-slide .skill-tag').forEach(tag => {
-            tag.addEventListener('click', function() {
+            tag.addEventListener('click', function () {
                 this.classList.toggle('active');
                 if (this.classList.contains('active')) {
                     this.style.backgroundColor = 'var(--primary-color)';
@@ -373,11 +373,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const updateActiveCard = (index) => {
         // Get all slides
         const slides = track.querySelectorAll('.team-carousel-slide');
-        
+
         // Remove active class from all slides
         slides.forEach(slide => {
             slide.classList.remove('active', 'prev', 'next');
-            
+
             // Reset card border
             const card = slide.querySelector('.founder-card');
             if (card) {
@@ -390,19 +390,19 @@ document.addEventListener('DOMContentLoaded', () => {
         // The extended array has structure: [last, 0, 1, 2, 3, 0]
         // So the actual team members are at indices 1, 2, 3, 4
         const slideIndex = index + 1; // +1 because first slide is the duplicated last card
-        
+
         // Get the active slide
         const activeSlide = slides[slideIndex];
         if (activeSlide) {
             activeSlide.classList.add('active');
-            
+
             // Update card styling
             const card = activeSlide.querySelector('.founder-card');
             if (card) {
                 card.style.borderColor = 'var(--primary-color)';
                 card.style.boxShadow = '0 8px 40px rgba(217, 70, 239, 0.15)';
             }
-            
+
             // Update prev and next slides for visual context
             const prevSlide = slides[slideIndex - 1];
             const nextSlide = slides[slideIndex + 1];
@@ -412,7 +412,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Update dots
         updateDots(index);
-        
+
         // Update current index tracking
         currentIndex = index;
         activeIndex = index;
@@ -455,7 +455,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!isPaused) {
             // Store previous position for distance calculation
             previousPosition = position;
-            
+
             // Move position continuously
             position += speed;
 
@@ -478,14 +478,14 @@ document.addEventListener('DOMContentLoaded', () => {
             if (accumulatedDistance >= totalWidth) {
                 // Reset accumulated distance
                 accumulatedDistance = 0;
-                
+
                 // Move to the next card in the cycle
                 const nextIndex = (activeIndex + 1) % teamMembers.length;
-                
+
                 // Update active card
                 updateActiveCard(nextIndex);
-                
-                console.log(`🔄 Card ${activeIndex + 1} is now active`);
+
+                console.log(`🔄 Card ${nextIndex + 1} is now active`);
             }
 
             // Apply transform with smooth continuous movement
@@ -669,7 +669,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const missionCards = document.querySelectorAll('.mission-card');
 
     missionCards.forEach((card, index) => {
-        card.addEventListener('click', function() {
+        card.addEventListener('click', function () {
             this.classList.toggle('expanded');
 
             const description = this.querySelector('p');
@@ -754,7 +754,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ==========================================
     // 12. CLEANUP
-    // ==========================================
 
     const cleanup = () => {
         if (counterInterval) {

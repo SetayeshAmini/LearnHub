@@ -258,12 +258,47 @@
     filter: blur(1px);
 }
 
+/* ==========================================
+   ACTIVE CARD STYLING - APPLIED TO WHICHEVER CARD IS ACTIVE
+========================================== */
+
 .team-carousel-slide.active {
-    opacity: 1;
-    transform: scale(1);
-    filter: blur(0px);
+    opacity: 1 !important;
+    transform: scale(1) !important;
+    filter: blur(0px) !important;
+    z-index: 10;
 }
 
+.team-carousel-slide.active .founder-card {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 8px 40px rgba(217, 70, 239, 0.25) !important;
+    transform: scale(1.02);
+}
+
+.team-carousel-slide.active .founder-image {
+    transform: scale(1.05);
+}
+
+.team-carousel-slide.active .founder-content p {
+    -webkit-line-clamp: none;
+    max-height: none;
+}
+
+.team-carousel-slide.active .skill-tag {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.team-carousel-slide.active .founder-social {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.team-carousel-slide.active .founder-content h3 {
+    color: var(--primary-color);
+}
+
+/* Adjacent cards styling */
 .team-carousel-slide.prev,
 .team-carousel-slide.next {
     opacity: 0.75;
@@ -271,19 +306,18 @@
     filter: blur(0.5px);
 }
 
+/* ==========================================
+   FOUNDER CARD BASE STYLES
+========================================== */
+
 .team-carousel-slide .founder-card {
     background: var(--bg-surface);
     border: 2px solid var(--border-color);
     border-radius: var(--radius-lg);
     overflow: hidden;
-    transition: border-color 0.8s ease, box-shadow 0.8s ease;
+    transition: border-color 0.8s ease, box-shadow 0.8s ease, transform 0.8s ease;
     height: 100%;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-}
-
-.team-carousel-slide.active .founder-card {
-    border-color: var(--primary-color);
-    box-shadow: 0 8px 40px rgba(217, 70, 239, 0.15);
 }
 
 .team-carousel-slide .founder-image-wrapper {
@@ -299,10 +333,6 @@
     transition: transform 0.8s ease;
 }
 
-.team-carousel-slide.active .founder-image {
-    transform: scale(1.03);
-}
-
 .team-carousel-slide .founder-social {
     position: absolute;
     bottom: 0;
@@ -315,11 +345,6 @@
     opacity: 0;
     transform: translateY(20px);
     transition: var(--transition-smooth);
-}
-
-.team-carousel-slide.active .founder-social {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 .team-carousel-slide .founder-social a {
@@ -349,6 +374,7 @@
     font-weight: 700;
     color: var(--text-main);
     margin-bottom: 0.25rem;
+    transition: color 0.6s ease;
 }
 
 .team-carousel-slide .founder-role {
@@ -368,11 +394,7 @@
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
-}
-
-.team-carousel-slide.active .founder-content p {
-    -webkit-line-clamp: none;
-    max-height: none;
+    transition: max-height 0.6s ease;
 }
 
 .team-carousel-slide .founder-skills {
@@ -391,11 +413,6 @@
     font-weight: 500;
     color: var(--text-muted);
     transition: var(--transition-fast);
-}
-
-.team-carousel-slide.active .skill-tag {
-    border-color: var(--primary-color);
-    color: var(--primary-color);
 }
 
 .team-carousel-slide .skill-tag:hover {
