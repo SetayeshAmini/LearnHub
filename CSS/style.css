@@ -811,12 +811,16 @@ body {
     padding: 150px 0 90px;
 
     background:
-        radial-gradient(circle at 75% 45%,
+        radial-gradient(
+            circle at 75% 45%,
             rgba(217, 70, 239, 0.10),
-            transparent 30%),
-        radial-gradient(circle at 15% 80%,
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 15% 80%,
             rgba(168, 85, 247, 0.07),
-            transparent 25%),
+            transparent 25%
+        ),
         var(--bg-main);
 
     isolation: isolate;
@@ -1083,9 +1087,11 @@ body {
     color: #ffffff !important;
 
     background:
-        linear-gradient(135deg,
+        linear-gradient(
+            135deg,
             var(--primary-color),
-            var(--primary-dark));
+            var(--primary-dark)
+        );
 
     box-shadow:
         0 8px 25px var(--primary-glow);
@@ -1170,7 +1176,8 @@ body {
     width: min(100%, 500px);
 
     border:
-        1px solid var(--border-color);
+        1px solid
+        var(--border-color);
 
     border-radius: 18px;
 
@@ -1184,7 +1191,9 @@ body {
         0 0 0 1px rgba(255, 255, 255, 0.015);
 
     transform:
-        perspective(1000px) rotateY(-4deg) rotateX(2deg);
+        perspective(1000px)
+        rotateY(-4deg)
+        rotateX(2deg);
 
     transition:
         transform 0.5s ease,
@@ -1198,7 +1207,10 @@ body {
 
 .code-window:hover {
     transform:
-        perspective(1000px) rotateY(0deg) rotateX(0deg) translateY(-6px);
+        perspective(1000px)
+        rotateY(0deg)
+        rotateX(0deg)
+        translateY(-6px);
 
     box-shadow:
         0 35px 90px rgba(0, 0, 0, 0.3),
@@ -1218,7 +1230,8 @@ body {
     padding: 0 18px;
 
     border-bottom:
-        1px solid rgba(255, 255, 255, 0.07);
+        1px solid
+        rgba(255, 255, 255, 0.07);
 
     position: relative;
 }
@@ -1406,7 +1419,8 @@ body {
     padding: 0 18px;
 
     border-top:
-        1px solid rgba(255, 255, 255, 0.07);
+        1px solid
+        rgba(255, 255, 255, 0.07);
 
     color: #71717a;
 
@@ -1454,7 +1468,8 @@ body {
     padding: 9px 13px;
 
     border:
-        1px solid var(--border-color);
+        1px solid
+        var(--border-color);
 
     border-radius: 10px;
 
@@ -1527,12 +1542,14 @@ body {
     0%,
     100% {
         transform:
-            translateX(-50%) translateY(0);
+            translateX(-50%)
+            translateY(0);
     }
 
     50% {
         transform:
-            translateX(-50%) translateY(5px);
+            translateX(-50%)
+            translateY(5px);
     }
 
 }
@@ -1674,10 +1691,269 @@ body {
 
 
 
+/* =========================================================
+   LEARNHUB STATS
+========================================================= */
+
+.learnhub-stats {
+
+    position: relative;
+
+    padding: 28px 0;
+
+    background:
+        var(--bg-main);
+
+}
 
 
+/* =========================================================
+   MAIN WRAPPER
+========================================================= */
+
+.stats-wrapper {
+
+    width: 100%;
+
+    min-height: 125px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-around;
+
+    padding: 22px 35px;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 20px;
+
+    background:
+        rgba(128, 128, 128, 0.035);
+
+    backdrop-filter: blur(14px);
+
+    -webkit-backdrop-filter: blur(14px);
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.04);
+
+}
 
 
+/* =========================================================
+   STAT ITEM
+========================================================= */
+
+.stat-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    min-width: 190px;
+
+    padding: 8px 18px;
+
+}
 
 
+/* =========================================================
+   ICON
+========================================================= */
 
+.stat-icon {
+
+    width: 46px;
+
+    height: 46px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 13px;
+
+    color: var(--primary-color);
+
+    background:
+        rgba(217, 70, 239, 0.08);
+
+    border:
+        1px solid
+        rgba(217, 70, 239, 0.12);
+
+    font-size: 1.15rem;
+
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        box-shadow .3s ease;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.stat-content h3 {
+
+    margin: 0;
+
+    color: var(--text-main);
+
+    font-size: 1.55rem;
+
+    font-weight: 700;
+
+    line-height: 1.1;
+
+    letter-spacing: -0.5px;
+}
+
+
+.stat-content p {
+
+    margin: 5px 0 0;
+
+    color: var(--text-muted);
+
+    font-size: .72rem;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.stat-divider {
+
+    width: 1px;
+
+    height: 45px;
+
+    flex-shrink: 0;
+
+    background:
+        var(--border-color);
+
+    opacity: .7;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.stat-item {
+
+    transition:
+        transform .3s ease;
+}
+
+
+.stat-item:hover {
+
+    transform:
+        translateY(-3px);
+}
+
+
+.stat-item:hover .stat-icon {
+
+    transform:
+        translateY(-2px);
+
+    background:
+        rgba(217, 70, 239, 0.13);
+
+    box-shadow:
+        0 8px 20px
+        rgba(217, 70, 239, 0.10);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 991.98px) {
+
+    .stats-wrapper {
+
+        display: grid;
+
+        grid-template-columns:
+            1fr 1fr;
+
+        gap: 22px;
+
+        padding: 25px;
+    }
+
+
+    .stat-divider {
+
+        display: none;
+    }
+
+
+    .stat-item {
+
+        justify-content: center;
+    }
+
+}
+
+
+@media (max-width: 575.98px) {
+
+    .learnhub-stats {
+
+        padding: 20px 0;
+    }
+
+
+    .stats-wrapper {
+
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+
+        padding: 22px 18px;
+
+        border-radius: 17px;
+    }
+
+
+    .stat-item {
+
+        justify-content: flex-start;
+
+        padding: 5px 12px;
+    }
+
+
+    .stat-icon {
+
+        width: 42px;
+
+        height: 42px;
+    }
+
+
+    .stat-content h3 {
+
+        font-size: 1.35rem;
+    }
+
+}
