@@ -197,13 +197,13 @@ document.addEventListener('DOMContentLoaded', () => {
             if (emailRegex.test(currentInputValue)) {
                 emailInput.style.borderColor = "var(--primary-color)";
                 emailInput.style.boxShadow = "0 0 8px var(--primary-glow)";
-                errorMsg.style.display = "none"; 
-                joinBtn.disabled = false; 
+                errorMsg.style.display = "none";
+                joinBtn.disabled = false;
             } else {
-                emailInput.style.borderColor = "#ef4444"; 
+                emailInput.style.borderColor = "#ef4444";
                 emailInput.style.boxShadow = "0 0 8px rgba(239, 68, 68, 0.2)";
-                errorMsg.style.display = "block"; 
-                joinBtn.disabled = true; 
+                errorMsg.style.display = "block";
+                joinBtn.disabled = true;
             }
         });
 
@@ -237,11 +237,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
             const oscillator = audioCtx.createOscillator();
             const gainNode = audioCtx.createGain();
-            
+
             oscillator.type = 'sine';
-            oscillator.frequency.setValueAtTime(523.25, audioCtx.currentTime); 
-            gainNode.gain.setValueAtTime(0.03, audioCtx.currentTime); 
-            
+            oscillator.frequency.setValueAtTime(523.25, audioCtx.currentTime);
+            gainNode.gain.setValueAtTime(0.03, audioCtx.currentTime);
+
             oscillator.connect(gainNode);
             gainNode.connect(audioCtx.destination);
             oscillator.start();
@@ -253,10 +253,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const typeWriterEffect = (text, index = 0) => {
         if (!aiTextElement) return;
-        if (index === 0) aiTextElement.innerHTML = ''; 
+        if (index === 0) aiTextElement.innerHTML = '';
         if (index < text.length) {
             aiTextElement.innerHTML += text.charAt(index);
-            setTimeout(() => typeWriterEffect(text, index + 1), 25); 
+            setTimeout(() => typeWriterEffect(text, index + 1), 25);
         }
     };
 
@@ -297,7 +297,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (closeBubbleBtn && aiBubble) {
         closeBubbleBtn.addEventListener('click', (event) => {
-            event.stopPropagation(); 
+            event.stopPropagation();
             aiBubble.style.display = 'none';
         });
     }
@@ -343,4 +343,223 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+
+
+/* =========================================================
+   LEARNHUB HERO - TYPING EFFECT
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const typingText = document.getElementById("typingText");
+
+    if (!typingText) return;
+
+    const words = [
+        "your future.",
+        "your skills.",
+        "your career.",
+        "your ideas."
+    ];
+
+    let wordIndex = 0;
+    let characterIndex = 0;
+
+    let isDeleting = false;
+
+    const typingSpeed = 90;
+    const deletingSpeed = 55;
+    const pauseAfterTyping = 1500;
+    const pauseAfterDeleting = 350;
+
+    function typeEffect() {
+
+        const currentWord = words[wordIndex];
+
+        if (!isDeleting) {
+
+            characterIndex++;
+
+            typingText.textContent =
+                currentWord.substring(0, characterIndex);
+
+            if (characterIndex === currentWord.length) {
+
+                isDeleting = true;
+
+                setTimeout(
+                    typeEffect,
+                    pauseAfterTyping
+                );
+
+                return;
+            }
+
+            setTimeout(
+                typeEffect,
+                typingSpeed
+            );
+
+        } else {
+
+            characterIndex--;
+
+            typingText.textContent =
+                currentWord.substring(0, characterIndex);
+
+            if (characterIndex === 0) {
+
+                isDeleting = false;
+
+                wordIndex++;
+
+                if (wordIndex >= words.length) {
+                    wordIndex = 0;
+                }
+
+                setTimeout(
+                    typeEffect,
+                    pauseAfterDeleting
+                );
+
+                return;
+            }
+
+            setTimeout(
+                typeEffect,
+                deletingSpeed
+            );
+        }
+    }
+
+    typeEffect();
+
+});
+
+/* =========================================================
+   HERO CODE SKILL CHANGER
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const codeSkill = document.getElementById("codeSkill");
+
+    if (!codeSkill) return;
+
+    const skills = [
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "React",
+        "Python",
+        "Git"
+    ];
+
+    let skillIndex = 0;
+
+    function changeSkill() {
+
+        codeSkill.style.opacity = "0";
+
+        setTimeout(() => {
+
+            skillIndex++;
+
+            if (skillIndex >= skills.length) {
+                skillIndex = 0;
+            }
+
+            codeSkill.textContent =
+                `"${skills[skillIndex]}"`;
+
+            codeSkill.style.opacity = "1";
+
+        }, 250);
+    }
+
+    setInterval(changeSkill, 2200);
+
+});
+
+/* =========================================================
+   HERO CODE WINDOW MOUSE EFFECT
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const visual = document.querySelector(".hero-visual");
+    const codeWindow = document.querySelector(".code-window");
+
+    if (!visual || !codeWindow) return;
+
+    if (window.innerWidth <= 991) return;
+
+    visual.addEventListener("mousemove", (event) => {
+
+        const rect = visual.getBoundingClientRect();
+
+        const x =
+            event.clientX - rect.left;
+
+        const y =
+            event.clientY - rect.top;
+
+        const centerX =
+            rect.width / 2;
+
+        const centerY =
+            rect.height / 2;
+
+        const rotateY =
+            (x - centerX) / 35;
+
+        const rotateX =
+            (centerY - y) / 40;
+
+        codeWindow.style.transform =
+            `perspective(1000px)
+             rotateY(${rotateY}deg)
+             rotateX(${rotateX}deg)
+             translateY(-3px)`;
+    });
+
+    visual.addEventListener("mouseleave", () => {
+
+        codeWindow.style.transform =
+            `perspective(1000px)
+             rotateY(-4deg)
+             rotateX(2deg)`;
+
+    });
+
+});
+
+/* =========================================================
+   HERO BUTTON MICRO INTERACTION
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const buttons =
+        document.querySelectorAll(".hero-btn");
+
+    buttons.forEach((button) => {
+
+        button.addEventListener("mouseenter", () => {
+
+            button.style.transition =
+                "transform 0.25s ease";
+
+        });
+
+        button.addEventListener("mouseleave", () => {
+
+            button.style.transform = "";
+
+        });
+
+    });
+
+});
 
