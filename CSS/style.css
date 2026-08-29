@@ -1938,3 +1938,645 @@ body {
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   LEARNING PATH SECTION
+========================================= */
+
+.learning-path-section {
+    padding: 110px 0;
+    background: var(--background);
+    color: var(--text);
+    overflow: hidden;
+}
+
+.learning-path-container {
+    width: min(1120px, calc(100% - 48px));
+    margin: 0 auto;
+}
+
+/* =========================================
+   HEADING
+========================================= */
+
+.learning-path-heading {
+    max-width: 650px;
+    margin-bottom: 48px;
+}
+
+.learning-path-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-bottom: 14px;
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    color: var(--primary-color);
+}
+
+.learning-path-eyebrow span {
+    width: 28px;
+    height: 1px;
+    background: var(--primary-color);
+}
+
+.learning-path-heading h2 {
+    margin: 0;
+    font-size: clamp(36px, 5vw, 62px);
+    line-height: 1;
+    letter-spacing: -2.5px;
+    font-weight: 800;
+}
+
+.learning-path-heading h2 em {
+    color: var(--primary-color);
+    font-style: normal;
+}
+
+.learning-path-heading p {
+    margin: 20px 0 0;
+    max-width: 560px;
+
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--muted);
+}
+
+/* =========================================
+   CATEGORY NAVIGATION
+========================================= */
+.learning-path-categories {
+    position: relative;
+    z-index: 5;
+
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    margin-bottom: 28px;
+
+    overflow-x: auto;
+    overflow-y: visible;
+
+    padding: 8px 4px 10px;
+
+    scrollbar-width: none;
+}
+
+.learning-path-categories::-webkit-scrollbar {
+    display: none;
+}
+
+.path-category {
+    position: relative;
+    z-index: 1;
+
+    flex: 0 0 auto;
+
+    border: 1px solid rgba(128, 128, 128, 0.18);
+    background: transparent;
+
+    color: var(--muted);
+
+    padding: 10px 16px;
+    border-radius: 999px;
+
+    font: inherit;
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        color 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.path-category:hover {
+    z-index: 10;
+
+    color: var(--text);
+
+    border-color: var(--primary-color);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 18px rgba(217, 70, 239, 0.12);
+}
+
+.path-category.active {
+    z-index: 2;
+
+    color: #fff;
+
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* =========================================
+   MAIN PATH CARD
+========================================= */
+
+.learning-path-card {
+    position: relative;
+
+    padding: 38px;
+
+    border: 1px solid rgba(128, 128, 128, 0.16);
+    border-radius: 28px;
+
+    background:
+        linear-gradient(135deg,
+            rgba(255, 255, 255, 0.035),
+            rgba(255, 255, 255, 0));
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.08);
+
+    overflow: hidden;
+}
+
+.learning-path-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    top: -180px;
+    right: -100px;
+
+    background: var(--primary-color);
+
+    opacity: 0.08;
+
+    border-radius: 50%;
+
+    filter: blur(60px);
+
+    pointer-events: none;
+}
+
+/* =========================================
+   CARD HEADER
+========================================= */
+
+.path-card-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 55px;
+}
+
+.path-card-title span {
+    display: block;
+
+    margin-bottom: 9px;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    color: var(--muted);
+}
+
+.path-card-title h3 {
+    margin: 0;
+
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 800;
+
+    letter-spacing: -1.5px;
+}
+
+.path-card-counter {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.path-card-counter strong {
+    font-size: 32px;
+    line-height: 1;
+
+    color: var(--primary-color);
+}
+
+.path-card-counter span {
+    margin-top: 5px;
+
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+
+    color: var(--muted);
+}
+
+/* =========================================
+   LEARNING ROAD
+========================================= */
+
+.learning-road {
+    position: relative;
+
+    min-height: 145px;
+
+    margin-bottom: 34px;
+}
+
+.road-line,
+.road-progress {
+    position: absolute;
+
+    top: 29px;
+    left: 4%;
+    right: 4%;
+
+    height: 2px;
+}
+
+.road-line {
+    background: rgba(128, 128, 128, 0.18);
+}
+
+.road-progress {
+    right: auto;
+    width: 0;
+
+    background: var(--primary-color);
+
+    box-shadow:
+        0 0 12px var(--primary-color);
+
+    transition: width 0.7s ease;
+}
+
+.road-steps {
+    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+
+    width: 92%;
+    margin: 0 auto;
+}
+
+.road-step {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100px;
+
+    text-align: center;
+}
+
+.road-step-dot {
+    position: relative;
+    z-index: 2;
+
+    width: 60px;
+    height: 60px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    border-radius: 50%;
+
+    background: var(--background);
+
+    color: var(--muted);
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition:
+        background 0.4s ease,
+        color 0.4s ease,
+        border-color 0.4s ease,
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.road-step.active .road-step-dot,
+.road-step.completed .road-step-dot {
+    color: #fff;
+
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+
+    box-shadow:
+        0 0 0 7px rgba(217, 70, 239, 0.08);
+}
+
+.road-step.active .road-step-dot {
+    transform: scale(1.08);
+}
+
+.road-step-title {
+    margin-top: 15px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    color: var(--text);
+
+    line-height: 1.4;
+}
+
+.road-step-number {
+    margin-top: 4px;
+
+    font-size: 9px;
+    color: var(--muted);
+}
+
+/* =========================================
+   CURRENT COURSE
+========================================= */
+
+.current-course {
+    display: flex;
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 20px 22px;
+
+    border: 1px solid rgba(128, 128, 128, 0.14);
+    border-radius: 18px;
+
+    background: rgba(128, 128, 128, 0.035);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.current-course:hover {
+    transform: translateY(-2px);
+    border-color: rgba(217, 70, 239, 0.35);
+}
+
+.current-course-number {
+    flex: 0 0 52px;
+
+    width: 52px;
+    height: 52px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 14px;
+
+    background: var(--primary-color);
+
+    color: #fff;
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.current-course-content {
+    flex: 1;
+}
+
+.current-course-content span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+
+    color: var(--primary-color);
+}
+
+.current-course-content h4 {
+    margin: 0 0 5px;
+
+    font-size: 16px;
+    font-weight: 750;
+}
+
+.current-course-content p {
+    margin: 0;
+
+    font-size: 12px;
+    line-height: 1.6;
+
+    color: var(--muted);
+}
+
+.course-next-btn {
+    flex: 0 0 44px;
+
+    width: 44px;
+    height: 44px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid rgba(128, 128, 128, 0.18);
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: var(--text);
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.course-next-btn:hover {
+    color: #fff;
+    background: var(--primary-color);
+
+    transform: translateX(3px);
+}
+
+/* =========================================
+   FOOTER STATS
+========================================= */
+
+.learning-path-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 45px;
+
+    margin-top: 30px;
+}
+
+.path-footer-item {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.path-footer-item strong {
+    font-size: 22px;
+    color: var(--primary-color);
+}
+
+.path-footer-item span {
+    font-size: 11px;
+    color: var(--muted);
+}
+
+.path-footer-divider {
+    width: 1px;
+    height: 24px;
+
+    background: rgba(128, 128, 128, 0.18);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .learning-path-section {
+        padding: 80px 0;
+    }
+
+    .learning-path-container {
+        width: min(100% - 30px, 1120px);
+    }
+
+    .learning-path-heading {
+        margin-bottom: 32px;
+    }
+
+    .learning-path-heading h2 {
+        letter-spacing: -1.5px;
+    }
+
+    .learning-path-card {
+        padding: 24px 18px;
+        border-radius: 22px;
+    }
+
+    .path-card-header {
+        align-items: flex-start;
+        margin-bottom: 42px;
+    }
+
+    .learning-road {
+        overflow-x: auto;
+        padding-bottom: 15px;
+        scrollbar-width: none;
+    }
+
+    .learning-road::-webkit-scrollbar {
+        display: none;
+    }
+
+    .road-steps {
+        min-width: 520px;
+    }
+
+    .road-line,
+    .road-progress {
+        min-width: 478px;
+    }
+
+    .current-course {
+        align-items: flex-start;
+    }
+
+    .current-course-number {
+        flex-basis: 44px;
+        width: 44px;
+        height: 44px;
+    }
+
+    .current-course-content p {
+        font-size: 11px;
+    }
+
+    .learning-path-footer {
+        gap: 18px;
+    }
+
+    .path-footer-item {
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .learning-path-heading p {
+        font-size: 13px;
+    }
+
+    .path-card-counter {
+        display: none;
+    }
+
+    .current-course {
+        gap: 13px;
+        padding: 16px;
+    }
+
+    .course-next-btn {
+        flex-basis: 38px;
+        width: 38px;
+        height: 38px;
+    }
+
+    .learning-path-footer {
+        gap: 12px;
+    }
+
+    .path-footer-divider {
+        height: 20px;
+    }
+
+    .path-footer-item strong {
+        font-size: 18px;
+    }
+
+    .path-footer-item span {
+        font-size: 9px;
+    }
+}
