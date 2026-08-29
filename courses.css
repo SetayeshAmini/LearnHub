@@ -681,3 +681,279 @@ body {
   max-width: 650px;
   color: var(--text-muted);
 }
+
+/* ----------------------------------------------------------
+   FILTER
+---------------------------------------------------------- */
+
+.course-filter-card {
+  padding: 1.25rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+}
+
+.course-filter-label {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.course-search-wrapper {
+  position: relative;
+}
+
+.course-search-wrapper > i {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  z-index: 2;
+  color: var(--text-muted);
+  transform: translateY(-50%);
+}
+
+.course-search-wrapper .course-filter-input {
+  padding-left: 2.7rem;
+}
+
+.course-filter-input {
+  min-height: 44px;
+  background-color: var(--bg-main) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-main) !important;
+  border-radius: 0.65rem !important;
+  font-size: 0.85rem;
+}
+
+.course-filter-input:focus {
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 0 3px var(--primary-glow) !important;
+}
+
+.course-filter-input::placeholder {
+  color: var(--text-muted);
+}
+.course-filter-input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.course-filter-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.hover-filter {
+  position: relative;
+}
+
+.filter-original {
+  display: none !important;
+}
+
+
+/* Button */
+
+.hover-filter-button {
+  width: 100%;
+  min-height: 38px;
+
+  cursor: pointer;
+  text-align: left;
+
+  position: relative;
+
+  padding-right: 35px !important;
+
+  background-image: none !important;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* close the Dropdown */
+
+.hover-filter.filter-closed .hover-filter-menu {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: translateY(4px) !important;
+  pointer-events: none !important;
+}
+
+
+/*Button Hover Shadow*/ 
+
+.hover-filter:hover .hover-filter-button {
+  border-color: var(--primary-color);
+
+  box-shadow: 0 -2px 6px rgba(217, 70, 239, 0.4) !important;
+}
+
+.hover-filter-button::after {
+  content: "";
+
+  position: absolute;
+  right: 14px;
+  top: 50%;
+
+  width: 7px;
+  height: 7px;
+
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+
+  transform: translateY(-70%) rotate(45deg);
+
+  transition: transform 0.2s ease;
+}
+
+
+.hover-filter:hover .hover-filter-button::after {
+  transform: translateY(-25%) rotate(225deg);
+}
+
+
+/* Dropdown */
+
+.hover-filter-menu {
+  position: absolute;
+
+  top: calc(100% + 3px);
+  left: 0;
+
+  width: 100%;
+
+  background-color: #ffffff !important;
+
+  border: 1px solid #dee2e6;
+
+  border-radius: 8px;
+
+  padding: 4px !important;
+
+  z-index: 9999;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(4px);
+
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease,
+    visibility 0.15s ease;
+}
+
+
+.hover-filter:hover .hover-filter-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+
+/* Options */
+
+.hover-filter-menu button {
+  display: block;
+
+  width: 100%;
+
+  border: 0 !important;
+
+  background: transparent !important;
+
+  color: #212529 !important;
+
+  text-align: left;
+
+  font-size: 14px;
+
+  line-height: 1.2;
+
+  padding: 6px 9px !important;
+
+  margin: 0 !important;
+
+  min-height: 30px;
+
+  border-radius: 5px;
+
+  cursor: pointer;
+}
+
+
+.hover-filter-menu button:hover {
+  background-color: var(--primary-glow) !important;
+  color: var(--primary-color) !important;
+}
+
+
+/* Dark Mode */
+
+[data-bs-theme="dark"] .hover-filter-menu {
+  background-color: #212529 !important;
+  border-color: #495057;
+}
+
+[data-bs-theme="dark"] .hover-filter-menu button {
+  color: #f8f9fa !important;
+}
+
+[data-bs-theme="dark"] .hover-filter-menu button:hover {
+  background-color: var(--primary-glow) !important;
+  color: var(--primary-color) !important;
+}
+
+.category-menu {
+  width: 360px !important;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 2px;
+
+  padding: 6px !important;
+}
+
+.category-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.category-column button {
+  width: 100%;
+  white-space: nowrap;
+}
+
+
+.course-count {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.course-clear-btn {
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+  border-radius: 50px;
+}
+
+.course-clear-btn:hover {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+  background: rgba(217, 70, 239, 0.05);
+}
+.course-clear-btn:focus {
+  outline: none;
+  box-shadow: none;
+}
