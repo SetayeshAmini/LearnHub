@@ -422,218 +422,355 @@
 
 
 
-
-
-<!-- =========================================
+    <!-- =========================================
      LEARNING PATH SECTION
 ========================================= -->
 
-<section class="learning-path-section" id="learningPath">
+    <section class="learning-path-section" id="learningPath">
 
-    <div class="learning-path-container">
+        <div class="learning-path-container">
 
-        <!-- Section Heading -->
-        <div class="learning-path-heading">
+            <!-- Section Heading -->
+            <div class="learning-path-heading">
 
-            <div class="learning-path-eyebrow">
-                <span></span>
-                LEARNING PATH
-            </div>
-
-            <h2>
-                Learn with a <em>direction.</em>
-            </h2>
-
-            <p>
-                Choose a category and discover a clear path
-                from learning to building.
-            </p>
-
-        </div>
-
-
-        <!-- Category Navigation -->
-        <div class="learning-path-categories" id="learningPathCategories">
-
-            <button class="path-category active" data-category="Programming">
-                Programming
-            </button>
-
-            <button class="path-category" data-category="Web Development">
-                Web Development
-            </button>
-
-            <button class="path-category" data-category="Data Science">
-                Data Science
-            </button>
-
-            <button class="path-category" data-category="Graphic Design">
-                Graphic Design
-            </button>
-
-            <button class="path-category" data-category="Cybersecurity">
-                Cybersecurity
-            </button>
-
-            <button class="path-category" data-category="Mobile Development">
-                Mobile Development
-            </button>
-
-            <button class="path-category" data-category="Database">
-                Database
-            </button>
-
-            <button class="path-category" data-category="Networking">
-                Networking
-            </button>
-
-            <button class="path-category" data-category="Microsoft Office">
-                Microsoft Office
-            </button>
-
-            <button class="path-category" data-category="English">
-                English
-            </button>
-
-            <button class="path-category" data-category="Business">
-                Business
-            </button>
-
-        </div>
-
-
-        <!-- Main Path -->
-        <div class="learning-path-card">
-
-            <!-- Card Header -->
-            <div class="path-card-header">
-
-                <div class="path-card-title">
-
-                    <span>SELECTED CATEGORY</span>
-
-                    <h3 id="selectedCategory">
-                        Programming
-                    </h3>
-
+                <div class="learning-path-eyebrow">
+                    <span></span>
+                    LEARNING PATH
                 </div>
 
-                <div class="path-card-counter">
-                    <strong id="pathCourseCount">04</strong>
-                    <span>COURSES</span>
-                </div>
+                <h2>
+                    Learn with a <em>direction.</em>
+                </h2>
+
+                <p>
+                    Choose a category and discover a clear path
+                    from learning to building.
+                </p>
 
             </div>
 
 
-            <!-- Learning Road -->
-            <div class="learning-road" id="learningRoad">
+            <!-- Category Navigation -->
+            <div class="learning-path-categories" id="learningPathCategories">
 
-                <div class="road-line"></div>
+                <button class="path-category active" data-category="Programming">
+                    Programming
+                </button>
 
-                <div class="road-progress" id="roadProgress"></div>
+                <button class="path-category" data-category="Web Development">
+                    Web Development
+                </button>
 
-                <div class="road-steps" id="roadSteps">
-                    <!-- JavaScript generates the steps -->
-                </div>
+                <button class="path-category" data-category="Data Science">
+                    Data Science
+                </button>
 
-            </div>
+                <button class="path-category" data-category="Graphic Design">
+                    Graphic Design
+                </button>
 
+                <button class="path-category" data-category="Cybersecurity">
+                    Cybersecurity
+                </button>
 
-            <!-- Current Course -->
-            <div class="current-course" id="currentCourse">
+                <button class="path-category" data-category="Mobile Development">
+                    Mobile Development
+                </button>
 
-                <div class="current-course-number">
-                    01
-                </div>
+                <button class="path-category" data-category="Database">
+                    Database
+                </button>
 
-                <div class="current-course-content">
+                <button class="path-category" data-category="Networking">
+                    Networking
+                </button>
 
-                    <span id="currentCourseLabel">
-                        START HERE
-                    </span>
+                <button class="path-category" data-category="Microsoft Office">
+                    Microsoft Office
+                </button>
 
-                    <h4 id="currentCourseTitle">
-                        Programming Fundamentals
-                    </h4>
+                <button class="path-category" data-category="English">
+                    English
+                </button>
 
-                    <p id="currentCourseDescription">
-                        Build the foundations you need before
-                        moving into more advanced topics.
-                    </p>
-
-                </div>
-
-                <button
-                    type="button"
-                    class="course-next-btn"
-                    id="courseNextBtn"
-                    aria-label="Next course"
-                >
-                    <i class="bi bi-arrow-right"></i>
+                <button class="path-category" data-category="Business">
+                    Business
                 </button>
 
             </div>
 
+
+            <!-- Main Path -->
+            <div class="learning-path-card">
+
+                <!-- Card Header -->
+                <div class="path-card-header">
+
+                    <div class="path-card-title">
+
+                        <span>SELECTED CATEGORY</span>
+
+                        <h3 id="selectedCategory">
+                            Programming
+                        </h3>
+
+                    </div>
+
+                    <div class="path-card-counter">
+                        <strong id="pathCourseCount">04</strong>
+                        <span>COURSES</span>
+                    </div>
+
+                </div>
+
+
+                <!-- Learning Road -->
+                <div class="learning-road" id="learningRoad">
+
+                    <div class="road-line"></div>
+
+                    <div class="road-progress" id="roadProgress"></div>
+
+                    <div class="road-steps" id="roadSteps">
+                        <!-- JavaScript generates the steps -->
+                    </div>
+
+                </div>
+
+
+                <!-- Current Course -->
+                <div class="current-course" id="currentCourse">
+
+                    <div class="current-course-number">
+                        01
+                    </div>
+
+                    <div class="current-course-content">
+
+                        <span id="currentCourseLabel">
+                            START HERE
+                        </span>
+
+                        <h4 id="currentCourseTitle">
+                            Programming Fundamentals
+                        </h4>
+
+                        <p id="currentCourseDescription">
+                            Build the foundations you need before
+                            moving into more advanced topics.
+                        </p>
+
+                    </div>
+
+                    <button type="button" class="course-next-btn" id="courseNextBtn" aria-label="Next course">
+                        <i class="bi bi-arrow-right"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Minimal Stats -->
+            <div class="learning-path-footer">
+
+                <div class="path-footer-item">
+
+                    <strong id="totalCourses">
+                        04
+                    </strong>
+
+                    <span>
+                        Courses
+                    </span>
+
+                </div>
+
+
+                <div class="path-footer-divider"></div>
+
+
+                <div class="path-footer-item">
+
+                    <strong id="totalSteps">
+                        04
+                    </strong>
+
+                    <span>
+                        Learning Steps
+                    </span>
+
+                </div>
+
+
+                <div class="path-footer-divider"></div>
+
+
+                <div class="path-footer-item">
+
+                    <strong id="totalProjects">
+                        02
+                    </strong>
+
+                    <span>
+                        Projects
+                    </span>
+
+                </div>
+
+            </div>
+
         </div>
 
+    </section>
 
-        <!-- Minimal Stats -->
-        <div class="learning-path-footer">
 
-            <div class="path-footer-item">
 
-                <strong id="totalCourses">
-                    04
-                </strong>
 
-                <span>
-                    Courses
-                </span>
+
+
+
+
+
+    <!-- =========================================
+     TOP COURSES
+========================================= -->
+
+    <section class="top-courses-section" id="topCourses">
+
+        <div class="top-courses-container">
+
+            <!-- Heading -->
+            <div class="top-courses-heading">
+
+                <div class="top-courses-eyebrow">
+                    <span></span>
+                    TOP COURSES
+                </div>
+
+                <h2>
+                    Learn something
+                    <em>great.</em>
+                </h2>
+
+                <p>
+                    Discover three courses worth your time,
+                    selected to help you take your next step.
+                </p>
 
             </div>
 
 
-            <div class="path-footer-divider"></div>
+            <!-- Course Showcase -->
+            <div class="top-course-showcase">
+
+                <!-- Image -->
+                <div class="top-course-visual">
+
+                    <img id="topCourseImage"
+                        src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=85&w=1200&auto=format&fit=crop"
+                        alt="Modern Web Development">
+
+                    <div class="top-course-overlay"></div>
+
+                    <span class="top-course-category" id="topCourseCategory">
+                        WEB DEVELOPMENT
+                    </span>
+
+                </div>
 
 
-            <div class="path-footer-item">
+                <!-- Information -->
+                <div class="top-course-info">
 
-                <strong id="totalSteps">
-                    04
-                </strong>
+                    <div class="top-course-number">
 
-                <span>
-                    Learning Steps
-                </span>
+                        <span id="currentCourseNumber">
+                            01
+                        </span>
+
+                        <span class="number-line"></span>
+
+                        <span>03</span>
+
+                    </div>
+
+
+                    <h3 id="topCourseTitle">
+                        Modern Web Development
+                    </h3>
+
+
+                    <p id="topCourseDescription">
+                        Learn how to build beautiful,
+                        responsive and interactive websites
+                        from the ground up.
+                    </p>
+
+
+                    <div class="top-course-meta">
+
+                        <div>
+                            <span>LEVEL</span>
+
+                            <strong id="topCourseLevel">
+                                Beginner
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span>DURATION</span>
+
+                            <strong id="topCourseDuration">
+                                8 Weeks
+                            </strong>
+                        </div>
+
+                    </div>
+
+
+                    <a href="courses.html" class="top-course-btn" id="topCourseLink">
+                        <span>Explore Course</span>
+
+                        <i class="bi bi-arrow-up-right"></i>
+                    </a>
+
+                </div>
 
             </div>
 
 
-            <div class="path-footer-divider"></div>
+            <!-- Navigation -->
+            <div class="top-course-navigation">
+
+                <div class="top-course-progress" id="topCourseProgress">
+
+                    <span class="active" data-index="0"></span>
+
+                    <span data-index="1"></span>
+
+                    <span data-index="2"></span>
+
+                </div>
 
 
-            <div class="path-footer-item">
+                <div class="top-course-controls">
 
-                <strong id="totalProjects">
-                    02
-                </strong>
+                    <button type="button" id="topCoursePrev" aria-label="Previous course">
+                        <i class="bi bi-arrow-left"></i>
+                    </button>
 
-                <span>
-                    Projects
-                </span>
+                    <button type="button" id="topCourseNext" aria-label="Next course">
+                        <i class="bi bi-arrow-right"></i>
+                    </button>
+
+                </div>
 
             </div>
 
         </div>
 
-    </div>
-
-</section>
-
-
-
-
+    </section>
 
 
 

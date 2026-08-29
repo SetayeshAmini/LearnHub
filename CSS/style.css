@@ -2580,3 +2580,681 @@ body {
         font-size: 9px;
     }
 }
+
+
+
+/* =========================================
+   TOP COURSES
+========================================= */
+
+.top-courses-section {
+    position: relative;
+
+    padding: 105px 0 95px;
+
+    background: var(--background);
+    color: var(--text);
+
+    overflow: hidden;
+}
+
+
+.top-courses-container {
+    width: min(1080px, calc(100% - 48px));
+
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.top-courses-heading {
+    margin-bottom: 42px;
+}
+
+
+.top-courses-eyebrow {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    margin-bottom: 13px;
+
+    color: var(--primary-color);
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: 2.4px;
+}
+
+
+.top-courses-eyebrow span {
+    width: 24px;
+    height: 1px;
+
+    background: var(--primary-color);
+}
+
+
+.top-courses-heading h2 {
+    max-width: 650px;
+
+    margin: 0;
+
+    font-size: clamp(39px, 5.2vw, 64px);
+
+    line-height: .97;
+
+    letter-spacing: -2.7px;
+
+    font-weight: 800;
+}
+
+
+.top-courses-heading h2 em {
+    color: var(--primary-color);
+
+    font-style: normal;
+}
+
+
+.top-courses-heading p {
+    max-width: 440px;
+
+    margin: 16px 0 0;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    line-height: 1.75;
+}
+
+
+/* =========================================
+   SHOWCASE
+========================================= */
+
+.top-course-showcase {
+    display: grid;
+
+    grid-template-columns: 1.12fr .88fr;
+
+    /*
+       ثابت نگه داشتن کل کارت
+    */
+    height: 485px;
+    min-height: 485px;
+
+    border: 1px solid rgba(128, 128, 128, .11);
+
+    border-radius: 24px;
+
+    overflow: hidden;
+
+    background:
+        rgba(128, 128, 128, .025);
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, .045);
+}
+
+
+/* =========================================
+   IMAGE FRAME
+========================================= */
+
+.top-course-visual {
+    position: relative;
+
+    width: 100%;
+    height: 485px;
+    min-height: 485px;
+
+    overflow: hidden;
+
+    background: #151419;
+}
+
+
+/*
+   مهم:
+   width + height ثابت
+   object-fit: cover
+   باعث می‌شود هر سه عکس دقیقاً
+   یک قاب یکسان داشته باشند.
+*/
+
+.top-course-visual img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    opacity: .94;
+
+    transform: scale(1.01);
+
+    transition:
+        opacity .35s ease,
+        transform .8s cubic-bezier(.2,.8,.2,1);
+}
+
+
+.top-course-visual:hover img {
+    transform: scale(1.035);
+}
+
+
+.top-course-visual img.is-changing {
+    opacity: 0;
+}
+
+
+/* =========================================
+   IMAGE OVERLAY
+========================================= */
+
+.top-course-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,.02) 25%,
+            rgba(0,0,0,.55) 100%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   CATEGORY
+========================================= */
+
+.top-course-category {
+    position: absolute;
+
+    left: 22px;
+    bottom: 21px;
+
+    z-index: 2;
+
+    padding: 7px 11px;
+
+    border:
+        1px solid rgba(255,255,255,.18);
+
+    border-radius: 999px;
+
+    background:
+        rgba(15,15,18,.32);
+
+    backdrop-filter: blur(10px);
+
+    color: #fff;
+
+    font-size: 8px;
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+
+/* =========================================
+   COURSE INFO
+========================================= */
+
+.top-course-info {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+    height: 100%;
+
+    box-sizing: border-box;
+
+    padding: 42px 40px;
+}
+
+
+/* =========================================
+   NUMBER
+========================================= */
+
+.top-course-number {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.8px;
+}
+
+
+.top-course-number span:first-child {
+    color: var(--primary-color);
+}
+
+
+.number-line {
+    width: 34px;
+    height: 1px;
+
+    background:
+        rgba(128,128,128,.22);
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.top-course-info h3 {
+    max-width: 390px;
+
+    margin: 62px 0 14px;
+
+    font-size:
+        clamp(34px, 4vw, 52px);
+
+    line-height: 1;
+
+    letter-spacing: -2px;
+
+    font-weight: 800;
+
+    transition:
+        opacity .25s ease,
+        transform .25s ease;
+}
+
+
+.top-course-info h3.is-changing {
+    opacity: 0;
+
+    transform:
+        translateY(7px);
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.top-course-info > p {
+    max-width: 350px;
+
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    line-height: 1.75;
+
+    transition:
+        opacity .25s ease,
+        transform .25s ease;
+}
+
+
+.top-course-info > p.is-changing {
+    opacity: 0;
+
+    transform:
+        translateY(6px);
+}
+
+
+/* =========================================
+   META
+========================================= */
+
+.top-course-meta {
+    display: flex;
+
+    gap: 42px;
+
+    margin-top: 28px;
+
+    padding-top: 18px;
+
+    border-top:
+        1px solid rgba(128,128,128,.11);
+}
+
+
+.top-course-meta div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+.top-course-meta span {
+    font-size: 7px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    color: var(--muted);
+}
+
+
+.top-course-meta strong {
+    font-size: 11px;
+
+    font-weight: 700;
+
+    color: var(--text);
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.top-course-btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    width: 205px;
+
+    margin-top: auto;
+
+    padding: 11px 12px 11px 17px;
+
+    border:
+        1px solid rgba(128,128,128,.16);
+
+    border-radius: 999px;
+
+    background: transparent;
+
+    color: var(--text);
+
+    text-decoration: none;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: .9px;
+
+    transition:
+        background .25s ease,
+        color .25s ease,
+        border-color .25s ease,
+        transform .25s ease;
+}
+
+
+.top-course-btn i {
+    display: grid;
+
+    place-items: center;
+
+    width: 27px;
+    height: 27px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(128,128,128,.07);
+
+    transition:
+        transform .25s ease;
+}
+
+
+.top-course-btn:hover {
+    color: #fff;
+
+    background:
+        var(--primary-color);
+
+    border-color:
+        var(--primary-color);
+
+    transform:
+        translateY(-1px);
+}
+
+
+.top-course-btn:hover i {
+    color:
+        var(--primary-color);
+
+    background: #fff;
+
+    transform:
+        translate(2px,-2px);
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.top-course-navigation {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-top: 18px;
+}
+
+
+/* =========================================
+   PROGRESS
+========================================= */
+
+.top-course-progress {
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+}
+
+
+.top-course-progress span {
+    display: block;
+
+    width: 22px;
+    height: 2px;
+
+    background:
+        rgba(128,128,128,.16);
+
+    cursor: pointer;
+
+    transition:
+        width .3s ease,
+        background .3s ease;
+}
+
+
+.top-course-progress span.active {
+    width: 40px;
+
+    background:
+        var(--primary-color);
+}
+
+
+/* =========================================
+   CONTROLS
+========================================= */
+
+.top-course-controls {
+    display: flex;
+
+    gap: 6px;
+}
+
+
+.top-course-controls button {
+    width: 38px;
+    height: 38px;
+
+    display: grid;
+
+    place-items: center;
+
+    border:
+        1px solid rgba(128,128,128,.14);
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: var(--text);
+
+    cursor: pointer;
+
+    transition:
+        background .25s ease,
+        color .25s ease,
+        border-color .25s ease,
+        transform .25s ease;
+}
+
+
+.top-course-controls button:hover {
+    color: #fff;
+
+    background:
+        var(--primary-color);
+
+    border-color:
+        var(--primary-color);
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 850px) {
+
+    .top-course-showcase {
+        grid-template-columns: 1fr;
+
+        height: auto;
+        min-height: 0;
+    }
+
+
+    .top-course-visual {
+        height: 350px;
+        min-height: 350px;
+    }
+
+
+    .top-course-info {
+        height: auto;
+        min-height: 420px;
+
+        padding: 35px;
+    }
+
+
+    .top-course-info h3 {
+        margin-top: 45px;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .top-courses-section {
+        padding: 80px 0;
+    }
+
+
+    .top-courses-container {
+        width:
+            min(100% - 30px, 1080px);
+    }
+
+
+    .top-courses-heading {
+        margin-bottom: 30px;
+    }
+
+
+    .top-courses-heading h2 {
+        font-size: 41px;
+
+        letter-spacing: -2px;
+    }
+
+
+    .top-course-showcase {
+        border-radius: 20px;
+    }
+
+
+    .top-course-visual {
+        height: 280px;
+        min-height: 280px;
+    }
+
+
+    .top-course-category {
+        left: 18px;
+        bottom: 18px;
+    }
+
+
+    .top-course-info {
+        min-height: 390px;
+
+        padding: 27px 22px;
+    }
+
+
+    .top-course-info h3 {
+        margin-top: 38px;
+
+        font-size: 36px;
+    }
+
+
+    .top-course-btn {
+        width: 100%;
+    }
+}

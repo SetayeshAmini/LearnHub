@@ -1402,3 +1402,476 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   TOP COURSES
+========================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* =========================================
+       COURSE DATA
+    ========================================= */
+
+    const courses = [
+
+        {
+            title: "Modern Web Development",
+
+            category: "WEB DEVELOPMENT",
+
+            description:
+                "Learn how to build beautiful, responsive and interactive websites from the ground up.",
+
+            level: "Beginner",
+
+            duration: "8 Weeks",
+
+            image:
+                "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=85&w=1200&auto=format&fit=crop",
+
+            link: "courses.html"
+        },
+
+
+        {
+            title: "JavaScript Fundamentals",
+
+            category: "PROGRAMMING",
+
+            description:
+                "Build a strong programming foundation and bring your ideas to life with JavaScript.",
+
+            level: "Beginner",
+
+            duration: "6 Weeks",
+
+            image:
+                "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=85&w=1200&auto=format&fit=crop",
+
+            link: "courses.html"
+        },
+
+
+        {
+            title: "Data Analysis Essentials",
+
+            category: "DATA SCIENCE",
+
+            description:
+                "Learn how to understand, explore and transform data into meaningful insights.",
+
+            level: "Intermediate",
+
+            duration: "10 Weeks",
+
+            image:
+                "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=85&w=1200&auto=format&fit=crop",
+
+            link: "courses.html"
+        }
+
+    ];
+
+
+    /* =========================================
+       ELEMENTS
+    ========================================= */
+
+    const image =
+        document.getElementById("topCourseImage");
+
+    const category =
+        document.getElementById("topCourseCategory");
+
+    const title =
+        document.getElementById("topCourseTitle");
+
+    const description =
+        document.getElementById("topCourseDescription");
+
+    const level =
+        document.getElementById("topCourseLevel");
+
+    const duration =
+        document.getElementById("topCourseDuration");
+
+    const link =
+        document.getElementById("topCourseLink");
+
+    const number =
+        document.getElementById("currentCourseNumber");
+
+    const progressDots =
+        document.querySelectorAll(
+            "#topCourseProgress span"
+        );
+
+    const nextButton =
+        document.getElementById("topCourseNext");
+
+    const prevButton =
+        document.getElementById("topCoursePrev");
+
+    const showcase =
+        document.querySelector(
+            ".top-course-showcase"
+        );
+
+
+    /* =========================================
+       STATE
+    ========================================= */
+
+    let currentIndex = 0;
+
+    let autoPlay;
+
+
+    /* =========================================
+       UPDATE COURSE
+    ========================================= */
+
+    function updateCourse(index) {
+
+        const course =
+            courses[index];
+
+
+        image.classList.add(
+            "is-changing"
+        );
+
+        title.classList.add(
+            "is-changing"
+        );
+
+        description.classList.add(
+            "is-changing"
+        );
+
+
+        setTimeout(() => {
+
+            image.src =
+                course.image;
+
+            image.alt =
+                course.title;
+
+            category.textContent =
+                course.category;
+
+            title.textContent =
+                course.title;
+
+            description.textContent =
+                course.description;
+
+            level.textContent =
+                course.level;
+
+            duration.textContent =
+                course.duration;
+
+            link.href =
+                course.link;
+
+            number.textContent =
+                String(index + 1)
+                    .padStart(2, "0");
+
+
+            progressDots.forEach(
+                (dot, dotIndex) => {
+
+                    dot.classList.toggle(
+                        "active",
+                        dotIndex === index
+                    );
+
+                }
+            );
+
+
+            image.classList.remove(
+                "is-changing"
+            );
+
+            title.classList.remove(
+                "is-changing"
+            );
+
+            description.classList.remove(
+                "is-changing"
+            );
+
+        }, 180);
+
+    }
+
+
+    /* =========================================
+       NEXT
+    ========================================= */
+
+    function nextCourse() {
+
+        currentIndex++;
+
+        if (
+            currentIndex >=
+            courses.length
+        ) {
+            currentIndex = 0;
+        }
+
+        updateCourse(
+            currentIndex
+        );
+    }
+
+
+    /* =========================================
+       PREVIOUS
+    ========================================= */
+
+    function previousCourse() {
+
+        currentIndex--;
+
+        if (currentIndex < 0) {
+
+            currentIndex =
+                courses.length - 1;
+        }
+
+        updateCourse(
+            currentIndex
+        );
+    }
+
+
+    /* =========================================
+       BUTTONS
+    ========================================= */
+
+    nextButton.addEventListener(
+        "click",
+        () => {
+
+            nextCourse();
+
+            restartAutoPlay();
+
+        }
+    );
+
+
+    prevButton.addEventListener(
+        "click",
+        () => {
+
+            previousCourse();
+
+            restartAutoPlay();
+
+        }
+    );
+
+
+    /* =========================================
+       PROGRESS DOTS
+    ========================================= */
+
+    progressDots.forEach(
+        (dot, index) => {
+
+            dot.addEventListener(
+                "click",
+                () => {
+
+                    currentIndex =
+                        index;
+
+                    updateCourse(
+                        currentIndex
+                    );
+
+                    restartAutoPlay();
+
+                }
+            );
+
+        }
+    );
+
+
+    /* =========================================
+       KEYBOARD
+    ========================================= */
+
+    document.addEventListener(
+        "keydown",
+        (event) => {
+
+            if (
+                event.key ===
+                "ArrowRight"
+            ) {
+
+                nextCourse();
+
+                restartAutoPlay();
+            }
+
+
+            if (
+                event.key ===
+                "ArrowLeft"
+            ) {
+
+                previousCourse();
+
+                restartAutoPlay();
+            }
+
+        }
+    );
+
+
+    /* =========================================
+       AUTOPLAY
+    ========================================= */
+
+    function startAutoPlay() {
+
+        autoPlay =
+            setInterval(() => {
+
+                nextCourse();
+
+            }, 6000);
+
+    }
+
+
+    function stopAutoPlay() {
+
+        clearInterval(
+            autoPlay
+        );
+
+    }
+
+
+    function restartAutoPlay() {
+
+        stopAutoPlay();
+
+        startAutoPlay();
+
+    }
+
+
+    /* =========================================
+       PAUSE ON HOVER
+    ========================================= */
+
+    showcase.addEventListener(
+        "mouseenter",
+        stopAutoPlay
+    );
+
+
+    showcase.addEventListener(
+        "mouseleave",
+        startAutoPlay
+    );
+
+
+    /* =========================================
+       TOUCH / SWIPE
+    ========================================= */
+
+    let touchStartX = 0;
+
+    let touchEndX = 0;
+
+
+    showcase.addEventListener(
+        "touchstart",
+        (event) => {
+
+            touchStartX =
+                event.changedTouches[0]
+                    .screenX;
+
+        },
+        { passive: true }
+    );
+
+
+    showcase.addEventListener(
+        "touchend",
+        (event) => {
+
+            touchEndX =
+                event.changedTouches[0]
+                    .screenX;
+
+            const distance =
+                touchEndX -
+                touchStartX;
+
+
+            if (
+                Math.abs(distance) < 50
+            ) {
+                return;
+            }
+
+
+            if (distance < 0) {
+
+                nextCourse();
+
+            } else {
+
+                previousCourse();
+
+            }
+
+
+            restartAutoPlay();
+
+        },
+        { passive: true }
+    );
+
+
+    /* =========================================
+       INITIALIZE
+    ========================================= */
+
+    updateCourse(0);
+
+    startAutoPlay();
+
+});
+
