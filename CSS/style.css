@@ -811,16 +811,12 @@ body {
     padding: 150px 0 90px;
 
     background:
-        radial-gradient(
-            circle at 75% 45%,
+        radial-gradient(circle at 75% 45%,
             rgba(217, 70, 239, 0.10),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 15% 80%,
+            transparent 30%),
+        radial-gradient(circle at 15% 80%,
             rgba(168, 85, 247, 0.07),
-            transparent 25%
-        ),
+            transparent 25%),
         var(--bg-main);
 
     isolation: isolate;
@@ -1087,11 +1083,9 @@ body {
     color: #ffffff !important;
 
     background:
-        linear-gradient(
-            135deg,
+        linear-gradient(135deg,
             var(--primary-color),
-            var(--primary-dark)
-        );
+            var(--primary-dark));
 
     box-shadow:
         0 8px 25px var(--primary-glow);
@@ -1176,8 +1170,7 @@ body {
     width: min(100%, 500px);
 
     border:
-        1px solid
-        var(--border-color);
+        1px solid var(--border-color);
 
     border-radius: 18px;
 
@@ -1191,9 +1184,7 @@ body {
         0 0 0 1px rgba(255, 255, 255, 0.015);
 
     transform:
-        perspective(1000px)
-        rotateY(-4deg)
-        rotateX(2deg);
+        perspective(1000px) rotateY(-4deg) rotateX(2deg);
 
     transition:
         transform 0.5s ease,
@@ -1207,10 +1198,7 @@ body {
 
 .code-window:hover {
     transform:
-        perspective(1000px)
-        rotateY(0deg)
-        rotateX(0deg)
-        translateY(-6px);
+        perspective(1000px) rotateY(0deg) rotateX(0deg) translateY(-6px);
 
     box-shadow:
         0 35px 90px rgba(0, 0, 0, 0.3),
@@ -1230,8 +1218,7 @@ body {
     padding: 0 18px;
 
     border-bottom:
-        1px solid
-        rgba(255, 255, 255, 0.07);
+        1px solid rgba(255, 255, 255, 0.07);
 
     position: relative;
 }
@@ -1419,8 +1406,7 @@ body {
     padding: 0 18px;
 
     border-top:
-        1px solid
-        rgba(255, 255, 255, 0.07);
+        1px solid rgba(255, 255, 255, 0.07);
 
     color: #71717a;
 
@@ -1468,8 +1454,7 @@ body {
     padding: 9px 13px;
 
     border:
-        1px solid
-        var(--border-color);
+        1px solid var(--border-color);
 
     border-radius: 10px;
 
@@ -1542,14 +1527,12 @@ body {
     0%,
     100% {
         transform:
-            translateX(-50%)
-            translateY(0);
+            translateX(-50%) translateY(0);
     }
 
     50% {
         transform:
-            translateX(-50%)
-            translateY(5px);
+            translateX(-50%) translateY(5px);
     }
 
 }
@@ -1787,8 +1770,7 @@ body {
         rgba(217, 70, 239, 0.08);
 
     border:
-        1px solid
-        rgba(217, 70, 239, 0.12);
+        1px solid rgba(217, 70, 239, 0.12);
 
     font-size: 1.15rem;
 
@@ -1877,8 +1859,7 @@ body {
         rgba(217, 70, 239, 0.13);
 
     box-shadow:
-        0 8px 20px
-        rgba(217, 70, 239, 0.10);
+        0 8px 20px rgba(217, 70, 239, 0.10);
 }
 
 
