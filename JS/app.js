@@ -174,6 +174,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 // ==========================================================================
+//  MOVING TECH TRACK SLIDER ENGINE
+// ==========================================================================
+document.addEventListener('DOMContentLoaded', () => {
+    const marqueeTrack = document.getElementById('techMarquee');
+    
+    if (marqueeTrack) {
+        const initialContentBlock = marqueeTrack.querySelector('.marquee-content-block');
+        
+        if (initialContentBlock) {
+            const clonedContentBlock = initialContentBlock.cloneNode(true);
+            
+            marqueeTrack.appendChild(clonedContentBlock);
+        }
+    }
+});
+
+// ==========================================================================
 // INDEPENDENT NEWSLETTER EMAIL VALIDATION CONTROLLER
 // ==========================================================================
 document.addEventListener('DOMContentLoaded', () => {
