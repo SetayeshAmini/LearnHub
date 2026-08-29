@@ -1700,3 +1700,42 @@ if (course.details) {
 
   renderCourses();
 });
+
+/* ==========================================================
+   LEARNING PROCESS ANIMATION
+========================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const section = document.getElementById("learningProcess");
+
+  if (!section) return;
+
+  const steps = section.querySelectorAll(".learning-step");
+
+  const progress = section.querySelector(".learning-line-progress");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      if (!entries[0].isIntersecting) return;
+
+      steps.forEach((step, index) => {
+        setTimeout(() => {
+          step.classList.add("show");
+        }, index * 180);
+      });
+
+      setTimeout(() => {
+        if (progress) {
+          progress.style.width = "100%";
+        }
+      }, 400);
+
+      observer.disconnect();
+    },
+    {
+      threshold: 0.2,
+    },
+  );
+
+  observer.observe(section);
+});
