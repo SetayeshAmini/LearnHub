@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Logo -->
+    <link rel="icon" type="image/png" href="logo/logoLearn.png">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- About Page CSS -->
+    <link rel="stylesheet" href="about-style.css">
+    <title>About Us - LearnHub Academy</title>
+</head>
+
+<body>
+
+    <!-- ==============================
+         Navbar (Existing)
+    ============================== -->
+
+    <nav class="navbar navbar-expand-lg custom-navbar fixed-top" id="mainNavbar">
+        <div class="container">
+
+            <!-- Logo & Brand -->
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <img src="logo/logoLearn.png" alt="LearnHub Logo">
+                <span class="brand-text">
+                    LearnHub<span class="text-fuchsia"> Academy</span>
+                </span>
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="bi bi-list purple-hamburger-icon"></i>
+            </button>
+
+            <!-- Navbar Content -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <!-- Navigation Links -->
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-3">
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center gap-2" href="index.html">
+                            <i class="bi bi-house-door-fill nav-icon"></i>
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center gap-2" href="index.html#courses">
+                            <i class="bi bi-book-half nav-icon"></i>
+                            Courses
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active d-flex align-items-center gap-2" href="about.html">
+                            <i class="bi bi-people-fill nav-icon"></i>
+                            About
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Right Actions -->
+                <div class="d-flex align-items-center gap-3 mt-3 mt-lg-0 action-zone">
+                    <!-- Theme Button -->
+                    <button id="themeToggler" class="btn-theme-switch" type="button" title="Toggle Theme" aria-label="Toggle dark and light mode">
+                        <i id="themeIcon" class="bi bi-moon-fill fs-5"></i>
+                    </button>
+
+                    <!-- Start Now Button -->
+                    <a href="index.html#courses" class="btn-start-now">
+                        <span>Start Now</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                        </svg>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- ==========================================
+         ABOUT PAGE MAIN CONTENT
+    ========================================== -->
+
+    <main class="about-page">
+
+        <!-- ==========================================
+             SECTION 1: HERO
+        ========================================== -->
+
+        <section class="about-hero">
+            <div class="container">
+                <div class="row align-items-center min-vh-50 py-5">
+                    <div class="col-lg-7">
+                        <span class="section-badge">— ABOUT US</span>
+                        <h1 class="hero-title">
+                            Two founders. One mission:<br>
+                            <span class="text-gradient">Your coding journey.</span>
+                        </h1>
+                        <p class="hero-subtitle">
+                            We don't just teach code. We build developers. LearnHub was born from 
+                            real experience in software development — and a clear frustration: 
+                            learners deserved better tools and real people behind them.
+                        </p>
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <span class="stat-number" data-target="2">0</span>
+                                <span class="stat-label">Co-founders</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" data-target="50">0</span>
+                                <span class="stat-label">Expert Instructors</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" data-target="1000">0</span>
+                                <span class="stat-label">+ Students</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" data-target="15">0</span>
+                                <span class="stat-label">+ Courses</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 d-none d-lg-block">
+                        <div class="hero-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="LearnHub Team Collaboration" class="img-fluid rounded-4 shadow-lg">
+                            <div class="floating-badge">
+                                <i class="bi bi-code-square"></i>
+                                <span>Learn to Build</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             SECTION 2: MISSION
+        ========================================== -->
+
+        <section class="about-mission">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10 text-center">
+                        <span class="section-badge">— OUR MISSION</span>
+                        <h2 class="mission-title">
+                            Help aspiring developers grow — <br>
+                            <span class="text-gradient">without technical barriers</span>
+                        </h2>
+                        <p class="mission-text">
+                            We've seen what happens when someone has the passion to code but 
+                            lacks the right guidance — or no clear path at all. Tutorials scattered 
+                            across the internet, confusion about what to learn next, projects abandoned.
+                            <br><br>
+                            LearnHub exists to change that. Not as just another course platform 
+                            you figure out alone — but as a partner that knows your learning 
+                            journey and grows alongside it.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row g-4 mt-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="mission-card">
+                            <div class="mission-card-number">01</div>
+                            <h4>Mentorship over content</h4>
+                            <p>We're not interested in selling courses. We're interested in your success as a developer.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="mission-card">
+                            <div class="mission-card-number">02</div>
+                            <h4>Personal, not templated</h4>
+                            <p>Every learner gets real guidance — not a ticket system, not a chatbot.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="mission-card">
+                            <div class="mission-card-number">03</div>
+                            <h4>Built to adapt</h4>
+                            <p>If the curriculum doesn't fit your goals, we change it — not the other way around.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="mission-card">
+                            <div class="mission-card-number">04</div>
+                            <h4>Real skills, real results</h4>
+                            <p>Access to industry-relevant projects and tools — without enterprise-level costs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             SECTION 3: TEAM CAROUSEL
+        ========================================== -->
+
+        <section class="about-team-carousel">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mb-4">
+                        <span class="section-badge">— THE TEAM</span>
+                        <h2 class="team-carousel-heading">
+                            Two people. One product.<br>
+                            <span class="text-gradient">Full commitment.</span>
+                        </h2>
+                    </div>
+                </div>
+
+                <div class="team-carousel-wrapper">
+                    <div class="team-carousel-track" id="teamCarouselTrack">
+                        <!-- Cards will be dynamically rendered by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Navigation Dots -->
+                <div class="team-carousel-dots" id="teamCarouselDots">
+                    <!-- Dots will be dynamically rendered by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==========================================
+             SECTION 4: STORY
+        ========================================== -->
+
+        <section class="about-story">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6">
+                        <span class="section-badge">— HOW IT STARTED</span>
+                        <h2 class="story-title">
+                            A shared history before<br>
+                            <span class="text-gradient">LearnHub existed</span>
+                        </h2>
+                        <div class="story-timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-number">01</div>
+                                <div class="timeline-content">
+                                    <h5>The Beginning</h5>
+                                    <p>Alex was hiring. James applied. They met through a job posting at Alex's company. What started as a working relationship quickly became a real collaboration — building projects together, learning how the other thinks.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-number">02</div>
+                                <div class="timeline-content">
+                                    <h5>The Turning Point</h5>
+                                    <p>An international EdTech startup — and a platform built from scratch. Alex was invited to join. They brought James. Together they built a full online learning platform — from zero. That experience became the foundation.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-number">03</div>
+                                <div class="timeline-content">
+                                    <h5>The Decision</h5>
+                                    <p>Time to build something of their own. After years of experience, they had the vision and a clear problem to solve: aspiring developers needed a real technology partner, not another platform to figure out alone. LearnHub was born.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-number">04</div>
+                                <div class="timeline-content">
+                                    <h5>Today</h5>
+                                    <p>Two founders, real partnerships, live students. LearnHub is bootstrapped, growing, and built around a simple belief: the best learning technology is invisible — and the best support feels like having a mentor who handles the technical side so you can focus on coding.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="story-image-grid">
+                            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="LearnHub Story" class="story-main-img img-fluid rounded-4 shadow-lg">
+                            <div class="story-quote-card">
+                                <i class="bi bi-quote"></i>
+                                <p>"The best technology is invisible — and the best support feels like having a co-founder who handles the technical side so you can focus on learning."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             SECTION 5: HOW WE WORK
+        ========================================== -->
+
+        <section class="about-process">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10 text-center">
+                        <span class="section-badge">— HOW WE WORK WITH LEARNERS</span>
+                        <h2 class="process-title">
+                            We don't just teach.<br>
+                            <span class="text-gradient">We take on partners.</span>
+                        </h2>
+                    </div>
+                </div>
+
+                <div class="row g-5 mt-2">
+                    <div class="col-md-4">
+                        <div class="process-card">
+                            <div class="process-number">01</div>
+                            <h4>We start with your goals</h4>
+                            <p>Not a demo. Not a pricing page. A real conversation about what you want to achieve — and what's getting in the way. Most of our students come to us for one skill and stay because we helped them think bigger about their career.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="process-card">
+                            <div class="process-number">02</div>
+                            <h4>We build your path, not a template</h4>
+                            <p>Your personalized curriculum, your pace, your project portfolio. We configure, curate content, and set up everything by hand — because automated shortcuts miss the details that matter to learners.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="process-card">
+                            <div class="process-number">03</div>
+                            <h4>We grow when you grow</h4>
+                            <p>New skills needed? We build it. Something not working for you? We adapt. You're not locked into what the platform can do today — you have a technical team that moves with your career.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             SECTION 6: CTA
+        ========================================== -->
+
+        <section class="about-cta">
+            <div class="container">
+                <div class="cta-wrapper">
+                    <div class="row align-items-center">
+                        <div class="col-lg-7">
+                            <span class="cta-badge">READY TO START?</span>
+                            <h2 class="cta-title">
+                                Let's talk about<br>
+                                <span class="text-gradient">your coding journey</span>
+                            </h2>
+                            <p class="cta-text">
+                                No sales pitch. Just a 20-minute conversation about where you are and what would actually help.
+                            </p>
+                            <div class="cta-buttons">
+                                <a href="#" class="btn-cta-primary">
+                                    <i class="bi bi-chat-dots"></i>
+                                    Get in touch
+                                </a>
+                                <a href="#" class="btn-cta-secondary">
+                                    <i class="bi bi-play-circle"></i>
+                                    Explore courses
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 d-none d-lg-block">
+                            <div class="cta-image">
+                                <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Start Learning" class="img-fluid rounded-4 shadow-lg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==========================================
+         FOOTER (Existing)
+    ========================================== -->
+
+    <footer class="custom-footer mt-5">
+        <div class="container">
+            
+            <!-- Top Section: Core Columns -->
+            <div class="row gy-5">
+                
+                <div class="col-12 col-md-6 col-lg-3 footer-main-col">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <div class="logo-icon-main"></div>
+                        <span class="brand-text-main">LearnHub<span class="text-fuchsia"> Academy</span></span>
+                    </div>
+                    <p class="brand-desc text-muted mb-4">Empowering the next generation of global developers and software engineers by delivering premium, industry-grade, project-oriented courses. Through cutting-edge interactive tools, real-world sandboxes, and modern mentorship, we bridge the gap between learning and building the future of technology.</p>
+
+                    <div class="footer-socials d-flex gap-3">
+                        <a href="#" title="X (Twitter)"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" title="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" title="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" title="YouTube"><i class="bi bi-youtube"></i></a>
+                        <a href="#" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Ecosystem Links -->
+                <div class="col-6 col-md-6 col-lg-3">
+                    <h5 class="footer-title">Ecosystem</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">AI Builder Hub</a></li>
+                        <li><a href="#">Technical Articles</a></li>
+                        <li><a href="#">Engineering Blog</a></li>
+                        <li><a href="#">Syntax Cheatsheets</a></li>
+                        <li><a href="#">Code Challenges</a></li>
+                        <li><a href="#">System Docs</a></li>
+                        <li><a href="#">Interactive Projects</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Roadmap Links -->
+                <div class="col-6 col-md-6 col-lg-3">
+                    <h5 class="footer-title">Languages & Paths</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">HTML & CSS Studio</a></li>
+                        <li><a href="#">JavaScript Mastery</a></li>
+                        <li><a href="#">Python Data Science</a></li>
+                        <li><a href="#">Cloud Computing</a></li>
+                        <li><a href="#">Cybersecurity Path</a></li>
+                        <li><a href="#">Full Catalog Overview</a></li>
+                        <li><a href="#">Career Centers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Newsletter & Mobile Experience -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <h5 class="footer-title">Stay Updated</h5>
+                    <p class="newsletter-desc text-muted mb-3">Subscribe to get coding tips and path updates.</p>
+                    <div class="footer-newsletter mb-4">
+                        <div class="input-group">
+                            <input type="email" id="newsletterEmail" class="form-control custom-input" placeholder="Your email address" aria-label="Your email">
+                            <button class="btn btn-newsletter" id="newsletterBtn" type="button" disabled>Join</button>
+                        </div>
+                        <div id="newsletterError" class="text-danger small mt-2" style="display: none; color: #ef4444; font-size: 0.8rem; text-align: left;">Please enter a valid email address.</div>
+                    </div>
+
+                    <h5 class="footer-title small-title mb-3">Get Mobile Experience</h5>
+                    <div class="footer-apps d-flex flex-wrap gap-2">
+                        <a href="#" class="btn-app-store">
+                            <i class="bi bi-apple"></i>
+                            <div class="app-text">
+                                <span>Download on</span>
+                                <strong>App Store</strong>
+                            </div>
+                        </a>
+                        <a href="#" class="btn-app-store">
+                            <i class="bi bi-google-play"></i>
+                            <div class="app-text">
+                                <span>Get it on</span>
+                                <strong>Google Play</strong>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottomline -->
+            <div class="footer-bottom mt-5 pt-4 row align-items-center gy-3 text-center text-sm-start">
+                <div class="col-12 col-md-4 order-3 order-md-1">
+                    <p class="copyright-text mb-0">&copy; 2026 LearnHub Academy. All global rights reserved.</p>
+                </div>
+                <div class="col-12 col-md-4 order-2 order-md-2 d-flex justify-content-center gap-4">
+                    <a href="#" class="meta-link">Privacy Policy</a>
+                    <a href="#" class="meta-link">Terms of Service</a>
+                    <a href="#" class="meta-link">Help Center</a>
+                </div>
+                <div class="col-12 col-md-4 order-1 order-md-3 d-flex justify-content-center justify-content-md-end position-relative">
+                    <div class="ai-footer-container">
+                        <div class="ai-bubble" id="aiBubble" style="display: none;">
+                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                <p class="mb-0 ai-text">Hi! 👋 I'm Xpert, an AI assistant to help you find things.</p>
+                                <button class="btn-close-bubble" id="closeBubbleBtn" title="Dismiss Message">
+                                    <i class="bi bi-x-lg"></i>
+                                </button>
+                            </div>
+                            <div class="ai-bubble-arrow"></div>
+                        </div>
+                        <button class="ai-bot-trigger" id="aiTrigger" title="Chat with Xpert Assistant">
+                            <div class="bot-icon-wrapper">
+                                <i class="bi bi-mortarboard-fill cap-icon"></i>
+                                <i class="bi bi-robot bot-face"></i>
+                                <span class="pulse-dot"></span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="js/app.js"></script>
+
+    <!-- About Page JavaScript -->
+    <script src="about-script.js"></script>
+
+</body>
+
+</html>
