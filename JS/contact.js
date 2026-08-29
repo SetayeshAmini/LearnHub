@@ -308,87 +308,203 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // robat section
-document.addEventListener('DOMContentLoaded', () => {
-    const closeBubbleBtn = document.getElementById('closeBubbleBtn');
-    const aiBubble = document.getElementById('aiBubble');
-    const aiTrigger = document.getElementById('aiTrigger');
-    const aiTextElement = document.querySelector('.custom-footer .ai-text');
+// Robot / AI Assistant Section
+document.addEventListener("DOMContentLoaded", () => {
+
+    const closeBubbleBtn = document.getElementById("closeBubbleBtn");
+    const aiBubble = document.getElementById("aiBubble");
+    const aiTrigger = document.getElementById("aiTrigger");
+    const aiTextElement = document.querySelector(".custom-footer .ai-text");
+
+    // Check if required elements exist
+    if (!aiBubble || !aiTrigger || !aiTextElement) {
+        console.log("AI Assistant elements not found.");
+        return;
+    }
 
     const aiMessages = [
         "Hi! 👋 I'm Xpert, an AI assistant to help you find things.",
-        "💡 Looking for something? Try asking about our Javascript Masterclass!",
+        "💡 Looking for something? Try asking about our JavaScript Masterclass!",
         "🔥 Limited Offer: Get 30% off on all Full-Stack Web Development paths today!",
         "🚀 Stuck on code? Tap me to launch our interactive coding sandbox.",
         "📚 Tip: Regular practice in our Workspaces boosts your retention by 80%!"
     ];
 
+    let messageIndex = 0;
+    let typingTimer = null;
+
+    // Play notification sound
     const playNotificationSound = () => {
+
         try {
-            const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+            const AudioContext =
+                window.AudioContext || window.webkitAudioContext;
+
+            if (!AudioContext) return;
+
+            const audioCtx = new AudioContext();
+
             const oscillator = audioCtx.createOscillator();
             const gainNode = audioCtx.createGain();
-            
-            oscillator.type = 'sine';
-            oscillator.frequency.setValueAtTime(523.25, audioCtx.currentTime); 
-            gainNode.gain.setValueAtTime(0.03, audioCtx.currentTime); 
-            
+
+            oscillator.type = "sine";
+            oscillator.frequency.setValueAtTime(
+                523.25,
+                audioCtx.currentTime
+            );
+
+            gainNode.gain.setValueAtTime(
+                0.03,
+                audioCtx.currentTime
+            );
+
             oscillator.connect(gainNode);
             gainNode.connect(audioCtx.destination);
+
             oscillator.start();
-            oscillator.stop(audioCtx.currentTime + 0.1);
-        } catch (e) {
-            console.log("Audio playback blocked by browser setup.");
+
+            oscillator.stop(
+                audioCtx.currentTime + 0.1
+            );
+
+        } catch (error) {
+
+            console.log("Audio playback is blocked.");
+
         }
     };
 
-    const typeWriterEffect = (text, index = 0) => {
-        if (!aiTextElement) return;
-        if (index === 0) aiTextElement.innerHTML = ''; 
-        if (index < text.length) {
-            aiTextElement.innerHTML += text.charAt(index);
-            setTimeout(() => typeWriterEffect(text, index + 1), 25); 
-        }
+
+    // Typewriter effect
+    const typeWriterEffect = (text) => {
+
+        // Stop previous typing animation
+        clearTimeout(typingTimer);
+
+        aiTextElement.textContent = "";
+
+        let index = 0;
+
+        const type = () => {
+
+            if (index < text.length) {
+
+                aiTextElement.textContent += text.charAt(index);
+
+                index++;
+
+                typingTimer = setTimeout(type, 25);
+            }
+        };
+
+        type();
     };
 
+
+    // Get welcome message based on time
     const getTimedWelcome = () => {
+
         const hours = new Date().getHours();
-        if (hours < 12) return "Good morning!☀️ Ready to crush some coding goals today?";
-        if (hours < 18) return "Good afternoon!☕ Take a break and review your tech roadmap.";
-        return "Good Night!🌙 owl coder? Let's check out some code challenges.";
+
+        if (hours < 12) {
+
+            return "Good morning! ☀️ Ready to crush some coding goals today?";
+
+        } else if (hours < 18) {
+
+            return "Good afternoon! ☕ Take a break and review your tech roadmap.";
+
+        } else {
+
+            return "Good night! 🌙 Owl coder? Let's check out some code challenges.";
+
+        }
     };
 
+
+    // Show AI bubble
+    const showBubble = (message) => {
+
+        aiBubble.style.display = "block";
+
+        playNotificationSound();
+
+        typeWriterEffect(message);
+    };
+
+
+    // Hide AI bubble
+    const hideBubble = () => {
+
+        aiBubble.style.display = "none";
+
+        clearTimeout(typingTimer);
+    };
+
+
+    // Show welcome message after 2.5 seconds
     setTimeout(() => {
-        if (aiBubble) {
-            aiBubble.style.display = 'block';
-            playNotificationSound();
-            typeWriterEffect(getTimedWelcome());
-        }
+
+        showBubble(getTimedWelcome());
+
     }, 2500);
 
-    let messageIndex = 0;
+
+    // Change message every 12 seconds
     setInterval(() => {
-        if (aiBubble && aiBubble.style.display === 'block') {
-            typeWriterEffect(aiMessages[messageIndex]);
-            messageIndex = (messageIndex + 1) % aiMessages.length;
+
+        if (aiBubble.style.display === "block") {
+
+            typeWriterEffect(
+                aiMessages[messageIndex]
+            );
+
+            messageIndex =
+                (messageIndex + 1) % aiMessages.length;
         }
+
     }, 12000);
 
-    if (aiTrigger && aiBubble) {
-        aiTrigger.addEventListener('click', () => {
-            if (aiBubble.style.display === 'none' || aiBubble.style.display === '') {
-                aiBubble.style.display = 'block';
-                playNotificationSound();
-                typeWriterEffect(aiMessages[Math.floor(Math.random() * aiMessages.length)]);
-            } else {
-                aiBubble.style.display = 'none';
-            }
+
+    // AI trigger button
+    aiTrigger.addEventListener("click", () => {
+
+        const isHidden =
+            aiBubble.style.display === "none" ||
+            aiBubble.style.display === "";
+
+        if (isHidden) {
+
+            const randomMessage =
+                aiMessages[
+                    Math.floor(
+                        Math.random() * aiMessages.length
+                    )
+                ];
+
+            showBubble(randomMessage);
+
+        } else {
+
+            hideBubble();
+
+        }
+
+    });
+
+
+    // Close button
+    if (closeBubbleBtn) {
+
+        closeBubbleBtn.addEventListener("click", (event) => {
+
+            event.stopPropagation();
+
+            hideBubble();
+
         });
+
     }
 
-    if (closeBubbleBtn && aiBubble) {
-        closeBubbleBtn.addEventListener('click', (event) => {
-            event.stopPropagation(); 
-            aiBubble.style.display = 'none';
-        });
-    }
 });

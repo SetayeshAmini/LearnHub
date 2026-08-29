@@ -107,7 +107,7 @@ body {
 }
 
 /* ==========================================================================
-   FORCE NAVBAR BRAND LOGO RESIZING (100% FIXED)
+   FORCE NAVBAR BRAND LOGO RESIZING
    ========================================================================== */
 
 .custom-navbar .navbar-brand img,
@@ -537,7 +537,7 @@ select.custom-field option {
    ========================================================================== */
 .contact-card-info {
     /* Deep dark  background  */
-    background: linear-gradient(135deg, #130b1e 0%, #0a0512 100%) !important;
+    background: linear-gradient(135deg, #724bad 0%, #0a0512 100%) !important;
     border: 1px solid rgba(217, 70, 239, 0.12) !important;
     border-radius: var(--radius-lg);
     box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
