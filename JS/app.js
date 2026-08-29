@@ -198,13 +198,13 @@ document.addEventListener('DOMContentLoaded', () => {
             if (emailRegex.test(currentInputValue)) {
                 emailInput.style.borderColor = "var(--primary-color)";
                 emailInput.style.boxShadow = "0 0 8px var(--primary-glow)";
-                errorMsg.style.display = "none"; 
-                joinBtn.disabled = false; 
+                errorMsg.style.display = "none";
+                joinBtn.disabled = false;
             } else {
-                emailInput.style.borderColor = "#ef4444"; 
+                emailInput.style.borderColor = "#ef4444";
                 emailInput.style.boxShadow = "0 0 8px rgba(239, 68, 68, 0.2)";
-                errorMsg.style.display = "block"; 
-                joinBtn.disabled = true; 
+                errorMsg.style.display = "block";
+                joinBtn.disabled = true;
             }
         });
 
@@ -238,11 +238,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
             const oscillator = audioCtx.createOscillator();
             const gainNode = audioCtx.createGain();
-            
+
             oscillator.type = 'sine';
-            oscillator.frequency.setValueAtTime(523.25, audioCtx.currentTime); 
-            gainNode.gain.setValueAtTime(0.03, audioCtx.currentTime); 
-            
+            oscillator.frequency.setValueAtTime(523.25, audioCtx.currentTime);
+            gainNode.gain.setValueAtTime(0.03, audioCtx.currentTime);
+
             oscillator.connect(gainNode);
             gainNode.connect(audioCtx.destination);
             oscillator.start();
@@ -254,10 +254,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const typeWriterEffect = (text, index = 0) => {
         if (!aiTextElement) return;
-        if (index === 0) aiTextElement.innerHTML = ''; 
+        if (index === 0) aiTextElement.innerHTML = '';
         if (index < text.length) {
             aiTextElement.innerHTML += text.charAt(index);
-            setTimeout(() => typeWriterEffect(text, index + 1), 25); 
+            setTimeout(() => typeWriterEffect(text, index + 1), 25);
         }
     };
 
@@ -298,8 +298,1581 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (closeBubbleBtn && aiBubble) {
         closeBubbleBtn.addEventListener('click', (event) => {
-            event.stopPropagation(); 
+            event.stopPropagation();
             aiBubble.style.display = 'none';
         });
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   LEARNHUB HERO - TYPING EFFECT
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const typingText = document.getElementById("typingText");
+
+    if (!typingText) return;
+
+    const words = [
+        "your future.",
+        "your skills.",
+        "your career.",
+        "your ideas."
+    ];
+
+    let wordIndex = 0;
+    let characterIndex = 0;
+
+    let isDeleting = false;
+
+    const typingSpeed = 90;
+    const deletingSpeed = 55;
+    const pauseAfterTyping = 1500;
+    const pauseAfterDeleting = 350;
+
+    function typeEffect() {
+
+        const currentWord = words[wordIndex];
+
+        if (!isDeleting) {
+
+            characterIndex++;
+
+            typingText.textContent =
+                currentWord.substring(0, characterIndex);
+
+            if (characterIndex === currentWord.length) {
+
+                isDeleting = true;
+
+                setTimeout(
+                    typeEffect,
+                    pauseAfterTyping
+                );
+
+                return;
+            }
+
+            setTimeout(
+                typeEffect,
+                typingSpeed
+            );
+
+        } else {
+
+            characterIndex--;
+
+            typingText.textContent =
+                currentWord.substring(0, characterIndex);
+
+            if (characterIndex === 0) {
+
+                isDeleting = false;
+
+                wordIndex++;
+
+                if (wordIndex >= words.length) {
+                    wordIndex = 0;
+                }
+
+                setTimeout(
+                    typeEffect,
+                    pauseAfterDeleting
+                );
+
+                return;
+            }
+
+            setTimeout(
+                typeEffect,
+                deletingSpeed
+            );
+        }
+    }
+
+    typeEffect();
+
+});
+
+/* =========================================================
+   HERO CODE SKILL CHANGER
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const codeSkill = document.getElementById("codeSkill");
+
+    if (!codeSkill) return;
+
+    const skills = [
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "React",
+        "Python",
+        "Git"
+    ];
+
+    let skillIndex = 0;
+
+    function changeSkill() {
+
+        codeSkill.style.opacity = "0";
+
+        setTimeout(() => {
+
+            skillIndex++;
+
+            if (skillIndex >= skills.length) {
+                skillIndex = 0;
+            }
+
+            codeSkill.textContent =
+                `"${skills[skillIndex]}"`;
+
+            codeSkill.style.opacity = "1";
+
+        }, 250);
+    }
+
+    setInterval(changeSkill, 2200);
+
+});
+
+/* =========================================================
+   HERO CODE WINDOW MOUSE EFFECT
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const visual = document.querySelector(".hero-visual");
+    const codeWindow = document.querySelector(".code-window");
+
+    if (!visual || !codeWindow) return;
+
+    if (window.innerWidth <= 991) return;
+
+    visual.addEventListener("mousemove", (event) => {
+
+        const rect = visual.getBoundingClientRect();
+
+        const x =
+            event.clientX - rect.left;
+
+        const y =
+            event.clientY - rect.top;
+
+        const centerX =
+            rect.width / 2;
+
+        const centerY =
+            rect.height / 2;
+
+        const rotateY =
+            (x - centerX) / 35;
+
+        const rotateX =
+            (centerY - y) / 40;
+
+        codeWindow.style.transform =
+            `perspective(1000px)
+             rotateY(${rotateY}deg)
+             rotateX(${rotateX}deg)
+             translateY(-3px)`;
+    });
+
+    visual.addEventListener("mouseleave", () => {
+
+        codeWindow.style.transform =
+            `perspective(1000px)
+             rotateY(-4deg)
+             rotateX(2deg)`;
+
+    });
+
+});
+
+/* =========================================================
+   HERO BUTTON MICRO INTERACTION
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const buttons =
+        document.querySelectorAll(".hero-btn");
+
+    buttons.forEach((button) => {
+
+        button.addEventListener("mouseenter", () => {
+
+            button.style.transition =
+                "transform 0.25s ease";
+
+        });
+
+        button.addEventListener("mouseleave", () => {
+
+            button.style.transform = "";
+
+        });
+
+    });
+
+});
+
+
+
+
+
+/* =========================================================
+   STATS COUNTER
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const counters =
+        document.querySelectorAll(".counter");
+
+    if (!counters.length) return;
+
+
+    const observer =
+        new IntersectionObserver(
+            (entries, observer) => {
+
+                entries.forEach((entry) => {
+
+                    if (!entry.isIntersecting) return;
+
+
+                    const counter =
+                        entry.target;
+
+                    const target =
+                        Number(
+                            counter.dataset.target
+                        );
+
+
+                    let current = 0;
+
+                    const duration = 1400;
+
+                    const step =
+                        target / (duration / 16);
+
+
+                    function updateCounter() {
+
+                        current += step;
+
+
+                        if (current >= target) {
+
+                            counter.textContent =
+                                target.toLocaleString();
+
+                            return;
+                        }
+
+
+                        counter.textContent =
+                            Math.floor(current)
+                                .toLocaleString();
+
+
+                        requestAnimationFrame(
+                            updateCounter
+                        );
+                    }
+
+
+                    updateCounter();
+
+                    observer.unobserve(counter);
+
+                });
+
+            },
+
+            {
+                threshold: 0.5
+            }
+        );
+
+
+    counters.forEach((counter) => {
+
+        observer.observe(counter);
+
+    });
+
+});
+
+
+
+/* =========================================
+   LEARNING PATH
+========================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const categoryButtons =
+        document.querySelectorAll(".path-category");
+
+    const selectedCategory =
+        document.getElementById("selectedCategory");
+
+    const pathCourseCount =
+        document.getElementById("pathCourseCount");
+
+    const roadSteps =
+        document.getElementById("roadSteps");
+
+    const roadProgress =
+        document.getElementById("roadProgress");
+
+    const currentCourseNumber =
+        document.querySelector(".current-course-number");
+
+    const currentCourseLabel =
+        document.getElementById("currentCourseLabel");
+
+    const currentCourseTitle =
+        document.getElementById("currentCourseTitle");
+
+    const currentCourseDescription =
+        document.getElementById("currentCourseDescription");
+
+    const courseNextBtn =
+        document.getElementById("courseNextBtn");
+
+    const totalCourses =
+        document.getElementById("totalCourses");
+
+    const totalSteps =
+        document.getElementById("totalSteps");
+
+    const totalProjects =
+        document.getElementById("totalProjects");
+
+    /* =========================================
+       LEARNING PATH DATA
+    ========================================= */
+
+    const coursesData = {
+
+        "Programming": [
+            {
+                title: "Programming Basics",
+                label: "START HERE",
+                description:
+                    "Build a strong foundation in programming logic, variables, conditions and loops.",
+                project: false
+            },
+            {
+                title: "JavaScript Fundamentals",
+                label: "BUILD SKILLS",
+                description:
+                    "Learn JavaScript fundamentals and turn programming concepts into interactive code.",
+                project: false
+            },
+            {
+                title: "Advanced JavaScript",
+                label: "GO FURTHER",
+                description:
+                    "Explore modern JavaScript concepts, functions, arrays, objects and advanced techniques.",
+                project: false
+            },
+            {
+                title: "Programming Project",
+                label: "BUILD",
+                description:
+                    "Put your programming knowledge together and build a complete practical project.",
+                project: true
+            }
+        ],
+
+        "Web Development": [
+            {
+                title: "HTML & CSS",
+                label: "START HERE",
+                description:
+                    "Learn how websites are structured and create clean, responsive interfaces.",
+                project: false
+            },
+            {
+                title: "Bootstrap",
+                label: "BUILD SKILLS",
+                description:
+                    "Build responsive layouts faster using Bootstrap components and utilities.",
+                project: false
+            },
+            {
+                title: "JavaScript for Web",
+                label: "GO FURTHER",
+                description:
+                    "Make websites interactive by connecting JavaScript with the DOM.",
+                project: false
+            },
+            {
+                title: "Web Development Project",
+                label: "BUILD",
+                description:
+                    "Combine your frontend skills and create a complete responsive website.",
+                project: true
+            }
+        ],
+
+        "Data Science": [
+            {
+                title: "Data Science Basics",
+                label: "START HERE",
+                description:
+                    "Understand the foundations of data, analysis and data-driven thinking.",
+                project: false
+            },
+            {
+                title: "Data Analysis",
+                label: "BUILD SKILLS",
+                description:
+                    "Learn how to explore, organize and understand datasets.",
+                project: false
+            },
+            {
+                title: "Data Visualization",
+                label: "GO FURTHER",
+                description:
+                    "Turn complex datasets into clear and meaningful visual insights.",
+                project: false
+            },
+            {
+                title: "Data Science Project",
+                label: "BUILD",
+                description:
+                    "Apply your analytical skills to a practical real-world data project.",
+                project: true
+            }
+        ],
+
+        "Graphic Design": [
+            {
+                title: "Design Fundamentals",
+                label: "START HERE",
+                description:
+                    "Learn the core principles of composition, typography, color and visual balance.",
+                project: false
+            },
+            {
+                title: "Digital Design",
+                label: "BUILD SKILLS",
+                description:
+                    "Create digital graphics and develop a stronger visual design workflow.",
+                project: false
+            },
+            {
+                title: "Advanced Graphic Design",
+                label: "GO FURTHER",
+                description:
+                    "Explore advanced techniques and create more polished visual compositions.",
+                project: false
+            },
+            {
+                title: "Design Portfolio Project",
+                label: "BUILD",
+                description:
+                    "Create a complete design project that brings your skills together.",
+                project: true
+            }
+        ],
+
+        "Cybersecurity": [
+            {
+                title: "Cybersecurity Basics",
+                label: "START HERE",
+                description:
+                    "Understand the fundamentals of cybersecurity, threats and digital safety.",
+                project: false
+            },
+            {
+                title: "Network Security",
+                label: "BUILD SKILLS",
+                description:
+                    "Learn how networks can be protected and how common security risks work.",
+                project: false
+            },
+            {
+                title: "Ethical Hacking",
+                label: "GO FURTHER",
+                description:
+                    "Explore security testing concepts and responsible cybersecurity practices.",
+                project: false
+            },
+            {
+                title: "Security Project",
+                label: "BUILD",
+                description:
+                    "Apply your cybersecurity knowledge through a practical security project.",
+                project: true
+            }
+        ],
+
+        "Mobile Development": [
+            {
+                title: "Mobile Development Basics",
+                label: "START HERE",
+                description:
+                    "Understand the foundations of building applications for mobile devices.",
+                project: false
+            },
+            {
+                title: "Mobile UI Design",
+                label: "BUILD SKILLS",
+                description:
+                    "Create clean and intuitive interfaces designed for mobile experiences.",
+                project: false
+            },
+            {
+                title: "App Development",
+                label: "GO FURTHER",
+                description:
+                    "Learn how to build interactive mobile applications.",
+                project: false
+            },
+            {
+                title: "Mobile App Project",
+                label: "BUILD",
+                description:
+                    "Turn your ideas into a complete practical mobile application.",
+                project: true
+            }
+        ],
+
+        "Database": [
+            {
+                title: "Database Fundamentals",
+                label: "START HERE",
+                description:
+                    "Learn how databases store, organize and manage information.",
+                project: false
+            },
+            {
+                title: "SQL Basics",
+                label: "BUILD SKILLS",
+                description:
+                    "Learn how to work with data using SQL queries and database operations.",
+                project: false
+            },
+            {
+                title: "Advanced Databases",
+                label: "GO FURTHER",
+                description:
+                    "Explore relationships, optimization and more advanced database concepts.",
+                project: false
+            },
+            {
+                title: "Database Project",
+                label: "BUILD",
+                description:
+                    "Design and build a practical database solution from the ground up.",
+                project: true
+            }
+        ],
+
+        "Networking": [
+            {
+                title: "Networking Fundamentals",
+                label: "START HERE",
+                description:
+                    "Understand how computers, devices and networks communicate.",
+                project: false
+            },
+            {
+                title: "Network Administration",
+                label: "BUILD SKILLS",
+                description:
+                    "Learn the fundamentals of managing and maintaining computer networks.",
+                project: false
+            },
+            {
+                title: "Network Security",
+                label: "GO FURTHER",
+                description:
+                    "Understand the principles of protecting networks and connected systems.",
+                project: false
+            },
+            {
+                title: "Networking Project",
+                label: "BUILD",
+                description:
+                    "Apply your networking knowledge in a practical network project.",
+                project: true
+            }
+        ],
+
+        "Microsoft Office": [
+            {
+                title: "Microsoft Word",
+                label: "START HERE",
+                description:
+                    "Learn how to create, format and manage professional documents.",
+                project: false
+            },
+            {
+                title: "Microsoft Excel",
+                label: "BUILD SKILLS",
+                description:
+                    "Work with data, formulas, tables and useful spreadsheet tools.",
+                project: false
+            },
+            {
+                title: "Microsoft PowerPoint",
+                label: "GO FURTHER",
+                description:
+                    "Create clear and professional presentations with confidence.",
+                project: false
+            },
+            {
+                title: "Office Productivity Project",
+                label: "BUILD",
+                description:
+                    "Combine your Office skills to complete a practical productivity project.",
+                project: true
+            }
+        ],
+
+        "English": [
+            {
+                title: "English Foundations",
+                label: "START HERE",
+                description:
+                    "Build a strong foundation in essential English vocabulary and grammar.",
+                project: false
+            },
+            {
+                title: "Everyday English",
+                label: "BUILD SKILLS",
+                description:
+                    "Develop practical English skills for everyday communication.",
+                project: false
+            },
+            {
+                title: "English Communication",
+                label: "GO FURTHER",
+                description:
+                    "Improve your confidence in speaking, writing and real-world communication.",
+                project: false
+            },
+            {
+                title: "English Practice Project",
+                label: "PRACTICE",
+                description:
+                    "Use your English skills in practical communication situations.",
+                project: true
+            }
+        ],
+
+        "Business": [
+            {
+                title: "Business Fundamentals",
+                label: "START HERE",
+                description:
+                    "Understand the essential concepts behind modern business.",
+                project: false
+            },
+            {
+                title: "Business Communication",
+                label: "BUILD SKILLS",
+                description:
+                    "Develop communication skills for professional and business environments.",
+                project: false
+            },
+            {
+                title: "Entrepreneurship",
+                label: "GO FURTHER",
+                description:
+                    "Explore ideas, planning and the fundamentals of building a business.",
+                project: false
+            },
+            {
+                title: "Business Project",
+                label: "BUILD",
+                description:
+                    "Apply your knowledge to a practical business case and project.",
+                project: true
+            }
+        ]
+    };
+
+    /* =========================================
+       STATE
+    ========================================= */
+
+    let currentCategory = "Programming";
+
+    let currentCourseIndex = 0;
+
+    /* =========================================
+       FORMAT NUMBER
+    ========================================= */
+
+    function formatNumber(number) {
+
+        return String(number).padStart(2, "0");
+
+    }
+
+    /* =========================================
+       CREATE LEARNING ROAD
+    ========================================= */
+
+    function createRoad(courses) {
+
+        roadSteps.innerHTML = "";
+
+        courses.forEach((course, index) => {
+
+            const step =
+                document.createElement("div");
+
+            step.className = "road-step";
+
+            if (index < currentCourseIndex) {
+
+                step.classList.add("completed");
+
+            }
+
+            if (index === currentCourseIndex) {
+
+                step.classList.add("active");
+
+            }
+
+            step.innerHTML = `
+
+                <div class="road-step-dot">
+                    ${formatNumber(index + 1)}
+                </div>
+
+                <div class="road-step-title">
+                    ${course.title}
+                </div>
+
+                <div class="road-step-number">
+                    STEP ${formatNumber(index + 1)}
+                </div>
+
+            `;
+
+            roadSteps.appendChild(step);
+
+        });
+
+        updateProgress(courses.length);
+
+    }
+
+    /* =========================================
+       UPDATE PROGRESS
+    ========================================= */
+
+    function updateProgress(total) {
+
+        if (total <= 1) {
+
+            roadProgress.style.width = "0%";
+
+            return;
+        }
+
+        const progress =
+            (currentCourseIndex / (total - 1)) * 92;
+
+        roadProgress.style.width =
+            `${progress}%`;
+
+    }
+
+    /* =========================================
+       UPDATE CURRENT COURSE
+    ========================================= */
+
+    function updateCurrentCourse(courses) {
+
+        const course =
+            courses[currentCourseIndex];
+
+        if (!course) return;
+
+        currentCourseNumber.textContent =
+            formatNumber(currentCourseIndex + 1);
+
+        currentCourseLabel.textContent =
+            course.label;
+
+        currentCourseTitle.textContent =
+            course.title;
+
+        currentCourseDescription.textContent =
+            course.description;
+
+        createRoad(courses);
+
+        pathCourseCount.textContent =
+            formatNumber(courses.length);
+
+        totalCourses.textContent =
+            formatNumber(courses.length);
+
+        totalSteps.textContent =
+            formatNumber(courses.length);
+
+        const projectCount =
+            courses.filter(
+                course => course.project
+            ).length;
+
+        totalProjects.textContent =
+            formatNumber(projectCount);
+
+        /* Last course */
+
+        if (
+            currentCourseIndex ===
+            courses.length - 1
+        ) {
+
+            courseNextBtn.innerHTML =
+                `<i class="bi bi-check-lg"></i>`;
+
+            courseNextBtn.setAttribute(
+                "aria-label",
+                "Learning path completed"
+            );
+
+        } else {
+
+            courseNextBtn.innerHTML =
+                `<i class="bi bi-arrow-right"></i>`;
+
+            courseNextBtn.setAttribute(
+                "aria-label",
+                "Next course"
+            );
+
+        }
+
+    }
+
+    /* =========================================
+       CHANGE CATEGORY
+    ========================================= */
+
+    function changeCategory(category) {
+
+        if (!coursesData[category]) return;
+
+        currentCategory =
+            category;
+
+        currentCourseIndex =
+            0;
+
+        categoryButtons.forEach(button => {
+
+            button.classList.toggle(
+                "active",
+                button.dataset.category === category
+            );
+
+        });
+
+        selectedCategory.textContent =
+            category;
+
+        const courses =
+            coursesData[category];
+
+        const card =
+            document.querySelector(
+                ".learning-path-card"
+            );
+
+        card.style.opacity = "0";
+
+        card.style.transform =
+            "translateY(8px)";
+
+        setTimeout(() => {
+
+            updateCurrentCourse(courses);
+
+            card.style.opacity = "1";
+
+            card.style.transform =
+                "translateY(0)";
+
+        }, 180);
+
+    }
+
+    /* =========================================
+       CATEGORY BUTTONS
+    ========================================= */
+
+    categoryButtons.forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                changeCategory(
+                    button.dataset.category
+                );
+
+            }
+        );
+
+    });
+
+    /* =========================================
+       NEXT COURSE
+    ========================================= */
+
+    courseNextBtn.addEventListener(
+        "click",
+        () => {
+
+            const courses =
+                coursesData[currentCategory];
+
+            if (!courses) return;
+
+            if (
+                currentCourseIndex <
+                courses.length - 1
+            ) {
+
+                currentCourseIndex++;
+
+                updateCurrentCourse(
+                    courses
+                );
+
+            } else {
+
+                currentCourseIndex = 0;
+
+                updateCurrentCourse(
+                    courses
+                );
+
+            }
+
+        }
+    );
+
+    /* =========================================
+       CLICK ON LEARNING STEPS
+    ========================================= */
+
+    roadSteps.addEventListener(
+        "click",
+        event => {
+
+            const step =
+                event.target.closest(
+                    ".road-step"
+                );
+
+            if (!step) return;
+
+            const steps =
+                [...roadSteps.children];
+
+            const index =
+                steps.indexOf(step);
+
+            if (index === -1) return;
+
+            currentCourseIndex =
+                index;
+
+            updateCurrentCourse(
+                coursesData[currentCategory]
+            );
+
+        }
+    );
+
+    /* =========================================
+       KEYBOARD NAVIGATION
+    ========================================= */
+
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            const courses =
+                coursesData[currentCategory];
+
+            if (!courses) return;
+
+            if (
+                event.key === "ArrowRight" &&
+                currentCourseIndex <
+                courses.length - 1
+            ) {
+
+                currentCourseIndex++;
+
+                updateCurrentCourse(
+                    courses
+                );
+
+            }
+
+            if (
+                event.key === "ArrowLeft" &&
+                currentCourseIndex > 0
+            ) {
+
+                currentCourseIndex--;
+
+                updateCurrentCourse(
+                    courses
+                );
+
+            }
+
+        }
+    );
+
+    /* =========================================
+       INITIALIZE
+    ========================================= */
+
+    updateCurrentCourse(
+        coursesData[currentCategory]
+    );
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   TOP COURSES
+========================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* =========================================
+       COURSE DATA
+    ========================================= */
+
+    const courses = [
+
+        {
+            title: "Modern Web Development",
+
+            category: "WEB DEVELOPMENT",
+
+            description:
+                "Learn how to build beautiful, responsive and interactive websites from the ground up.",
+
+            level: "Beginner",
+
+            duration: "8 Weeks",
+
+            image:
+                "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=85&w=1200&auto=format&fit=crop",
+
+            link: "courses.html"
+        },
+
+
+        {
+            title: "JavaScript Fundamentals",
+
+            category: "PROGRAMMING",
+
+            description:
+                "Build a strong programming foundation and bring your ideas to life with JavaScript.",
+
+            level: "Beginner",
+
+            duration: "6 Weeks",
+
+            image:
+                "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=85&w=1200&auto=format&fit=crop",
+
+            link: "courses.html"
+        },
+
+
+        {
+            title: "Data Analysis Essentials",
+
+            category: "DATA SCIENCE",
+
+            description:
+                "Learn how to understand, explore and transform data into meaningful insights.",
+
+            level: "Intermediate",
+
+            duration: "10 Weeks",
+
+            image:
+                "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=85&w=1200&auto=format&fit=crop",
+
+            link: "courses.html"
+        }
+
+    ];
+
+
+    /* =========================================
+       ELEMENTS
+    ========================================= */
+
+    const image =
+        document.getElementById("topCourseImage");
+
+    const category =
+        document.getElementById("topCourseCategory");
+
+    const title =
+        document.getElementById("topCourseTitle");
+
+    const description =
+        document.getElementById("topCourseDescription");
+
+    const level =
+        document.getElementById("topCourseLevel");
+
+    const duration =
+        document.getElementById("topCourseDuration");
+
+    const link =
+        document.getElementById("topCourseLink");
+
+    const number =
+        document.getElementById("currentCourseNumber");
+
+    const progressDots =
+        document.querySelectorAll(
+            "#topCourseProgress span"
+        );
+
+    const nextButton =
+        document.getElementById("topCourseNext");
+
+    const prevButton =
+        document.getElementById("topCoursePrev");
+
+    const showcase =
+        document.querySelector(
+            ".top-course-showcase"
+        );
+
+
+    /* =========================================
+       STATE
+    ========================================= */
+
+    let currentIndex = 0;
+
+    let autoPlay;
+
+
+    /* =========================================
+       UPDATE COURSE
+    ========================================= */
+
+    function updateCourse(index) {
+
+        const course =
+            courses[index];
+
+
+        image.classList.add(
+            "is-changing"
+        );
+
+        title.classList.add(
+            "is-changing"
+        );
+
+        description.classList.add(
+            "is-changing"
+        );
+
+
+        setTimeout(() => {
+
+            image.src =
+                course.image;
+
+            image.alt =
+                course.title;
+
+            category.textContent =
+                course.category;
+
+            title.textContent =
+                course.title;
+
+            description.textContent =
+                course.description;
+
+            level.textContent =
+                course.level;
+
+            duration.textContent =
+                course.duration;
+
+            link.href =
+                course.link;
+
+            number.textContent =
+                String(index + 1)
+                    .padStart(2, "0");
+
+
+            progressDots.forEach(
+                (dot, dotIndex) => {
+
+                    dot.classList.toggle(
+                        "active",
+                        dotIndex === index
+                    );
+
+                }
+            );
+
+
+            image.classList.remove(
+                "is-changing"
+            );
+
+            title.classList.remove(
+                "is-changing"
+            );
+
+            description.classList.remove(
+                "is-changing"
+            );
+
+        }, 180);
+
+    }
+
+
+    /* =========================================
+       NEXT
+    ========================================= */
+
+    function nextCourse() {
+
+        currentIndex++;
+
+        if (
+            currentIndex >=
+            courses.length
+        ) {
+            currentIndex = 0;
+        }
+
+        updateCourse(
+            currentIndex
+        );
+    }
+
+
+    /* =========================================
+       PREVIOUS
+    ========================================= */
+
+    function previousCourse() {
+
+        currentIndex--;
+
+        if (currentIndex < 0) {
+
+            currentIndex =
+                courses.length - 1;
+        }
+
+        updateCourse(
+            currentIndex
+        );
+    }
+
+
+    /* =========================================
+       BUTTONS
+    ========================================= */
+
+    nextButton.addEventListener(
+        "click",
+        () => {
+
+            nextCourse();
+
+            restartAutoPlay();
+
+        }
+    );
+
+
+    prevButton.addEventListener(
+        "click",
+        () => {
+
+            previousCourse();
+
+            restartAutoPlay();
+
+        }
+    );
+
+
+    /* =========================================
+       PROGRESS DOTS
+    ========================================= */
+
+    progressDots.forEach(
+        (dot, index) => {
+
+            dot.addEventListener(
+                "click",
+                () => {
+
+                    currentIndex =
+                        index;
+
+                    updateCourse(
+                        currentIndex
+                    );
+
+                    restartAutoPlay();
+
+                }
+            );
+
+        }
+    );
+
+
+    /* =========================================
+       KEYBOARD
+    ========================================= */
+
+    document.addEventListener(
+        "keydown",
+        (event) => {
+
+            if (
+                event.key ===
+                "ArrowRight"
+            ) {
+
+                nextCourse();
+
+                restartAutoPlay();
+            }
+
+
+            if (
+                event.key ===
+                "ArrowLeft"
+            ) {
+
+                previousCourse();
+
+                restartAutoPlay();
+            }
+
+        }
+    );
+
+
+    /* =========================================
+       AUTOPLAY
+    ========================================= */
+
+    function startAutoPlay() {
+
+        autoPlay =
+            setInterval(() => {
+
+                nextCourse();
+
+            }, 6000);
+
+    }
+
+
+    function stopAutoPlay() {
+
+        clearInterval(
+            autoPlay
+        );
+
+    }
+
+
+    function restartAutoPlay() {
+
+        stopAutoPlay();
+
+        startAutoPlay();
+
+    }
+
+
+    /* =========================================
+       PAUSE ON HOVER
+    ========================================= */
+
+    showcase.addEventListener(
+        "mouseenter",
+        stopAutoPlay
+    );
+
+
+    showcase.addEventListener(
+        "mouseleave",
+        startAutoPlay
+    );
+
+
+    /* =========================================
+       TOUCH / SWIPE
+    ========================================= */
+
+    let touchStartX = 0;
+
+    let touchEndX = 0;
+
+
+    showcase.addEventListener(
+        "touchstart",
+        (event) => {
+
+            touchStartX =
+                event.changedTouches[0]
+                    .screenX;
+
+        },
+        { passive: true }
+    );
+
+
+    showcase.addEventListener(
+        "touchend",
+        (event) => {
+
+            touchEndX =
+                event.changedTouches[0]
+                    .screenX;
+
+            const distance =
+                touchEndX -
+                touchStartX;
+
+
+            if (
+                Math.abs(distance) < 50
+            ) {
+                return;
+            }
+
+
+            if (distance < 0) {
+
+                nextCourse();
+
+            } else {
+
+                previousCourse();
+
+            }
+
+
+            restartAutoPlay();
+
+        },
+        { passive: true }
+    );
+
+
+    /* =========================================
+       INITIALIZE
+    ========================================= */
+
+    updateCourse(0);
+
+    startAutoPlay();
+
+});
+
