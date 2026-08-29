@@ -858,6 +858,16 @@ body {
   visibility: visible;
   transform: translateY(0);
 }
+/* ==========================================
+   CLOSE AFTER CLICK
+========================================== */
+
+.hover-filter.filter-closed .hover-filter-menu {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transform: translateY(4px) !important;
+}
 
 
 /* Options */
@@ -1654,7 +1664,7 @@ body {
 
   color: var(--bs-body-color);
 
-  font-size: clamp(2rem, 4vw, 3.1rem);
+  font-size: clamp(2rem,۳vw, 3.1rem);
 
   line-height: 1.08;
 

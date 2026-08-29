@@ -1410,9 +1410,7 @@ image:
 
   courseSort.addEventListener("change", applyFilters);
 
-  /* ======================================================
-   HOVER FILTER DROPDOWNS
-====================================================== */
+
 /* ======================================================
    HOVER FILTER DROPDOWNS
 ====================================================== */
@@ -1424,14 +1422,13 @@ filterGroups.forEach((group) => {
   const select = group.querySelector(".filter-original");
   const button = group.querySelector(".hover-filter-button");
   const menu = group.querySelector(".hover-filter-menu");
+
   const options = group.querySelectorAll(
     ".hover-filter-menu button"
   );
 
   if (!select || !button || !menu) return;
 
-
-  /* Select option */
 
   options.forEach((option) => {
 
@@ -1442,15 +1439,25 @@ filterGroups.forEach((group) => {
 
       const value = option.dataset.value;
 
-      /* change */
+
+      /*main select */
       select.value = value;
 
-      /* change the button text */
+
+      /* change text button */
       button.childNodes[0].textContent =
         option.textContent.trim();
 
 
-      /*execution main fiter*/
+      /* active slect*/
+
+      options.forEach((item) => {
+        item.classList.remove("active");
+      });
+
+      option.classList.add("active");
+
+
       select.dispatchEvent(
         new Event("change", {
           bubbles: true
@@ -1458,19 +1465,20 @@ filterGroups.forEach((group) => {
       );
 
 
-      /* close the dropdown */
       group.classList.add("filter-closed");
 
+
       setTimeout(() => {
+
         group.classList.remove("filter-closed");
-      }, 100);
+
+      }, 500);
 
     });
 
   });
 
 
-  /* clect with button */
 
   select.addEventListener("change", () => {
 
@@ -1478,8 +1486,10 @@ filterGroups.forEach((group) => {
       select.options[select.selectedIndex];
 
     if (selected) {
+
       button.childNodes[0].textContent =
         selected.textContent.trim();
+
     }
 
   });
