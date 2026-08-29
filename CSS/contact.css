@@ -75,6 +75,16 @@ body {
         color 0.3s ease;
 }
 
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: #a855f7;
+    z-index: 9999;
+}
+
 
 /* ==========================================
    5. NAVBAR

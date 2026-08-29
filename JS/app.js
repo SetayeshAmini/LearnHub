@@ -1,3 +1,18 @@
+// first line
+window.onscroll = function () {
+
+    const scrollTop = document.documentElement.scrollTop;
+
+    const scrollHeight =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+
+    const scrollPercent = (scrollTop / scrollHeight) * 100;
+
+    document.querySelector(".scroll-progress").style.width =
+        scrollPercent + "%";
+};
+// navbar
 document.addEventListener("DOMContentLoaded", () => {
 
     const navbar = document.getElementById("mainNavbar");
