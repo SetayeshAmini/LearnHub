@@ -1739,3 +1739,145 @@ document.addEventListener("DOMContentLoaded", () => {
 
   observer.observe(section);
 });
+/* =========================================================
+   FAQ ACCORDION
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const faqCards = document.querySelectorAll(".faq-card");
+
+  faqCards.forEach((card) => {
+    const button = card.querySelector(".faq-question");
+
+    if (!button) return;
+
+    button.addEventListener("click", () => {
+      const isActive = card.classList.contains("active");
+
+      /* Close every FAQ */
+
+      faqCards.forEach((item) => {
+        item.classList.remove("active");
+
+        const itemButton = item.querySelector(".faq-question");
+
+        if (itemButton) {
+          itemButton.setAttribute("aria-expanded", "false");
+        }
+      });
+
+      /* Open clicked FAQ */
+
+      if (!isActive) {
+        card.classList.add("active");
+
+        button.setAttribute("aria-expanded", "true");
+      }
+    });
+  });
+});
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+const tabs=document.querySelectorAll(".journey-tab");
+const bar=document.getElementById("journeyBar");
+const info=document.getElementById("journeyInfo");
+const icon=document.getElementById("journeyIcon");
+const step=document.getElementById("journeyStep");
+const title=document.getElementById("journeyTitle");
+const text=document.getElementById("journeyText");
+const tags=document.getElementById("journeyTags");
+const count=document.getElementById("journeyCount");
+
+const data=[
+{
+icon:"bi-search",
+title:"Discover Your Path",
+text:"Explore our courses and find the right skill for your goals, interests and future plans.",
+tags:["Find Your Course","Choose Your Goal","Explore Skills"]
+},
+{
+icon:"bi-lightbulb",
+title:"Learn From Experts",
+text:"Join live classes and learn directly from experienced instructors through an engaging learning experience.",
+tags:["Live Classes","Expert Instructors","Interactive Learning"]
+},
+{
+icon:"bi-pencil-square",
+title:"Practice Your Skills",
+text:"Put your knowledge into practice through exercises, discussions and practical activities.",
+tags:["Practice","Feedback","Real Exercises"]
+},
+{
+icon:"bi-layers",
+title:"Build Real Projects",
+text:"Use what you have learned to create practical projects and gain valuable hands-on experience.",
+tags:["Real Projects","Hands-on Work","Build Confidence"]
+},
+{
+icon:"bi-trophy",
+title:"Achieve Your Goals",
+text:"Complete your learning journey, strengthen your skills and move confidently toward your future goals.",
+tags:["Certificate","New Skills","Your Future"]
+}
+];
+
+let current=0;
+let timer;
+
+function showStep(index){
+
+current=index;
+
+const item=data[index];
+
+tabs.forEach((tab,i)=>{
+tab.classList.toggle("active",i===index);
+});
+
+bar.style.width=`${((index+1)/data.length)*100}%`;
+
+info.classList.remove("change");
+void info.offsetWidth;
+info.classList.add("change");
+
+icon.innerHTML=`<i class="bi ${item.icon}"></i>`;
+step.textContent=`STEP ${String(index+1).padStart(2,"0")}`;
+title.textContent=item.title;
+text.textContent=item.text;
+count.textContent=`${String(index+1).padStart(2,"0")} / 05`;
+
+tags.innerHTML=item.tags.map(tag=>
+`<span class="journey-tag">${tag}</span>`
+).join("");
+}
+
+function startAuto(){
+
+timer=setInterval(()=>{
+let next=(current+1)%data.length;
+showStep(next);
+},4000);
+
+}
+
+function restartAuto(){
+
+clearInterval(timer);
+startAuto();
+
+}
+
+tabs.forEach((tab,index)=>{
+
+tab.addEventListener("click",()=>{
+showStep(index);
+restartAuto();
+});
+
+});
+
+showStep(0);
+startAuto();
+
+});
