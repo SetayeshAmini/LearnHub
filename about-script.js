@@ -40,10 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', revealOnScroll);
     window.addEventListener('resize', revealOnScroll);
 
-
-    // ==========================================
-    // 2. STATISTICS COUNTER ANIMATION
-    // ==========================================
+    // 2. STATISTICS COUNTER ANIMATIO
 
     const statNumbers = document.querySelectorAll('.stat-number');
 
@@ -109,10 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
         statsObserver.observe(statsContainer);
     }
 
-
-    // ==========================================
-    // 3. FOUNDER SKILLS INTERACTIVE TOGGLE
-    // ==========================================
+    // 3. FOUNDER SKILLS INTERACTIVE TOGGL
 
     const skillTags = document.querySelectorAll('.skill-tag');
 
@@ -132,10 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-
-    // ==========================================
-    // 4. TIMELINE HOVER ENHANCEMENT
-    // ==========================================
+    // 4. TIMELINE HOVER ENHANCEMEN
 
     const timelineItems = document.querySelectorAll('.timeline-item');
 
@@ -156,12 +147,9 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+    
 
-
-    // ==========================================
-    // 5. SMOOTH SCROLL FOR INTERNAL LINKS
-    // ==========================================
-
+    // 5. SMOOTH SCROLL FOR INTERNAL LINK
     const internalLinks = document.querySelectorAll('a[href^="#"]');
 
     internalLinks.forEach(link => {
@@ -186,10 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-
-    // ==========================================
-    // 6. TEAM CAROUSEL - CONTINUOUS SMOOTH MOVEMENT
-    // ==========================================
+    // 6. TEAM CAROUSEL - CONTINUOUS SMOOTH MOVEMEN
 
     // Team members data - 4 cards
     const teamMembers = [
@@ -198,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
             name: 'Alex Morgan',
             role: 'Co-founder — Vision, Product & Business',
             description: 'Fractional CTO, Lead PM, and business systems architect. Alex is the one who talks to partners, understands their needs, designs the solution, and makes sure everything comes together.',
-            image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+            image: 'image/cli1.jpg',
             skills: ['Product Management', 'CTO', 'Consulting', 'Platform Architecture', 'Business Strategy']
         },
         {
@@ -222,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
             name: 'Michael Torres',
             role: 'Technical Lead — Platform Development',
             description: 'Michael oversees the LearnHub platform architecture. He ensures our learning environment is fast, reliable, and provides the best experience for students worldwide.',
-            image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+            image: 'image/tt6.jpg',
             skills: ['Cloud Architecture', 'DevOps', 'React', 'Node.js', 'Scalability']
         }
     ];
@@ -631,10 +616,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(`  👤 ${member.name} — ${member.role}`);
     });
 
-
-    // ==========================================
-    // 7. COURSE DATA (Array of Objects)
-    // ==========================================
+    // 7. COURSE DATA (Array of Objects
 
     const courses = [
         { id: 1, name: 'HTML & CSS Mastery', level: 'Beginner', duration: '6 weeks', students: 150 },
@@ -661,10 +643,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(`✅ Found: ${reactCourse.name} (${reactCourse.level})`);
     }
 
-
-    // ==========================================
-    // 8. INTERACTIVE MISSION CARDS
-    // ==========================================
+    // 8. INTERACTIVE MISSION CARD
 
     const missionCards = document.querySelectorAll('.mission-card');
 
@@ -687,10 +666,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-
-    // ==========================================
-    // 9. SCROLL PROGRESS INDICATOR
-    // ==========================================
+    // 9. SCROLL PROGRESS INDICATO
 
     const createProgressIndicator = () => {
         const progressBar = document.createElement('div');
@@ -717,10 +693,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     createProgressIndicator();
 
-
-    // ==========================================
-    // 10. DYNAMIC YEAR IN FOOTER
-    // ==========================================
+    // 10. DYNAMIC YEAR IN FOOTE
 
     const updateCopyrightYear = () => {
         const copyrightElement = document.querySelector('.copyright-text');
@@ -732,10 +705,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateCopyrightYear();
 
-
-    // ==========================================
-    // 11. PARALLAX EFFECT ON HERO
-    // ==========================================
+    // 11. PARALLAX EFFECT ON HER
 
     const heroSection = document.querySelector('.about-hero');
     const heroContent = heroSection?.querySelector('.hero-title');
@@ -751,8 +721,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-
-    // ==========================================
     // 12. CLEANUP
 
     const cleanup = () => {
