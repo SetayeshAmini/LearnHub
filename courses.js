@@ -1442,15 +1442,15 @@ filterGroups.forEach((group) => {
 
       const value = option.dataset.value;
 
-      /* تغییر Select اصلی */
+      /* change */
       select.value = value;
 
-      /* تغییر متن Button */
+      /* change the button text */
       button.childNodes[0].textContent =
         option.textContent.trim();
 
 
-      /* اجرای فیلتر اصلی */
+      /*execution main fiter*/
       select.dispatchEvent(
         new Event("change", {
           bubbles: true
@@ -1458,7 +1458,7 @@ filterGroups.forEach((group) => {
       );
 
 
-      /* بستن Dropdown */
+      /* close the dropdown */
       group.classList.add("filter-closed");
 
       setTimeout(() => {
@@ -1470,7 +1470,7 @@ filterGroups.forEach((group) => {
   });
 
 
-  /* هماهنگ ماندن متن Button با Select */
+  /* clect with button */
 
   select.addEventListener("change", () => {
 
