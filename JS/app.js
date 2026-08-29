@@ -651,3 +651,754 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
+
+
+/* =========================================
+   LEARNING PATH
+========================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const categoryButtons =
+        document.querySelectorAll(".path-category");
+
+    const selectedCategory =
+        document.getElementById("selectedCategory");
+
+    const pathCourseCount =
+        document.getElementById("pathCourseCount");
+
+    const roadSteps =
+        document.getElementById("roadSteps");
+
+    const roadProgress =
+        document.getElementById("roadProgress");
+
+    const currentCourseNumber =
+        document.querySelector(".current-course-number");
+
+    const currentCourseLabel =
+        document.getElementById("currentCourseLabel");
+
+    const currentCourseTitle =
+        document.getElementById("currentCourseTitle");
+
+    const currentCourseDescription =
+        document.getElementById("currentCourseDescription");
+
+    const courseNextBtn =
+        document.getElementById("courseNextBtn");
+
+    const totalCourses =
+        document.getElementById("totalCourses");
+
+    const totalSteps =
+        document.getElementById("totalSteps");
+
+    const totalProjects =
+        document.getElementById("totalProjects");
+
+    /* =========================================
+       LEARNING PATH DATA
+    ========================================= */
+
+    const coursesData = {
+
+        "Programming": [
+            {
+                title: "Programming Basics",
+                label: "START HERE",
+                description:
+                    "Build a strong foundation in programming logic, variables, conditions and loops.",
+                project: false
+            },
+            {
+                title: "JavaScript Fundamentals",
+                label: "BUILD SKILLS",
+                description:
+                    "Learn JavaScript fundamentals and turn programming concepts into interactive code.",
+                project: false
+            },
+            {
+                title: "Advanced JavaScript",
+                label: "GO FURTHER",
+                description:
+                    "Explore modern JavaScript concepts, functions, arrays, objects and advanced techniques.",
+                project: false
+            },
+            {
+                title: "Programming Project",
+                label: "BUILD",
+                description:
+                    "Put your programming knowledge together and build a complete practical project.",
+                project: true
+            }
+        ],
+
+        "Web Development": [
+            {
+                title: "HTML & CSS",
+                label: "START HERE",
+                description:
+                    "Learn how websites are structured and create clean, responsive interfaces.",
+                project: false
+            },
+            {
+                title: "Bootstrap",
+                label: "BUILD SKILLS",
+                description:
+                    "Build responsive layouts faster using Bootstrap components and utilities.",
+                project: false
+            },
+            {
+                title: "JavaScript for Web",
+                label: "GO FURTHER",
+                description:
+                    "Make websites interactive by connecting JavaScript with the DOM.",
+                project: false
+            },
+            {
+                title: "Web Development Project",
+                label: "BUILD",
+                description:
+                    "Combine your frontend skills and create a complete responsive website.",
+                project: true
+            }
+        ],
+
+        "Data Science": [
+            {
+                title: "Data Science Basics",
+                label: "START HERE",
+                description:
+                    "Understand the foundations of data, analysis and data-driven thinking.",
+                project: false
+            },
+            {
+                title: "Data Analysis",
+                label: "BUILD SKILLS",
+                description:
+                    "Learn how to explore, organize and understand datasets.",
+                project: false
+            },
+            {
+                title: "Data Visualization",
+                label: "GO FURTHER",
+                description:
+                    "Turn complex datasets into clear and meaningful visual insights.",
+                project: false
+            },
+            {
+                title: "Data Science Project",
+                label: "BUILD",
+                description:
+                    "Apply your analytical skills to a practical real-world data project.",
+                project: true
+            }
+        ],
+
+        "Graphic Design": [
+            {
+                title: "Design Fundamentals",
+                label: "START HERE",
+                description:
+                    "Learn the core principles of composition, typography, color and visual balance.",
+                project: false
+            },
+            {
+                title: "Digital Design",
+                label: "BUILD SKILLS",
+                description:
+                    "Create digital graphics and develop a stronger visual design workflow.",
+                project: false
+            },
+            {
+                title: "Advanced Graphic Design",
+                label: "GO FURTHER",
+                description:
+                    "Explore advanced techniques and create more polished visual compositions.",
+                project: false
+            },
+            {
+                title: "Design Portfolio Project",
+                label: "BUILD",
+                description:
+                    "Create a complete design project that brings your skills together.",
+                project: true
+            }
+        ],
+
+        "Cybersecurity": [
+            {
+                title: "Cybersecurity Basics",
+                label: "START HERE",
+                description:
+                    "Understand the fundamentals of cybersecurity, threats and digital safety.",
+                project: false
+            },
+            {
+                title: "Network Security",
+                label: "BUILD SKILLS",
+                description:
+                    "Learn how networks can be protected and how common security risks work.",
+                project: false
+            },
+            {
+                title: "Ethical Hacking",
+                label: "GO FURTHER",
+                description:
+                    "Explore security testing concepts and responsible cybersecurity practices.",
+                project: false
+            },
+            {
+                title: "Security Project",
+                label: "BUILD",
+                description:
+                    "Apply your cybersecurity knowledge through a practical security project.",
+                project: true
+            }
+        ],
+
+        "Mobile Development": [
+            {
+                title: "Mobile Development Basics",
+                label: "START HERE",
+                description:
+                    "Understand the foundations of building applications for mobile devices.",
+                project: false
+            },
+            {
+                title: "Mobile UI Design",
+                label: "BUILD SKILLS",
+                description:
+                    "Create clean and intuitive interfaces designed for mobile experiences.",
+                project: false
+            },
+            {
+                title: "App Development",
+                label: "GO FURTHER",
+                description:
+                    "Learn how to build interactive mobile applications.",
+                project: false
+            },
+            {
+                title: "Mobile App Project",
+                label: "BUILD",
+                description:
+                    "Turn your ideas into a complete practical mobile application.",
+                project: true
+            }
+        ],
+
+        "Database": [
+            {
+                title: "Database Fundamentals",
+                label: "START HERE",
+                description:
+                    "Learn how databases store, organize and manage information.",
+                project: false
+            },
+            {
+                title: "SQL Basics",
+                label: "BUILD SKILLS",
+                description:
+                    "Learn how to work with data using SQL queries and database operations.",
+                project: false
+            },
+            {
+                title: "Advanced Databases",
+                label: "GO FURTHER",
+                description:
+                    "Explore relationships, optimization and more advanced database concepts.",
+                project: false
+            },
+            {
+                title: "Database Project",
+                label: "BUILD",
+                description:
+                    "Design and build a practical database solution from the ground up.",
+                project: true
+            }
+        ],
+
+        "Networking": [
+            {
+                title: "Networking Fundamentals",
+                label: "START HERE",
+                description:
+                    "Understand how computers, devices and networks communicate.",
+                project: false
+            },
+            {
+                title: "Network Administration",
+                label: "BUILD SKILLS",
+                description:
+                    "Learn the fundamentals of managing and maintaining computer networks.",
+                project: false
+            },
+            {
+                title: "Network Security",
+                label: "GO FURTHER",
+                description:
+                    "Understand the principles of protecting networks and connected systems.",
+                project: false
+            },
+            {
+                title: "Networking Project",
+                label: "BUILD",
+                description:
+                    "Apply your networking knowledge in a practical network project.",
+                project: true
+            }
+        ],
+
+        "Microsoft Office": [
+            {
+                title: "Microsoft Word",
+                label: "START HERE",
+                description:
+                    "Learn how to create, format and manage professional documents.",
+                project: false
+            },
+            {
+                title: "Microsoft Excel",
+                label: "BUILD SKILLS",
+                description:
+                    "Work with data, formulas, tables and useful spreadsheet tools.",
+                project: false
+            },
+            {
+                title: "Microsoft PowerPoint",
+                label: "GO FURTHER",
+                description:
+                    "Create clear and professional presentations with confidence.",
+                project: false
+            },
+            {
+                title: "Office Productivity Project",
+                label: "BUILD",
+                description:
+                    "Combine your Office skills to complete a practical productivity project.",
+                project: true
+            }
+        ],
+
+        "English": [
+            {
+                title: "English Foundations",
+                label: "START HERE",
+                description:
+                    "Build a strong foundation in essential English vocabulary and grammar.",
+                project: false
+            },
+            {
+                title: "Everyday English",
+                label: "BUILD SKILLS",
+                description:
+                    "Develop practical English skills for everyday communication.",
+                project: false
+            },
+            {
+                title: "English Communication",
+                label: "GO FURTHER",
+                description:
+                    "Improve your confidence in speaking, writing and real-world communication.",
+                project: false
+            },
+            {
+                title: "English Practice Project",
+                label: "PRACTICE",
+                description:
+                    "Use your English skills in practical communication situations.",
+                project: true
+            }
+        ],
+
+        "Business": [
+            {
+                title: "Business Fundamentals",
+                label: "START HERE",
+                description:
+                    "Understand the essential concepts behind modern business.",
+                project: false
+            },
+            {
+                title: "Business Communication",
+                label: "BUILD SKILLS",
+                description:
+                    "Develop communication skills for professional and business environments.",
+                project: false
+            },
+            {
+                title: "Entrepreneurship",
+                label: "GO FURTHER",
+                description:
+                    "Explore ideas, planning and the fundamentals of building a business.",
+                project: false
+            },
+            {
+                title: "Business Project",
+                label: "BUILD",
+                description:
+                    "Apply your knowledge to a practical business case and project.",
+                project: true
+            }
+        ]
+    };
+
+    /* =========================================
+       STATE
+    ========================================= */
+
+    let currentCategory = "Programming";
+
+    let currentCourseIndex = 0;
+
+    /* =========================================
+       FORMAT NUMBER
+    ========================================= */
+
+    function formatNumber(number) {
+
+        return String(number).padStart(2, "0");
+
+    }
+
+    /* =========================================
+       CREATE LEARNING ROAD
+    ========================================= */
+
+    function createRoad(courses) {
+
+        roadSteps.innerHTML = "";
+
+        courses.forEach((course, index) => {
+
+            const step =
+                document.createElement("div");
+
+            step.className = "road-step";
+
+            if (index < currentCourseIndex) {
+
+                step.classList.add("completed");
+
+            }
+
+            if (index === currentCourseIndex) {
+
+                step.classList.add("active");
+
+            }
+
+            step.innerHTML = `
+
+                <div class="road-step-dot">
+                    ${formatNumber(index + 1)}
+                </div>
+
+                <div class="road-step-title">
+                    ${course.title}
+                </div>
+
+                <div class="road-step-number">
+                    STEP ${formatNumber(index + 1)}
+                </div>
+
+            `;
+
+            roadSteps.appendChild(step);
+
+        });
+
+        updateProgress(courses.length);
+
+    }
+
+    /* =========================================
+       UPDATE PROGRESS
+    ========================================= */
+
+    function updateProgress(total) {
+
+        if (total <= 1) {
+
+            roadProgress.style.width = "0%";
+
+            return;
+        }
+
+        const progress =
+            (currentCourseIndex / (total - 1)) * 92;
+
+        roadProgress.style.width =
+            `${progress}%`;
+
+    }
+
+    /* =========================================
+       UPDATE CURRENT COURSE
+    ========================================= */
+
+    function updateCurrentCourse(courses) {
+
+        const course =
+            courses[currentCourseIndex];
+
+        if (!course) return;
+
+        currentCourseNumber.textContent =
+            formatNumber(currentCourseIndex + 1);
+
+        currentCourseLabel.textContent =
+            course.label;
+
+        currentCourseTitle.textContent =
+            course.title;
+
+        currentCourseDescription.textContent =
+            course.description;
+
+        createRoad(courses);
+
+        pathCourseCount.textContent =
+            formatNumber(courses.length);
+
+        totalCourses.textContent =
+            formatNumber(courses.length);
+
+        totalSteps.textContent =
+            formatNumber(courses.length);
+
+        const projectCount =
+            courses.filter(
+                course => course.project
+            ).length;
+
+        totalProjects.textContent =
+            formatNumber(projectCount);
+
+        /* Last course */
+
+        if (
+            currentCourseIndex ===
+            courses.length - 1
+        ) {
+
+            courseNextBtn.innerHTML =
+                `<i class="bi bi-check-lg"></i>`;
+
+            courseNextBtn.setAttribute(
+                "aria-label",
+                "Learning path completed"
+            );
+
+        } else {
+
+            courseNextBtn.innerHTML =
+                `<i class="bi bi-arrow-right"></i>`;
+
+            courseNextBtn.setAttribute(
+                "aria-label",
+                "Next course"
+            );
+
+        }
+
+    }
+
+    /* =========================================
+       CHANGE CATEGORY
+    ========================================= */
+
+    function changeCategory(category) {
+
+        if (!coursesData[category]) return;
+
+        currentCategory =
+            category;
+
+        currentCourseIndex =
+            0;
+
+        categoryButtons.forEach(button => {
+
+            button.classList.toggle(
+                "active",
+                button.dataset.category === category
+            );
+
+        });
+
+        selectedCategory.textContent =
+            category;
+
+        const courses =
+            coursesData[category];
+
+        const card =
+            document.querySelector(
+                ".learning-path-card"
+            );
+
+        card.style.opacity = "0";
+
+        card.style.transform =
+            "translateY(8px)";
+
+        setTimeout(() => {
+
+            updateCurrentCourse(courses);
+
+            card.style.opacity = "1";
+
+            card.style.transform =
+                "translateY(0)";
+
+        }, 180);
+
+    }
+
+    /* =========================================
+       CATEGORY BUTTONS
+    ========================================= */
+
+    categoryButtons.forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                changeCategory(
+                    button.dataset.category
+                );
+
+            }
+        );
+
+    });
+
+    /* =========================================
+       NEXT COURSE
+    ========================================= */
+
+    courseNextBtn.addEventListener(
+        "click",
+        () => {
+
+            const courses =
+                coursesData[currentCategory];
+
+            if (!courses) return;
+
+            if (
+                currentCourseIndex <
+                courses.length - 1
+            ) {
+
+                currentCourseIndex++;
+
+                updateCurrentCourse(
+                    courses
+                );
+
+            } else {
+
+                currentCourseIndex = 0;
+
+                updateCurrentCourse(
+                    courses
+                );
+
+            }
+
+        }
+    );
+
+    /* =========================================
+       CLICK ON LEARNING STEPS
+    ========================================= */
+
+    roadSteps.addEventListener(
+        "click",
+        event => {
+
+            const step =
+                event.target.closest(
+                    ".road-step"
+                );
+
+            if (!step) return;
+
+            const steps =
+                [...roadSteps.children];
+
+            const index =
+                steps.indexOf(step);
+
+            if (index === -1) return;
+
+            currentCourseIndex =
+                index;
+
+            updateCurrentCourse(
+                coursesData[currentCategory]
+            );
+
+        }
+    );
+
+    /* =========================================
+       KEYBOARD NAVIGATION
+    ========================================= */
+
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            const courses =
+                coursesData[currentCategory];
+
+            if (!courses) return;
+
+            if (
+                event.key === "ArrowRight" &&
+                currentCourseIndex <
+                courses.length - 1
+            ) {
+
+                currentCourseIndex++;
+
+                updateCurrentCourse(
+                    courses
+                );
+
+            }
+
+            if (
+                event.key === "ArrowLeft" &&
+                currentCourseIndex > 0
+            ) {
+
+                currentCourseIndex--;
+
+                updateCurrentCourse(
+                    courses
+                );
+
+            }
+
+        }
+    );
+
+    /* =========================================
+       INITIALIZE
+    ========================================= */
+
+    updateCurrentCourse(
+        coursesData[currentCategory]
+    );
+
+});
+
