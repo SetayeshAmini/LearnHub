@@ -1,0 +1,1175 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Logo  -->
+    <link rel="icon" type="image/png" href="logo/logoLearn.png" />
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="courses.css" />
+    <title>LearnHub - Educational Center</title>
+  </head>
+
+  <body>
+    <!-- ==============================
+         Navbar
+    =============================== -->
+
+    <nav
+      class="navbar navbar-expand-lg custom-navbar fixed-top"
+      id="mainNavbar"
+    >
+      <div class="container">
+        <!-- Logo & Brand -->
+        <a
+          class="navbar-brand d-flex align-items-center gap-2"
+          href="index.html"
+        >
+          <img src="logo/logoLearn.png" alt="" srcset="" />
+
+          <span class="brand-text">
+            LearnHub<span class="text-fuchsia"> Academy</span>
+          </span>
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="bi bi-list purple-hamburger-icon"></i>
+        </button>
+
+        <!-- Navbar Content -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <!-- Navigation Links -->
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-3">
+            <li class="nav-item">
+              <a
+                class="nav-link active d-flex align-items-center gap-2"
+                href="#home"
+              >
+                <i class="bi bi-house-door-fill nav-icon"></i>
+                Home
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a
+                class="nav-link d-flex align-items-center gap-2"
+                href="#courses"
+              >
+                <i class="bi bi-book-half nav-icon"></i>
+                Courses
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center gap-2" href="#about">
+                <i class="bi bi-people-fill nav-icon"></i>
+                About
+              </a>
+            </li>
+          </ul>
+
+          <!-- Right Actions -->
+          <div class="d-flex align-items-center gap-3 mt-3 mt-lg-0 action-zone">
+            <!-- Theme Button -->
+            <button
+              id="themeToggler"
+              class="btn-theme-switch"
+              type="button"
+              title="Toggle Theme"
+              aria-label="Toggle dark and light mode"
+            >
+              <i id="themeIcon" class="bi bi-moon-fill fs-5"></i>
+            </button>
+
+            <!-- Start Now Button -->
+            <a href="#courses" class="btn-start-now">
+              <span>Start Now</span>
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- ==========================Hero SECTION================================== -->
+    <section
+      class="courses-section py-5"
+      id="courses"
+      style="margin-top: 100px"
+    >
+      <div class="container">
+        <!-- Section Header -->
+        <div class="text-center mb-4">
+          <span class="courses-eyebrow">
+            <i class="bi bi-mortarboard-fill me-1"></i>
+            OUR COURSES
+          </span>
+
+          <h2 class="courses-title mt-2"id="Explore">
+            Explore Our <span>Professional Courses</span>
+          </h2>
+
+          <p class="courses-subtitle mx-auto">
+            Learn practical skills through live classes with experienced
+            instructors.
+          </p>
+        </div>
+
+        <!-- ================================= FILTER=================================== -->
+        <div class="course-filter-card mb-4">
+          <div class="row g-3 align-items-end">
+            <!-- Search -->
+            <div class="col-12 col-lg-4">
+              <label for="courseSearch" class="course-filter-label">
+                Search Courses
+              </label>
+
+              <div class="course-search-wrapper">
+                <i class="bi bi-search"></i>
+
+                <input
+                  type="text"
+                  id="courseSearch"
+                  class="form-control course-filter-input"
+                  placeholder="Search courses..."
+                />
+              </div>
+            </div>
+
+            <!-- Category -->
+            <div class="col-12 col-sm-6 col-lg-2">
+              <label for="courseCategory" class="course-filter-label">
+                Category
+              </label>
+
+              <div class="hover-filter">
+                <!-- Original Select - ID / CLASS / VALUES unchanged -->
+                <select
+                  id="courseCategory"
+                  class="form-select course-filter-input filter-original"
+                >
+                  <option value="all">All Categories</option>
+                  <option value="Programming">Programming</option>
+                  <option value="Web Development">Web Development</option>
+                  <option value="Mobile Development">Mobile Development</option>
+                  <option value="Database">Database</option>
+                  <option value="Networking">Networking</option>
+                  <option value="Cybersecurity">Cybersecurity</option>
+                  <option value="Data Science">Data Science</option>
+                  <option value="Graphic Design">Graphic Design</option>
+                  <option value="Microsoft Office">Microsoft Office</option>
+                  <option value="English">English</option>
+                  <option value="Business">Business</option>
+                </select>
+
+                <button
+                  type="button"
+                  class="form-select course-filter-input hover-filter-button"
+                >
+                  All Categories
+                </button>
+
+                <div class="hover-filter-menu category-menu">
+                  <div class="category-column">
+                    <button type="button" data-value="all">
+                      All Categories
+                    </button>
+
+                    <button type="button" data-value="Programming">
+                      Programming
+                    </button>
+
+                    <button type="button" data-value="Web Development">
+                      Web Development
+                    </button>
+
+                    <button type="button" data-value="Mobile Development">
+                      Mobile Development
+                    </button>
+
+                    <button type="button" data-value="Database">
+                      Database
+                    </button>
+
+                    <button type="button" data-value="Networking">
+                      Networking
+                    </button>
+                  </div>
+
+                  <div class="category-column">
+                    <button type="button" data-value="Cybersecurity">
+                      Cybersecurity
+                    </button>
+
+                    <button type="button" data-value="Data Science">
+                      Data Science
+                    </button>
+
+                    <button type="button" data-value="Graphic Design">
+                      Graphic Design
+                    </button>
+
+                    <button type="button" data-value="Microsoft Office">
+                      Microsoft Office
+                    </button>
+
+                    <button type="button" data-value="English">English</button>
+
+                    <button type="button" data-value="Business">
+                      Business
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Type -->
+            <div class="col-12 col-sm-6 col-lg-2">
+              <label for="courseType" class="course-filter-label">
+                Class Type
+              </label>
+
+              <div class="hover-filter">
+                <select
+                  id="courseType"
+                  class="form-select course-filter-input filter-original"
+                >
+                  <option value="all">All Types</option>
+                  <option value="Online">Online</option>
+                  <option value="In-Person">In-Person</option>
+                </select>
+
+                <button
+                  type="button"
+                  class="form-select course-filter-input hover-filter-button"
+                >
+                  All Types
+                </button>
+
+                <div class="hover-filter-menu">
+                  <button type="button" data-value="all">All Types</button>
+
+                  <button type="button" data-value="Online">Online</button>
+
+                  <button type="button" data-value="In-Person">
+                    In-Person
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Level -->
+            <div class="col-12 col-sm-6 col-lg-2">
+              <label for="courseLevel" class="course-filter-label">
+                Level
+              </label>
+
+              <div class="hover-filter">
+                <select
+                  id="courseLevel"
+                  class="form-select course-filter-input filter-original"
+                >
+                  <option value="all">All Levels</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Advanced">Advanced</option>
+                </select>
+
+                <button
+                  type="button"
+                  class="form-select course-filter-input hover-filter-button"
+                >
+                  All Levels
+                </button>
+
+                <div class="hover-filter-menu">
+                  <button type="button" data-value="all">All Levels</button>
+
+                  <button type="button" data-value="Beginner">Beginner</button>
+
+                  <button type="button" data-value="Intermediate">
+                    Intermediate
+                  </button>
+
+                  <button type="button" data-value="Advanced">Advanced</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sort -->
+            <div class="col-12 col-sm-6 col-lg-2">
+              <label for="courseSort" class="course-filter-label">
+                Sort By
+              </label>
+
+              <div class="hover-filter">
+                <select
+                  id="courseSort"
+                  class="form-select course-filter-input filter-original"
+                >
+                  <option value="newest">Newest</option>
+                  <option value="oldest">Oldest</option>
+                </select>
+
+                <button
+                  type="button"
+                  class="form-select course-filter-input hover-filter-button"
+                >
+                  Newest
+                </button>
+
+                <div class="hover-filter-menu">
+                  <button type="button" data-value="newest">Newest</button>
+
+                  <button type="button" data-value="oldest">Oldest</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Filter Bottom -->
+          <div class="course-filter-bottom mt-3">
+            <span id="courseCount" class="course-count">
+              Showing 6 of 21 courses
+            </span>
+
+            <button
+              type="button"
+              id="clearCourseFilters"
+              class="btn btn-sm course-clear-btn"
+            >
+              <i class="bi bi-arrow-counterclockwise me-1"></i>
+              Clear Filters
+            </button>
+          </div>
+        </div>
+
+        <!-- ======================================= COURSE GRID=============================== -->
+
+        <div class="row g-4" id="coursesGrid">
+          <!-- JavaScript creates 21 courses here -->
+        </div>
+
+        <!-- ==================================== EMPTY STATE======================================= -->
+
+        <div id="coursesEmptyState" class="courses-empty-state d-none">
+          <div class="empty-icon">
+            <i class="bi bi-search"></i>
+          </div>
+
+          <h4>No courses found</h4>
+
+          <p>Try adjusting your filters or searching for another course.</p>
+
+          <button
+            type="button"
+            class="btn course-primary-btn"
+            id="emptyClearBtn"
+          >
+            Clear Filters
+          </button>
+        </div>
+
+        <!-- =====================================LOAD MORE========================================== -->
+
+        <div class="text-center mt-5" id="loadMoreWrapper">
+          <button
+            type="button"
+            id="loadMoreCourses"
+            class="btn course-load-more-btn"
+          >
+            <span>Load More</span>
+            <i class="bi bi-arrow-down-circle ms-2"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+        <!-- ========================================COURSE DETAILS MODAL============================================ -->
+
+    <div
+      class="modal fade"
+      id="courseDetailsModal"
+      tabindex="-1"
+      aria-labelledby="courseDetailsModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content course-details-modal">
+          <!-- Modal Header -->
+          <div class="modal-header border-0">
+            <div>
+              <span class="modal-course-category" id="modalCourseCategory">
+              </span>
+
+              <h3 class="modal-title mt-2" id="courseDetailsModalLabel"></h3>
+            </div>
+
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <!-- Modal Body -->
+          <div class="modal-body pt-0">
+            <div class="course-modal-hero">
+              <img id="modalCourseImage" src="" alt="" />
+
+              <div class="course-modal-overlay">
+                <span id="modalCourseType"></span>
+              </div>
+            </div>
+
+            <div class="course-modal-box mt-3">
+              <div class="course-modal-heading">
+                <i class="bi bi-info-circle"></i>
+                <span>Course Information</span>
+              </div>
+
+              <div class="row g-2">
+                <div class="col-6">
+                  <div class="course-detail-item">
+                    <div class="course-detail-icon">
+                      <i class="bi bi-clock"></i>
+                    </div>
+
+                    <div>
+                      <small>Duration</small>
+                      <strong id="modalCourseDuration"></strong>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-6">
+                  <div class="course-detail-item">
+                    <div class="course-detail-icon">
+                      <i class="bi bi-bar-chart"></i>
+                    </div>
+
+                    <div>
+                      <small>Level</small>
+                      <strong id="modalCourseLevel"></strong>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-6">
+                  <div class="course-detail-item">
+                    <div class="course-detail-icon">
+                      <i class="bi bi-person"></i>
+                    </div>
+
+                    <div>
+                      <small>Instructor</small>
+                      <strong id="modalCourseInstructor"></strong>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-6">
+                  <div class="course-detail-item">
+                    <div class="course-detail-icon">
+                      <i class="bi bi-people"></i>
+                    </div>
+
+                    <div>
+                      <small>Students</small>
+                      <strong id="modalCourseStudents"></strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="course-modal-box mt-3">
+              <div class="course-modal-heading">
+                <i class="bi bi-stars"></i>
+                <span>About This Course</span>
+              </div>
+
+              <p id="modalCourseOverview"></p>
+            </div>
+
+            <div class="course-modal-box mt-3">
+              <div class="course-modal-heading">
+                <i class="bi bi-lightbulb"></i>
+                <span>What You'll Learn</span>
+              </div>
+
+              <div id="modalLearningPoints" class="row g-2"></div>
+            </div>
+
+            <div class="course-modal-box mt-3">
+              <div class="course-modal-heading">
+                <i class="bi bi-check2-circle"></i>
+                <span>Prerequisites</span>
+              </div>
+
+              <p id="modalCourseRequirements"></p>
+            </div>
+
+            <a href="contact.html" class="btn course-enroll-btn w-100 mt-3">
+              <i class="bi bi-arrow-right-circle me-2"></i>
+
+              Enroll Now
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+        <!-- ==========================================
+learning-journey
+     ========================================== -->
+
+        <section class="learning-journey py-5">
+      <div class="container">
+        <div class="text-center mb-4">
+          <span class="journey-label"
+            ><i class="bi bi-stars"></i> LEARNING JOURNEY</span
+          >
+          <h2 class="fw-bold mt-2">Your Path to <span>Success</span></h2>
+          <p class="text-body-secondary mb-0">
+            Five simple steps to turn learning into real skills.
+          </p>
+        </div>
+
+        <div class="journey-card p-3 p-md-4">
+          <div class="row g-2 journey-tabs" id="journeyTabs">
+            <div class="col">
+              <button class="journey-tab active w-100" data-step="0">
+                <small>01</small><i class="bi bi-search"></i
+                ><span>Discover</span>
+              </button>
+            </div>
+
+            <div class="col">
+              <button class="journey-tab w-100" data-step="1">
+                <small>02</small><i class="bi bi-lightbulb"></i
+                ><span>Learn</span>
+              </button>
+            </div>
+
+            <div class="col">
+              <button class="journey-tab w-100" data-step="2">
+                <small>03</small><i class="bi bi-pencil-square"></i
+                ><span>Practice</span>
+              </button>
+            </div>
+
+            <div class="col">
+              <button class="journey-tab w-100" data-step="3">
+                <small>04</small><i class="bi bi-layers"></i><span>Build</span>
+              </button>
+            </div>
+
+            <div class="col">
+              <button class="journey-tab w-100" data-step="4">
+                <small>05</small><i class="bi bi-trophy"></i
+                ><span>Achieve</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="journey-progress mt-3">
+            <div id="journeyBar"></div>
+          </div>
+
+          <div class="journey-info mt-4" id="journeyInfo">
+            <div class="journey-icon" id="journeyIcon">
+              <i class="bi bi-search"></i>
+            </div>
+
+            <div class="flex-grow-1">
+              <small class="journey-step" id="journeyStep">STEP 01</small>
+              <h3 class="fw-bold mb-2" id="journeyTitle">Discover Your Path</h3>
+              <p class="text-body-secondary mb-3" id="journeyText">
+                Explore our courses and find the right skill for your goals,
+                interests and future plans.
+              </p>
+
+              <div class="d-flex flex-wrap gap-2" id="journeyTags"></div>
+            </div>
+
+            <div class="journey-count" id="journeyCount">01 / 05</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <!-- =========================================FAQ SECTION=========================================== -->
+
+    <section class="faq-section" id="faq">
+      <div class="container">
+        <!-- ================= HEADING ================= -->
+
+        <div class="faq-heading text-center">
+          <div class="faq-eyebrow">
+            <span></span>
+            Frequently Asked Questions
+            <span></span>
+          </div>
+
+          <h2>
+            Questions?
+            <strong>We've Got Answers.</strong>
+          </h2>
+
+          <p>
+            Everything you need to know about our courses, classes, enrollment
+            and learning experience.
+          </p>
+        </div>
+
+        <!-- ================= FAQ ================= -->
+
+        <div class="row g-3 faq-columns">
+          <!-- ================= LEFT COLUMN ================= -->
+
+          <div class="col-lg-6">
+            <div class="faq-column">
+              <!-- 01 -->
+
+              <div class="faq-card active">
+                <button type="button" class="faq-question" aria-expanded="true">
+                  <div class="faq-number">01</div>
+
+                  <div class="faq-text">
+                    <span> Are the courses live? </span>
+
+                    <small> Learning format </small>
+                  </div>
+
+                  <div class="faq-toggle">
+                    <i class="bi bi-plus-lg"></i>
+                  </div>
+                </button>
+
+                <div class="faq-answer">
+                  <p>
+                    Yes. Our classes are conducted live by experienced
+                    instructors, allowing students to interact, ask questions
+                    and participate during the class.
+                  </p>
+                </div>
+              </div>
+
+              <!-- 02 -->
+
+              <div class="faq-card">
+                <button
+                  type="button"
+                  class="faq-question"
+                  aria-expanded="false"
+                >
+                  <div class="faq-number">02</div>
+
+                  <div class="faq-text">
+                    <span> Can I study online? </span>
+
+                    <small> Learning mode </small>
+                  </div>
+
+                  <div class="faq-toggle">
+                    <i class="bi bi-plus-lg"></i>
+                  </div>
+                </button>
+
+                <div class="faq-answer">
+                  <p>
+                    Selected courses are available online, while some programs
+                    may also be offered in-person depending on the course.
+                  </p>
+                </div>
+              </div>
+
+              <!-- 03 -->
+
+              <div class="faq-card">
+                <button
+                  type="button"
+                  class="faq-question"
+                  aria-expanded="false"
+                >
+                  <div class="faq-number">03</div>
+
+                  <div class="faq-text">
+                    <span> Do I need previous experience? </span>
+
+                    <small> Course level </small>
+                  </div>
+
+                  <div class="faq-toggle">
+                    <i class="bi bi-plus-lg"></i>
+                  </div>
+                </button>
+
+                <div class="faq-answer">
+                  <p>
+                    It depends on the course. We offer programs for beginners,
+                    intermediate learners and advanced students.
+                  </p>
+                </div>
+              </div>
+
+              <!-- 04 -->
+
+              <div class="faq-card">
+                <button
+                  type="button"
+                  class="faq-question"
+                  aria-expanded="false"
+                >
+                  <div class="faq-number">04</div>
+
+                  <div class="faq-text">
+                    <span> How do I choose a course? </span>
+
+                    <small> Course selection </small>
+                  </div>
+
+                  <div class="faq-toggle">
+                    <i class="bi bi-plus-lg"></i>
+                  </div>
+                </button>
+
+                <div class="faq-answer">
+                  <p>
+                    Review the course level, duration, requirements and learning
+                    outcomes. You can also contact us for guidance.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================= RIGHT COLUMN ================= -->
+
+          <div class="col-lg-6">
+            <div class="faq-column">
+              <!-- 05 -->
+
+              <div class="faq-card">
+                <button
+                  type="button"
+                  class="faq-question"
+                  aria-expanded="false"
+                >
+                  <div class="faq-number">05</div>
+
+                  <div class="faq-text">
+                    <span> Will I receive a certificate? </span>
+
+                    <small> Certification </small>
+                  </div>
+
+                  <div class="faq-toggle">
+                    <i class="bi bi-plus-lg"></i>
+                  </div>
+                </button>
+
+                <div class="faq-answer">
+                  <p>
+                    Students who successfully complete the required course
+                    requirements can receive a certificate of completion.
+                  </p>
+                </div>
+              </div>
+
+              <!-- 06 -->
+
+              <div class="faq-card">
+                <button
+                  type="button"
+                  class="faq-question"
+                  aria-expanded="false"
+                >
+                  <div class="faq-number">06</div>
+
+                  <div class="faq-text">
+                    <span> How long are the courses? </span>
+
+                    <small> Course duration </small>
+                  </div>
+
+                  <div class="faq-toggle">
+                    <i class="bi bi-plus-lg"></i>
+                  </div>
+                </button>
+
+                <div class="faq-answer">
+                  <p>
+                    Course duration depends on the program. The exact duration
+                    and class schedule are shown in the course details.
+                  </p>
+                </div>
+              </div>
+
+              <!-- 07 -->
+
+              <div class="faq-card">
+                <button
+                  type="button"
+                  class="faq-question"
+                  aria-expanded="false"
+                >
+                  <div class="faq-number">07</div>
+
+                  <div class="faq-text">
+                    <span> Can I interact with instructors? </span>
+
+                    <small> Live learning </small>
+                  </div>
+
+                  <div class="faq-toggle">
+                    <i class="bi bi-plus-lg"></i>
+                  </div>
+                </button>
+
+                <div class="faq-answer">
+                  <p>
+                    Absolutely. Students can communicate with instructors, ask
+                    questions and participate during live classes.
+                  </p>
+                </div>
+              </div>
+
+              <!-- 08 -->
+
+              <div class="faq-card">
+                <button
+                  type="button"
+                  class="faq-question"
+                  aria-expanded="false"
+                >
+                  <div class="faq-number">08</div>
+
+                  <div class="faq-text">
+                    <span> How can I enroll? </span>
+
+                    <small> Registration </small>
+                  </div>
+
+                  <div class="faq-toggle">
+                    <i class="bi bi-plus-lg"></i>
+                  </div>
+                </button>
+
+                <div class="faq-answer">
+                  <p>
+                    Choose your preferred course, open its details and use the
+                    enrollment option to contact the academy.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+  
+
+        <!-- ================= BOTTOM CTA ================= -->
+
+        <div class="faq-bottom">
+          <div class="faq-bottom-icon">
+            <i class="bi bi-chat-heart-fill"></i>
+          </div>
+
+          <div class="faq-bottom-text">
+            <strong> Still have questions? </strong>
+
+            <span> We're here to help you choose the right course. </span>
+          </div>
+
+          <a href="contact.html">
+            Get in Touch
+            <i class="bi bi-arrow-up-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+     <!-- ================================FINAL CTA SECTION===================================== -->
+
+    <section class="py-5">
+      <div class="container">
+        <div class="academy-cta">
+          <!-- Background Glow -->
+          <div class="cta-glow"></div>
+
+          <!-- Decorative Shape -->
+          <div class="cta-decoration">
+            <div class="cta-ring ring-1"></div>
+            <div class="cta-ring ring-2"></div>
+            <div class="cta-ring ring-3"></div>
+
+            <div class="cta-center-icon">
+              <i class="bi bi-mortarboard-fill"></i>
+            </div>
+
+            <div class="cta-dots"></div>
+          </div>
+
+          <!-- Content -->
+          <div class="cta-content">
+            <span class="cta-badge">
+              <i class="bi bi-stars me-2"></i>
+              Start Your Journey
+            </span>
+
+            <h2>
+              Ready to Learn and
+              <span>Grow Your Expertness ?</span>
+            </h2>
+
+            <p>
+             Take the next step in your Digital career with practical courses in Softwere Development and Graphic Design. Whether you're a beginner or looking to improve your skills, our online and in-person classes help you learn through practice and real projects.
+            </p>
+
+            <div class="cta-buttons">
+              <a href="#Explore" class="cta-btn cta-btn-primary">
+                <i class="bi bi-calendar2-check"></i>
+
+                Explore Our Courses
+
+                <i class="bi bi-arrow-right"></i>
+              </a>
+
+              <a href="contact.html" class="cta-btn cta-btn-outline">
+                <i class="bi bi-whatsapp"></i>
+
+                Contact Us
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+     START  FOOTER 
+     ========================================== -->
+    <footer class="custom-footer mt-5">
+      <div class="container">
+        <!-- Top Section: Core Columns (Optimized Grid) -->
+        <div class="row gy-5">
+          <div class="col-12 col-md-6 col-lg-3 footer-main-col">
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <div class="logo-icon-main"></div>
+              <span class="brand-text-main"
+                >LearnHub<span class="text-fuchsia"> Academy</span></span
+              >
+            </div>
+            <p class="brand-desc text-muted mb-4">
+              Empowering the next generation of global developers and software
+              engineers by delivering premium, industry-grade, project-oriented
+              courses. Through cutting-edge interactive tools, real-world
+              sandboxes, and modern mentorship, we bridge the gap between
+              learning and building the future of technology.
+            </p>
+
+            <div class="footer-socials d-flex gap-3">
+              <a href="#" title="X (Twitter)"
+                ><i class="bi bi-twitter-x"></i
+              ></a>
+              <a href="#" title="Facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" title="Instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" title="YouTube"><i class="bi bi-youtube"></i></a>
+              <a href="#" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+
+          <!-- Column 2: Ecosystem Links -->
+          <div class="col-6 col-md-6 col-lg-3">
+            <h5 class="footer-title">Ecosystem</h5>
+            <ul class="footer-links">
+              <li><a href="#">AI Builder Hub</a></li>
+              <li><a href="#">Technical Articles</a></li>
+              <li><a href="#">Engineering Blog</a></li>
+              <li><a href="#">Syntax Cheatsheets</a></li>
+              <li><a href="#">Code Challenges</a></li>
+              <li><a href="#">System Docs</a></li>
+              <li><a href="#">Interactive Projects</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Roadmap Links -->
+          <div class="col-6 col-md-6 col-lg-3">
+            <h5 class="footer-title">Languages & Paths</h5>
+            <ul class="footer-links">
+              <li><a href="#">HTML & CSS Studio</a></li>
+              <li><a href="#">JavaScript Mastery</a></li>
+              <li><a href="#">Python Data Science</a></li>
+              <li><a href="#">Cloud Computing</a></li>
+              <li><a href="#">Cybersecurity Path</a></li>
+              <li><a href="#">Full Catalog Overview</a></li>
+              <li><a href="#">Career Centers</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 4: Newsletter & Mobile Experience -->
+          <div class="col-12 col-md-6 col-lg-3">
+            <h5 class="footer-title">Stay Updated</h5>
+            <p class="newsletter-desc text-muted mb-3">
+              Subscribe to get coding tips and path updates.
+            </p>
+            <div class="footer-newsletter mb-4">
+              <div class="input-group">
+                <input
+                  type="email"
+                  id="newsletterEmail"
+                  class="form-control custom-input"
+                  placeholder="Your email address"
+                  aria-label="Your email"
+                />
+                <button
+                  class="btn btn-newsletter"
+                  id="newsletterBtn"
+                  type="button"
+                  disabled
+                >
+                  Join
+                </button>
+              </div>
+              <div
+                id="newsletterError"
+                class="text-danger small mt-2"
+                style="
+                  display: none;
+                  color: #ef4444;
+                  font-size: 0.8rem;
+                  text-align: left;
+                "
+              >
+                Please enter a valid email address.
+              </div>
+            </div>
+
+            <h5 class="footer-title small-title mb-3">Get Mobile Experience</h5>
+            <div class="footer-apps d-flex flex-wrap gap-2">
+              <a href="#" class="btn-app-store">
+                <i class="bi bi-apple"></i>
+                <div class="app-text">
+                  <span>Download on</span>
+                  <strong>App Store</strong>
+                </div>
+              </a>
+              <a href="#" class="btn-app-store">
+                <i class="bi bi-google-play"></i>
+                <div class="app-text">
+                  <span>Get it on</span>
+                  <strong>Google Play</strong>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Bottomline: Integrated AI Bot & Balanced Layout Links -->
+        <div
+          class="footer-bottom mt-5 pt-4 row align-items-center gy-3 text-center text-sm-start"
+        >
+          <!-- Bottom Left: Copyright -->
+          <div class="col-12 col-md-4 order-3 order-md-1">
+            <p class="copyright-text mb-0">
+              &copy; 2026 LearnHub Academy. All global rights reserved.
+            </p>
+          </div>
+
+          <!-- Bottom Center: Corporate Policy Links -->
+          <div
+            class="col-12 col-md-4 order-2 order-md-2 d-flex justify-content-center gap-4"
+          >
+            <a href="#" class="meta-link">Privacy Policy</a>
+            <a href="#" class="meta-link">Terms of Service</a>
+            <a href="#" class="meta-link">Help Center</a>
+          </div>
+
+          <!-- Bottom Right: Integrated AI Bot Assistant (Perfect Space Filler) -->
+          <div
+            class="col-12 col-md-4 order-1 order-md-3 d-flex justify-content-start justify-content-md-end position-relative"
+          >
+            <div class="ai-footer-container">
+              <!-- Integrated Speech Bubble Message -->
+              <div class="ai-bubble" id="aiBubble" style="display: none">
+                <div
+                  class="d-flex justify-content-between align-items-start gap-2"
+                >
+                  <p class="mb-0 ai-text">
+                    Hi! 👋 I'm Xpert, an AI assistant to help you find things.
+                  </p>
+                  <button
+                    class="btn-close-bubble"
+                    id="closeBubbleBtn"
+                    title="Dismiss Message"
+                  >
+                    <i class="bi bi-x-lg"></i>
+                  </button>
+                </div>
+                <div class="ai-bubble-arrow"></div>
+              </div>
+
+              <!-- Refined AI Button Component -->
+              <button
+                class="ai-bot-trigger"
+                id="aiTrigger"
+                title="Chat with Xpert Assistant"
+              >
+                <div class="bot-icon-wrapper">
+                  <i class="bi bi-mortarboard-fill cap-icon"></i>
+                  <i class="bi bi-robot bot-face"></i>
+                  <span class="pulse-dot"></span>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap 5 JavaScript -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Custom JavaScript -->
+    <script src="courses.js"></script>
+  </body>
+</html>
