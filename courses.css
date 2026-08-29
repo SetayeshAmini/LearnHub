@@ -935,7 +935,37 @@ body {
   white-space: nowrap;
 }
 
+@media (max-width: 576px) {
 
+  .category-menu {
+    width: calc(100vw - 30px) !important;
+    max-width: calc(100vw - 30px) !important;
+
+    left: 50% !important;
+    transform: translateX(-50%) translateY(4px) !important;
+
+    box-sizing: border-box;
+  }
+
+  .hover-filter:hover .category-menu {
+    transform: translateX(-50%) translateY(0) !important;
+  }
+
+  .category-column {
+    min-width: 0;
+  }
+
+  .category-column button {
+    width: 100%;
+    min-width: 0;
+
+    white-space: normal !important;
+    overflow-wrap: anywhere;
+
+    font-size: 13px;
+    padding: 7px 6px !important;
+  }
+}
 .course-count {
   color: var(--text-muted);
   font-size: 0.8rem;

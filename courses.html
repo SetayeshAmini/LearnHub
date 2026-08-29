@@ -417,6 +417,142 @@
       </div>
     </section>
 
+        <!-- ========================================COURSE DETAILS MODAL============================================ -->
+
+    <div
+      class="modal fade"
+      id="courseDetailsModal"
+      tabindex="-1"
+      aria-labelledby="courseDetailsModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content course-details-modal">
+          <!-- Modal Header -->
+          <div class="modal-header border-0">
+            <div>
+              <span class="modal-course-category" id="modalCourseCategory">
+              </span>
+
+              <h3 class="modal-title mt-2" id="courseDetailsModalLabel"></h3>
+            </div>
+
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <!-- Modal Body -->
+          <div class="modal-body pt-0">
+            <div class="course-modal-hero">
+              <img id="modalCourseImage" src="" alt="" />
+
+              <div class="course-modal-overlay">
+                <span id="modalCourseType"></span>
+              </div>
+            </div>
+
+            <div class="course-modal-box mt-3">
+              <div class="course-modal-heading">
+                <i class="bi bi-info-circle"></i>
+                <span>Course Information</span>
+              </div>
+
+              <div class="row g-2">
+                <div class="col-6">
+                  <div class="course-detail-item">
+                    <div class="course-detail-icon">
+                      <i class="bi bi-clock"></i>
+                    </div>
+
+                    <div>
+                      <small>Duration</small>
+                      <strong id="modalCourseDuration"></strong>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-6">
+                  <div class="course-detail-item">
+                    <div class="course-detail-icon">
+                      <i class="bi bi-bar-chart"></i>
+                    </div>
+
+                    <div>
+                      <small>Level</small>
+                      <strong id="modalCourseLevel"></strong>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-6">
+                  <div class="course-detail-item">
+                    <div class="course-detail-icon">
+                      <i class="bi bi-person"></i>
+                    </div>
+
+                    <div>
+                      <small>Instructor</small>
+                      <strong id="modalCourseInstructor"></strong>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-6">
+                  <div class="course-detail-item">
+                    <div class="course-detail-icon">
+                      <i class="bi bi-people"></i>
+                    </div>
+
+                    <div>
+                      <small>Students</small>
+                      <strong id="modalCourseStudents"></strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="course-modal-box mt-3">
+              <div class="course-modal-heading">
+                <i class="bi bi-stars"></i>
+                <span>About This Course</span>
+              </div>
+
+              <p id="modalCourseOverview"></p>
+            </div>
+
+            <div class="course-modal-box mt-3">
+              <div class="course-modal-heading">
+                <i class="bi bi-lightbulb"></i>
+                <span>What You'll Learn</span>
+              </div>
+
+              <div id="modalLearningPoints" class="row g-2"></div>
+            </div>
+
+            <div class="course-modal-box mt-3">
+              <div class="course-modal-heading">
+                <i class="bi bi-check2-circle"></i>
+                <span>Prerequisites</span>
+              </div>
+
+              <p id="modalCourseRequirements"></p>
+            </div>
+
+            <a href="contact.html" class="btn course-enroll-btn w-100 mt-3">
+              <i class="bi bi-arrow-right-circle me-2"></i>
+
+              Enroll Now
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- ==========================================
      START  FOOTER 
      ========================================== -->
@@ -558,7 +694,7 @@
 
           <!-- Bottom Right: Integrated AI Bot Assistant (Perfect Space Filler) -->
           <div
-            class="col-12 col-md-4 order-1 order-md-3 d-flex justify-content-center justify-content-md-end position-relative"
+            class="col-12 col-md-4 order-1 order-md-3 d-flex justify-content-start justify-content-md-end position-relative"
           >
             <div class="ai-footer-container">
               <!-- Integrated Speech Bubble Message -->
