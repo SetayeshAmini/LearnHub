@@ -567,3 +567,87 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+/* =========================================================
+   STATS COUNTER
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const counters =
+        document.querySelectorAll(".counter");
+
+    if (!counters.length) return;
+
+
+    const observer =
+        new IntersectionObserver(
+            (entries, observer) => {
+
+                entries.forEach((entry) => {
+
+                    if (!entry.isIntersecting) return;
+
+
+                    const counter =
+                        entry.target;
+
+                    const target =
+                        Number(
+                            counter.dataset.target
+                        );
+
+
+                    let current = 0;
+
+                    const duration = 1400;
+
+                    const step =
+                        target / (duration / 16);
+
+
+                    function updateCounter() {
+
+                        current += step;
+
+
+                        if (current >= target) {
+
+                            counter.textContent =
+                                target.toLocaleString();
+
+                            return;
+                        }
+
+
+                        counter.textContent =
+                            Math.floor(current)
+                                .toLocaleString();
+
+
+                        requestAnimationFrame(
+                            updateCounter
+                        );
+                    }
+
+
+                    updateCounter();
+
+                    observer.unobserve(counter);
+
+                });
+
+            },
+
+            {
+                threshold: 0.5
+            }
+        );
+
+
+    counters.forEach((counter) => {
+
+        observer.observe(counter);
+
+    });
+
+});
