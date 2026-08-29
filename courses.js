@@ -1881,3 +1881,47 @@ showStep(0);
 startAuto();
 
 });
+
+/* ==========================================================
+   ACADEMY CTA INTERACTION
+========================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const cta = document.querySelector(".academy-cta");
+
+  if (!cta) return;
+
+  const decoration = cta.querySelector(".cta-decoration");
+
+  /* Mouse movement */
+
+  cta.addEventListener("mousemove", (event) => {
+    const rect = cta.getBoundingClientRect();
+
+    const x = (event.clientX - rect.left) / rect.width - 0.5;
+
+    const y = (event.clientY - rect.top) / rect.height - 0.5;
+
+    decoration.style.transform = `translate(${x * 18}px, ${y * 18}px)`;
+  });
+
+  /* Reset */
+
+  cta.addEventListener("mouseleave", () => {
+    decoration.style.transform = "translate(0, 0)";
+  });
+
+  /* Button click animation */
+
+  const buttons = cta.querySelectorAll(".cta-btn");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      button.style.transform = "scale(.97)";
+
+      setTimeout(() => {
+        button.style.transform = "";
+      }, 150);
+    });
+  });
+});
