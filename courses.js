@@ -302,3 +302,1401 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+/* ==========================================================
+   COURSES FILTER + LOAD MORE + DETAILS
+========================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const coursesGrid = document.getElementById("coursesGrid");
+  const courseSearch = document.getElementById("courseSearch");
+  const courseCategory = document.getElementById("courseCategory");
+  const courseType = document.getElementById("courseType");
+  const courseLevel = document.getElementById("courseLevel");
+  const courseSort = document.getElementById("courseSort");
+
+  const courseCount = document.getElementById("courseCount");
+  const loadMoreBtn = document.getElementById("loadMoreCourses");
+  const loadMoreWrapper = document.getElementById("loadMoreWrapper");
+
+  const emptyState = document.getElementById("coursesEmptyState");
+  const clearFiltersBtn = document.getElementById("clearCourseFilters");
+  const emptyClearBtn = document.getElementById("emptyClearBtn");
+
+  /* ======================================================
+       21 COURSES
+    ====================================================== */
+
+  const courses = [
+    {
+      id: 1,
+      title: "Git & GitHub for Developers",
+      description:
+        "Master Git and GitHub workflows used by professional software developers.",
+      category: "Programming",
+      type: "Online",
+      level: "Beginner",
+      duration: "4 Weeks",
+      language: "Dari / English",
+      instructor: "Alex Morgan",
+      students: 210,
+      rating: 4.7,
+      price: "Free",
+      popular: true,
+      date: 21,
+      image:
+  "https://images.pexels.com/photos/5483075/pexels-photo-5483075.jpeg",
+details: {
+  overview:
+    "Learn Git and GitHub from the basics and build a strong workflow for managing and collaborating on software projects.",
+
+  learning: [
+    "Git Basics & Commands",
+    "Branches & Merging",
+    "GitHub Repositories",
+    "Team Collaboration"
+  ],
+
+  requirements:
+    "Basic computer and programming knowledge is recommended."
+}
+    },
+
+    {
+      id: 2,
+      title: "HTML & CSS Foundations",
+      description:
+        "Learn how websites are structured and styled using modern HTML5 and CSS3.",
+      category: "Web Development",
+      type: "Online",
+      level: "Beginner",
+      duration: "4 Weeks",
+      language: "English",
+      instructor: "Sarah Mitchell",
+      students: 185,
+      rating: 4.8,
+      price: "Free",
+      popular: true,
+      date: 20,
+      image:
+        "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80",
+    details: {
+  overview:
+    "Learn how to build well-structured and responsive web pages using modern HTML5 and CSS3.",
+
+  learning: [
+    "HTML5 Structure",
+    "CSS3 Styling",
+    "Responsive Design",
+    "Web Page Projects"
+  ],
+
+  requirements:
+    "No prior web development experience is required."
+},
+      },
+
+    {
+      id: 3,
+      title: "Python Programming",
+      description:
+        "Start programming with Python and build a strong foundation in modern development.",
+      category: "Programming",
+      type: "Online",
+      level: "Beginner",
+      duration: "3 Months",
+      language: "Dari / English",
+      instructor: "Emma Wilson",
+      students: 160,
+      rating: 4.8,
+      price: "$25",
+      popular: true,
+      date: 19,
+      image:
+        "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&w=900&q=80",
+   details: {
+  overview:
+    "Build a strong foundation in Python programming and learn how to write practical programs using modern programming concepts.",
+
+  learning: [
+    "Python Basics",
+    "Variables & Functions",
+    "Lists & Dictionaries",
+    "Practical Projects"
+  ],
+
+  requirements:
+    "No prior programming experience is required."
+},
+      },
+
+    {
+      id: 4,
+      title: "JavaScript Masterclass",
+      description:
+        "Build interactive web applications and understand modern JavaScript.",
+      category: "Programming",
+      type: "Online",
+      level: "Intermediate",
+      duration: "3 Months",
+      language: "English",
+      instructor: "Daniel Carter",
+      students: 145,
+      rating: 4.9,
+      price: "$35",
+      popular: true,
+      date: 18,
+      image:
+        "https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto=format&fit=crop&w=900&q=80",
+   details: {
+  overview:
+    "Build interactive web applications and strengthen your JavaScript skills through modern concepts and practical development.",
+
+  learning: [
+    "Modern JavaScript",
+    "DOM & Events",
+    "Async JavaScript",
+    "Real Projects"
+  ],
+
+  requirements:
+    "Basic HTML and CSS knowledge is required."
+},
+      },
+
+    {
+      id: 5,
+      title: "Full-Stack Web Development",
+      description:
+        "Learn frontend and backend development and build complete web applications.",
+      category: "Web Development",
+      type: "In-Person",
+      level: "Advanced",
+      duration: "5 Months",
+      language: "Dari / English",
+      instructor: "Michael Brown",
+      students: 120,
+      rating: 4.9,
+      price: "$60",
+      popular: true,
+      date: 17,
+      image:
+        "https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?auto=format&fit=crop&w=900&q=80",
+   details: {
+  overview:
+    "Learn how frontend and backend technologies work together to build complete, responsive and functional web applications.",
+
+  learning: [
+    "Frontend Development",
+    "Backend Development",
+    "Databases & APIs",
+    "Full-Stack Projects"
+  ],
+
+  requirements:
+    "Strong HTML, CSS and JavaScript knowledge is recommended."
+},
+      },
+
+    {
+      id: 6,
+      title: "SQL & Database Fundamentals",
+      description:
+        "Understand relational databases, SQL queries and database design.",
+      category: "Database",
+      type: "Online",
+      level: "Beginner",
+      duration: "6 Weeks",
+      language: "English",
+      instructor: "Olivia Martin",
+      students: 98,
+      rating: 4.6,
+      price: "$20",
+      popular: false,
+      date: 16,
+ image:
+  "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=900&q=80",
+details: {
+  overview:
+    "Learn the fundamentals of relational databases and SQL through practical examples and real-world database tasks.",
+
+  learning: [
+    "SQL Queries",
+    "Database Tables",
+    "Joins & Relationships",
+    "Database Design"
+  ],
+
+  requirements:
+    "Basic computer skills and logical thinking are recommended."
+},
+      },
+
+    {
+      id: 7,
+      title: "Advanced SQL & Database Design",
+      description:
+        "Learn advanced queries, optimization and professional database architecture.",
+      category: "Database",
+      type: "In-Person",
+      level: "Advanced",
+      duration: "8 Weeks",
+      language: "English",
+      instructor: "James Anderson",
+      students: 72,
+      rating: 4.7,
+      price: "$30",
+      popular: false,
+      date: 15,
+      image:
+  "https://images.pexels.com/photos/3861976/pexels-photo-3861976.jpeg",
+   details: {
+  overview:
+    "Develop advanced SQL skills and learn how to design, optimize and manage professional relational databases.",
+
+  learning: [
+    "Advanced SQL Queries",
+    "Database Optimization",
+    "Database Architecture",
+    "Professional Database Design"
+  ],
+
+  requirements:
+    "Basic SQL knowledge and database fundamentals are recommended."
+},
+      },
+
+    {
+      id: 8,
+      title: "Computer Networking Basics",
+      description:
+        "Understand networking concepts, protocols, devices and network security.",
+      category: "Networking",
+      type: "In-Person",
+      level: "Beginner",
+      duration: "2 Months",
+      language: "Dari / English",
+      instructor: "Robert Taylor",
+      students: 110,
+      rating: 4.6,
+      price: "$25",
+      popular: false,
+      date: 14,
+      image:
+  "https://images.pexels.com/photos/2881229/pexels-photo-2881229.jpeg",
+   details: {
+  overview:
+    "Learn the fundamentals of computer networking, including network devices, protocols, communication and basic security concepts.",
+
+  learning: [
+    "Networking Fundamentals",
+    "Network Devices",
+    "Protocols & Communication",
+    "Basic Network Security"
+  ],
+
+  requirements:
+    "Basic computer knowledge is recommended."
+},
+      },
+
+    {
+      id: 9,
+      title: "Cybersecurity Essentials",
+      description:
+        "Learn the fundamentals of cybersecurity, threats and protection techniques.",
+      category: "Cybersecurity",
+      type: "Online",
+      level: "Intermediate",
+      duration: "3 Months",
+      language: "English",
+      instructor: "William Davis",
+      students: 91,
+      rating: 4.8,
+      price: "$40",
+      popular: true,
+      date: 13,
+      image:
+  "https://images.unsplash.com/photo-1633265486064-086b219458ec?auto=format&fit=crop&w=900&q=80",
+    details: {
+  overview:
+    "Build a strong foundation in cybersecurity by understanding common threats, security principles and practical protection techniques.",
+
+  learning: [
+    "Cybersecurity Fundamentals",
+    "Common Security Threats",
+    "Data Protection",
+    "Security Best Practices"
+  ],
+
+  requirements:
+    "Basic computer and internet knowledge is recommended."
+},
+      },
+
+    {
+      id: 10,
+      title: "Data Analysis with Python",
+      description:
+        "Analyze real-world data using Python, Pandas and practical data techniques.",
+      category: "Data Science",
+      type: "Online",
+      level: "Intermediate",
+      duration: "3 Months",
+      language: "English",
+      instructor: "Sophia Adams",
+      students: 86,
+      rating: 4.8,
+      price: "$45",
+      popular: false,
+      date: 12,
+      image:
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80",
+   details: {
+  overview:
+    "Learn how to analyze real-world data with Python and Pandas while developing practical data analysis skills.",
+
+  learning: [
+    "Python for Data Analysis",
+    "Pandas & DataFrames",
+    "Data Cleaning",
+    "Real-World Data Projects"
+  ],
+
+  requirements:
+    "Basic Python programming knowledge is recommended."
+},
+      },
+
+    {
+      id: 11,
+      title: "Graphic Design Fundamentals",
+      description:
+        "Learn professional design principles, typography, color and visual communication.",
+      category: "Graphic Design",
+      type: "In-Person",
+      level: "Beginner",
+      duration: "2 Months",
+      language: "Dari / English",
+      instructor: "Mia Thompson",
+      students: 135,
+      rating: 4.7,
+      price: "$30",
+      popular: false,
+      date: 11,
+      image:
+        "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=900&q=80",
+   details: {
+  overview:
+    "Learn essential graphic design principles and develop practical skills in typography, color, layout and visual communication.",
+
+  learning: [
+    "Design Principles",
+    "Typography & Layout",
+    "Color Theory",
+    "Visual Communication"
+  ],
+
+  requirements:
+    "No previous graphic design experience is required."
+},
+      },
+
+    {
+      id: 12,
+      title: "Adobe Photoshop",
+      description:
+        "Master Photoshop tools and create professional graphics and designs.",
+      category: "Graphic Design",
+      type: "Online",
+      level: "Intermediate",
+      duration: "6 Weeks",
+      language: "English",
+      instructor: "Emily Clark",
+      students: 102,
+      rating: 4.7,
+      price: "$25",
+      popular: false,
+      date: 10,
+      image:
+        "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?auto=format&fit=crop&w=900&q=80",
+   details: {
+  overview:
+    "Master essential Adobe Photoshop tools and techniques to create professional graphics, edit images and develop creative designs.",
+
+  learning: [
+    "Photoshop Tools & Layers",
+    "Image Editing",
+    "Graphic Design Techniques",
+    "Practical Design Projects"
+  ],
+
+  requirements:
+    "Basic computer knowledge is recommended."
+},
+      },
+
+    {
+      id: 13,
+      title: "Microsoft Excel Professional",
+      description:
+        "Learn Excel formulas, functions, charts and professional data management.",
+      category: "Microsoft Office",
+      type: "In-Person",
+      level: "Intermediate",
+      duration: "6 Weeks",
+      language: "Dari / English",
+      instructor: "John Wilson",
+      students: 155,
+      rating: 4.9,
+      price: "$20",
+      popular: true,
+      date: 9,
+      image:
+        "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=900&q=80",
+   details: {
+  overview:
+    "Develop practical Excel skills for professional data management, including formulas, functions, charts and organized worksheets.",
+
+  learning: [
+    "Excel Formulas & Functions",
+    "Data Management",
+    "Charts & Visualization",
+    "Practical Excel Projects"
+  ],
+
+  requirements:
+    "Basic computer knowledge is recommended."
+},
+      },
+
+    {
+      id: 14,
+      title: "Microsoft Word & PowerPoint",
+      description:
+        "Improve your professional office skills with Word and PowerPoint.",
+      category: "Microsoft Office",
+      type: "Online",
+      level: "Beginner",
+      duration: "4 Weeks",
+      language: "Dari",
+      instructor: "Mary Johnson",
+      students: 140,
+      rating: 4.6,
+      price: "Free",
+      popular: false,
+      date: 8,
+      image:
+        "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=80",
+   details: {
+  overview:
+    "Build essential professional skills with Microsoft Word and PowerPoint for creating documents, presentations and everyday office work.",
+
+  learning: [
+    "Word Documents",
+    "PowerPoint Presentations",
+    "Formatting & Design",
+    "Practical Office Skills"
+  ],
+
+  requirements:
+    "No previous Microsoft Office experience is required."
+},
+      },
+
+    {
+      id: 15,
+      title: "English Communication Skills",
+      description:
+        "Improve your speaking, listening and professional English communication skills.",
+      category: "English",
+      type: "In-Person",
+      level: "Beginner",
+      duration: "3 Months",
+      language: "English",
+      instructor: "Linda Smith",
+      students: 180,
+      rating: 4.8,
+      price: "$25",
+      popular: true,
+      date: 7,
+      image:
+        "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80",
+details: {
+  overview:
+    "Improve your English communication through practical speaking, listening and everyday professional activities.",
+
+  learning: [
+    "Speaking Skills",
+    "Listening Practice",
+    "Daily Conversations",
+    "Professional Communication"
+  ],
+
+  requirements:
+    "Basic English knowledge is recommended."
+},
+      },
+
+    {
+      id: 16,
+      title: "Advanced English Speaking",
+      description:
+        "Develop confident English speaking skills for academic and professional situations.",
+      category: "English",
+      type: "Online",
+      level: "Advanced",
+      duration: "3 Months",
+      language: "English",
+      instructor: "David Miller",
+      students: 95,
+      rating: 4.9,
+      price: "$35",
+      popular: false,
+      date: 6,
+      image:
+        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80",
+   details: {
+  overview:
+    "Develop confident and fluent English speaking skills through practical conversations, presentations and professional communication.",
+
+  learning: [
+    "Fluent Speaking",
+    "Advanced Conversations",
+    "Presentation Skills",
+    "Professional English"
+  ],
+
+  requirements:
+    "Intermediate English speaking skills are recommended."
+},
+      },
+
+    {
+      id: 17,
+      title: "Business Management",
+      description:
+        "Learn essential business management concepts and leadership skills.",
+      category: "Business",
+      type: "In-Person",
+      level: "Intermediate",
+      duration: "3 Months",
+      language: "Dari / English",
+      instructor: "Thomas Lee",
+      students: 88,
+      rating: 4.6,
+      price: "$40",
+      popular: false,
+      date: 5,
+      image:
+        "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=900&q=80",
+details: {
+  overview:
+    "Learn practical business management and leadership skills to understand teams, planning and effective decision-making.",
+
+  learning: [
+    "Business Fundamentals",
+    "Team Management",
+    "Leadership Skills",
+    "Decision Making"
+  ],
+
+  requirements:
+    "Basic business knowledge is helpful but not required."
+},
+      },
+
+    {
+      id: 18,
+      title: "Digital Marketing",
+      description:
+        "Learn social media marketing, content strategy, SEO and digital campaigns.",
+      category: "Business",
+      type: "Online",
+      level: "Intermediate",
+      duration: "2 Months",
+      language: "English",
+      instructor: "Jessica White",
+      students: 115,
+      rating: 4.8,
+      price: "$35",
+      popular: true,
+      date: 4,
+      image:
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80",
+    details: {
+  overview:
+    "Learn practical digital marketing strategies including social media, content creation, SEO and online campaigns.",
+
+  learning: [
+    "Social Media Marketing",
+    "Content Strategy",
+    "SEO Fundamentals",
+    "Digital Campaigns"
+  ],
+
+  requirements:
+    "Basic computer and internet knowledge is recommended."
+},
+      },
+
+    {
+      id: 19,
+      title: "React for Modern Web",
+      description:
+        "Build modern interactive interfaces using React and component-based development.",
+      category: "Web Development",
+      type: "Online",
+      level: "Advanced",
+      duration: "3 Months",
+      language: "English",
+      instructor: "Chris Evans",
+      students: 76,
+      rating: 4.9,
+      price: "$45",
+      popular: true,
+      date: 3,
+      image:
+        "https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=900&q=80",
+  details: {
+  overview:
+    "Learn React and build modern interactive web interfaces using components, state and practical development techniques.",
+
+  learning: [
+    "React Components",
+    "Props & State",
+    "React Hooks",
+    "Real Web Projects"
+  ],
+
+  requirements:
+    "Good knowledge of HTML, CSS and JavaScript is recommended."
+},
+      },
+
+    {
+      id: 20,
+      title: "Flutter Mobile Development",
+      description:
+        "Create cross-platform mobile applications with Flutter and Dart.",
+      category: "Mobile Development",
+      type: "In-Person",
+      level: "Intermediate",
+      duration: "4 Months",
+      language: "English",
+      instructor: "Daniel Moore",
+      students: 64,
+      rating: 4.7,
+      price: "$50",
+      popular: false,
+      date: 2,
+      image:
+        "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=900&q=80",
+details: {
+  overview:
+    "Learn to build cross-platform mobile applications with Flutter and Dart using practical development techniques.",
+
+  learning: [
+    "Dart Programming",
+    "Flutter Widgets",
+    "App Navigation",
+    "Mobile App Projects"
+  ],
+
+  requirements:
+    "Basic programming knowledge is recommended."
+},
+      },
+
+    {
+      id: 21,
+      title: "Django Web Development",
+      description:
+        "Build secure and scalable web applications using Python and Django.",
+      category: "Web Development",
+      type: "Online",
+      level: "Advanced",
+      duration: "4 Months",
+      language: "English",
+      instructor: "Mark Harris",
+      students: 59,
+      rating: 4.8,
+      price: "$45",
+      popular: false,
+      date: 1,
+      image:
+        "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=900&q=80",
+details: {
+  overview:
+    "Learn to build secure and scalable web applications with Python and Django through practical development projects.",
+
+  learning: [
+    "Django Fundamentals",
+    "Models & Databases",
+    "Views & Templates",
+    "Real Web Projects"
+  ],
+
+  requirements:
+    "Good knowledge of Python and basic web development is recommended."
+},
+      },
+      {
+  id: 22,
+  title: "C++ Programming Fundamentals",
+  description:
+    "Learn programming fundamentals and object-oriented concepts using C++.",
+  category: "Programming",
+  type: "Online",
+  level: "Intermediate",
+  duration: "3 Months",
+  language: "Dari / English",
+  instructor: "Andrew Wilson",
+  students: 94,
+  rating: 4.7,
+  price: "$30",
+  popular: false,
+  date: 22,
+  image:
+    "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=900&q=80",
+
+  details: {
+    overview:
+      "Build a strong C++ programming foundation through practical coding and object-oriented programming.",
+
+    learning: [
+      "C++ Fundamentals",
+      "OOP Concepts",
+      "Functions & Classes",
+      "Coding Projects"
+    ],
+
+    requirements:
+      "Basic programming knowledge is recommended."
+  }
+},
+{
+  id: 23,
+  title: "Bootstrap Web Design",
+  description:
+    "Create responsive and professional websites using HTML, CSS and Bootstrap.",
+  category: "Web Development",
+  type: "In-Person",
+  level: "Intermediate",
+  duration: "6 Weeks",
+  language: "English",
+  instructor: "Ryan Miller",
+  students: 87,
+  rating: 4.8,
+  price: "$25",
+  popular: true,
+  date: 23,
+  image:
+    "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80",
+
+  details: {
+    overview:
+      "Learn to build responsive websites faster using Bootstrap and modern web development techniques.",
+
+    learning: [
+      "Bootstrap Grid",
+      "Responsive Design",
+      "Components & Utilities",
+      "Website Projects"
+    ],
+
+    requirements:
+      "Basic HTML and CSS knowledge is recommended."
+  }
+},
+{
+  id: 24,
+  title: "MySQL Database Development",
+  description:
+    "Learn database creation, SQL queries and practical MySQL database management.",
+  category: "Database",
+  type: "Online",
+  level: "Intermediate",
+  duration: "6 Weeks",
+  language: "Dari / English",
+  instructor: "Daniel Adams",
+  students: 79,
+  rating: 4.7,
+  price: "$25",
+  popular: false,
+  date: 24,
+image:
+  "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=80",
+
+  details: {
+    overview:
+      "Learn how to create, manage and work with MySQL databases using practical SQL techniques.",
+
+    learning: [
+      "MySQL Fundamentals",
+      "SQL Queries",
+      "Database Tables",
+      "Practical Database Projects"
+    ],
+
+    requirements:
+      "Basic computer and programming knowledge is recommended."
+  }
+},
+  ];
+
+  /* ======================================================
+       SETTINGS
+    ====================================================== */
+
+  const INITIAL_VISIBLE = 6;
+
+  let visibleCount = INITIAL_VISIBLE;
+  let filteredCourses = [...courses];
+
+  /* ======================================================
+       CREATE CARD
+    ====================================================== */
+
+  function createCourseCard(course) {
+    const priceClass = course.price !== "Free" ? "paid" : "";
+
+    return `
+            <div class="col-12 col-md-6 col-xl-4 course-card-wrapper">
+
+                <article class="course-card">
+
+                    <div class="course-card-image">
+
+                        <img
+                            src="${course.image}"
+                            alt="${course.title}"
+                            loading="lazy"
+                        >
+
+                        <span class="course-category-badge">
+                            ${course.category}
+                        </span>
+
+                        ${
+                          course.popular
+                            ? `
+                                    <span class="course-popular-badge">
+                                        <i class="bi bi-fire me-1"></i>
+                                        POPULAR
+                                    </span>
+                                  `
+                            : ""
+                        }
+
+                    </div>
+
+
+                    <div class="course-card-body">
+
+                        <h3 class="course-card-title">
+                            ${course.title}
+                        </h3>
+
+                        <p class="course-card-description">
+                            ${course.description}
+                        </p>
+
+
+                        <div class="course-instructor">
+
+                            <i class="bi bi-person"></i>
+
+                            <span>
+                                ${course.instructor}
+                            </span>
+
+                        </div>
+
+
+                        <div class="course-rating">
+
+                            <span class="course-rating-stars">
+                                ★★★★★
+                            </span>
+
+                            <strong>
+                                ${course.rating}
+                            </strong>
+
+                            <span>
+                                (${course.students} students)
+                            </span>
+
+                        </div>
+
+
+                        <div class="course-meta">
+
+                            <span class="course-meta-item">
+                                <i class="bi bi-bar-chart"></i>
+                                ${course.level}
+                            </span>
+
+                            <span class="course-meta-item">
+                                <i class="bi bi-clock"></i>
+                                ${course.duration}
+                            </span>
+
+                            <span class="course-meta-item">
+                                <i class="bi bi-display"></i>
+                                ${course.type}
+                            </span>
+
+                        </div>
+
+
+                        <div class="course-card-bottom">
+
+                            <strong class="course-price ${priceClass}">
+                                ${course.price}
+                            </strong>
+
+
+                            <div class="course-actions">
+
+                                <button
+                                    type="button"
+                                    class="btn course-details-btn"
+                                    data-course-id="${course.id}"
+                                >
+                                    Details
+                                </button>
+
+                                <a
+                                    href="contact.html"
+                                    class="btn course-enroll-btn"
+                                >
+                                    Enroll
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+        `;
+  }
+
+  /* ======================================================
+       RENDER
+    ====================================================== */
+
+  function renderCourses() {
+    coursesGrid.innerHTML = "";
+
+    const coursesToShow = filteredCourses.slice(0, visibleCount);
+
+    coursesToShow.forEach((course) => {
+      coursesGrid.insertAdjacentHTML("beforeend", createCourseCard(course));
+    });
+
+    /* Count */
+
+    const showingCount = coursesToShow.length;
+
+    courseCount.textContent = `Showing ${showingCount} of ${filteredCourses.length} courses`;
+
+    /* Empty */
+
+    if (filteredCourses.length === 0) {
+      coursesGrid.classList.add("d-none");
+      emptyState.classList.remove("d-none");
+      loadMoreWrapper.classList.add("d-none");
+    } else {
+      coursesGrid.classList.remove("d-none");
+      emptyState.classList.add("d-none");
+
+      if (visibleCount < filteredCourses.length) {
+        loadMoreWrapper.classList.remove("d-none");
+      } else {
+        loadMoreWrapper.classList.add("d-none");
+      }
+    }
+  }
+
+  /* ======================================================
+       FILTER
+    ====================================================== */
+
+  function applyFilters() {
+    const searchValue = courseSearch.value.trim().toLowerCase();
+
+    const categoryValue = courseCategory.value;
+
+    const typeValue = courseType.value;
+
+    const levelValue = courseLevel.value;
+
+    filteredCourses = courses.filter((course) => {
+      const searchableText = `
+                    ${course.title}
+                    ${course.description}
+                    ${course.instructor}
+                    ${course.category}
+                `.toLowerCase();
+
+      const matchesSearch =
+        !searchValue || searchableText.includes(searchValue);
+
+      const matchesCategory =
+        categoryValue === "all" || course.category === categoryValue;
+
+      const matchesType = typeValue === "all" || course.type === typeValue;
+
+      const matchesLevel = levelValue === "all" || course.level === levelValue;
+
+      return matchesSearch && matchesCategory && matchesType && matchesLevel;
+    });
+
+    applySorting();
+
+    visibleCount =
+      filteredCourses.length > INITIAL_VISIBLE
+        ? INITIAL_VISIBLE
+        : filteredCourses.length;
+
+    renderCourses();
+  }
+
+  /* ======================================================
+       SORT
+    ====================================================== */
+
+  function applySorting() {
+    const sortValue = courseSort.value;
+
+    if (sortValue === "newest") {
+      filteredCourses.sort((a, b) => b.date - a.date);
+    } else if (sortValue === "oldest") {
+      filteredCourses.sort((a, b) => a.date - b.date);
+    }
+  }
+
+  /* ======================================================
+       LOAD MORE
+    ====================================================== */
+
+  loadMoreBtn.addEventListener("click", () => {
+    visibleCount += 6;
+
+    renderCourses();
+
+    if (visibleCount >= filteredCourses.length) {
+      loadMoreWrapper.classList.add("d-none");
+    }
+  });
+
+  /* ======================================================
+       FILTER EVENTS
+    ====================================================== */
+
+  courseSearch.addEventListener("input", applyFilters);
+
+  courseCategory.addEventListener("change", applyFilters);
+
+  courseType.addEventListener("change", applyFilters);
+
+  courseLevel.addEventListener("change", applyFilters);
+
+  courseSort.addEventListener("change", applyFilters);
+
+  /* ======================================================
+   HOVER FILTER DROPDOWNS
+====================================================== */
+/* ======================================================
+   HOVER FILTER DROPDOWNS
+====================================================== */
+
+const filterGroups = document.querySelectorAll(".hover-filter");
+
+filterGroups.forEach((group) => {
+
+  const select = group.querySelector(".filter-original");
+  const button = group.querySelector(".hover-filter-button");
+  const menu = group.querySelector(".hover-filter-menu");
+  const options = group.querySelectorAll(
+    ".hover-filter-menu button"
+  );
+
+  if (!select || !button || !menu) return;
+
+
+  /* Select option */
+
+  options.forEach((option) => {
+
+    option.addEventListener("click", (event) => {
+
+      event.preventDefault();
+      event.stopPropagation();
+
+      const value = option.dataset.value;
+
+      /* تغییر Select اصلی */
+      select.value = value;
+
+      /* تغییر متن Button */
+      button.childNodes[0].textContent =
+        option.textContent.trim();
+
+
+      /* اجرای فیلتر اصلی */
+      select.dispatchEvent(
+        new Event("change", {
+          bubbles: true
+        })
+      );
+
+
+      /* بستن Dropdown */
+      group.classList.add("filter-closed");
+
+      setTimeout(() => {
+        group.classList.remove("filter-closed");
+      }, 100);
+
+    });
+
+  });
+
+
+  /* هماهنگ ماندن متن Button با Select */
+
+  select.addEventListener("change", () => {
+
+    const selected =
+      select.options[select.selectedIndex];
+
+    if (selected) {
+      button.childNodes[0].textContent =
+        selected.textContent.trim();
+    }
+
+  });
+
+});
+  /* ======================================================
+       CLEAR FILTERS
+    ====================================================== */
+
+  function clearFilters() {
+    courseSearch.value = "";
+
+    courseCategory.value = "all";
+
+    courseType.value = "all";
+
+    courseLevel.value = "all";
+
+    courseSort.value = "newest";
+    const filterGroups =
+  document.querySelectorAll(".hover-filter");
+
+filterGroups.forEach((group) => {
+
+  const select =
+    group.querySelector(".filter-original");
+
+  const button =
+    group.querySelector(".hover-filter-button");
+
+  if (select && button) {
+
+    const selected =
+      select.options[select.selectedIndex];
+
+    if (selected) {
+      button.textContent =
+        selected.textContent.trim();
+    }
+
+  }
+
+});
+
+    filteredCourses = [...courses];
+
+    visibleCount = INITIAL_VISIBLE;
+
+    renderCourses();
+  }
+
+  clearFiltersBtn.addEventListener("click", clearFilters);
+
+  emptyClearBtn.addEventListener("click", clearFilters);
+
+  /* ======================================================
+       COURSE DETAILS MODAL
+    ====================================================== */
+
+  const modalElement = document.getElementById("courseDetailsModal");
+
+  const courseModal = new bootstrap.Modal(modalElement);
+
+function openCourseDetails(courseId) {
+
+  const course = courses.find(
+    item => item.id === Number(courseId)
+  );
+
+  if (!course) return;
+
+  /* =========================
+     BASIC COURSE INFO
+  ========================= */
+
+  document.getElementById(
+    "courseDetailsModalLabel"
+  ).textContent = course.title;
+
+
+  document.getElementById(
+    "modalCourseImage"
+  ).src = course.image;
+
+
+  document.getElementById(
+    "modalCourseImage"
+  ).alt = course.title;
+
+
+  document.getElementById(
+    "modalCourseType"
+  ).textContent = course.type;
+
+
+  /* =========================
+     COURSE INFORMATION
+  ========================= */
+
+  document.getElementById(
+    "modalCourseDuration"
+  ).textContent = course.duration;
+
+
+  document.getElementById(
+    "modalCourseLevel"
+  ).textContent = course.level;
+
+
+  document.getElementById(
+    "modalCourseInstructor"
+  ).textContent = course.instructor;
+
+
+  document.getElementById(
+    "modalCourseStudents"
+  ).textContent =
+    `${course.students} Students`;
+
+
+  /* =========================
+     EXTRA DETAILS
+  ========================= */
+
+
+  /* =========================
+   EXTRA DETAILS
+========================= */
+
+if (course.details) {
+
+  document.getElementById(
+    "modalCourseOverview"
+  ).textContent =
+    course.details.overview || "";
+
+
+  document.getElementById(
+    "modalCourseRequirements"
+  ).textContent =
+    course.details.requirements || "";
+
+
+  const learningContainer =
+    document.getElementById("modalLearningPoints");
+
+
+  const learningItems =
+    course.details.learning || [];
+
+
+  learningContainer.innerHTML =
+    learningItems
+      .map(
+        (item) => `
+          <div class="col-6">
+
+            <div style="
+              display:flex;
+              align-items:center;
+              gap:7px;
+              padding:7px 9px;
+              margin:8px;
+              border:1px solid var(--border-color);
+              border-radius:8px;
+              font-size:12px;
+              line-height:1.3;
+            ">
+
+              <i
+                class="bi bi-check-circle-fill"
+                style="
+                  color:var(--primary-color);
+                  font-size:13px;
+                  flex-shrink:0;
+                "
+              ></i>
+
+              <span style="
+                font-size:12px;
+                font-weight:500;
+                line-height:1.3;
+              ">
+                ${item}
+              </span>
+
+            </div>
+
+          </div>
+        `
+      )
+      .join("");
+}
+
+  /* =========================
+     SHOW MODAL
+  ========================= */
+
+  courseModal.show();
+
+}
+
+  /* ======================================================
+       DETAILS + ENROLL BUTTONS
+    ====================================================== */
+
+  coursesGrid.addEventListener("click", (event) => {
+    const detailsButton = event.target.closest(".course-details-btn");
+
+    if (detailsButton) {
+      openCourseDetails(detailsButton.dataset.courseId);
+    }
+  });
+
+  /* ======================================================
+       INITIAL RENDER
+    ====================================================== */
+
+  renderCourses();
+});
